@@ -1,16 +1,44 @@
 extends RigidBody
 
+var throttle = 1
+var rotation_amount = 0
+var max_rotation_amount = 50
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var movement_amount = 0
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
+func _physics_process(delta):
+	handle_throttle()
+	handle_rotation()
+	handle_movement()
+	
+func handle_throttle():
+	if Input.is_action_pressed("space"):
+		throttle = 4
+	elif Input.is_action_pressed("left_shift"):
+		throttle = -2
+	else:
+		throttle = 1
+	add_central_force(Vector3.UP * weight * throttle)
+	
+func handle_rotation():
+	if Input.is_action_pressed("a"):
+		rotation_amount = max_rotation_amount
+	elif Input.is_action_pressed("d"):
+		rotation_amount = -max_rotation_amount
+	else:
+		rotation_amount = 0
+	add_torque(Vector3.UP * rotation_amount)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func handle_movement():
+	if Input.is_action_pressed("w"):
+		movement_amount = 10
+		
+	elif Input.is_action_pressed("s"):
+		movement_amount = -10
+	else:
+		movement_amount = 0
+	#add_central_force(Vector3.FORWARD. * movement_amount)
+	
