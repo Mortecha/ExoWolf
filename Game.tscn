@@ -5,10 +5,10 @@
 [ext_resource path="res://Game.gd" type="Script" id=3]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 500, 1, 500 )
+extents = Vector3( 500, 2, 500 )
 
 [sub_resource type="CubeMesh" id=2]
-size = Vector3( 500, 1, 500 )
+size = Vector3( 500, 2, 500 )
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 3 )
@@ -30,11 +30,11 @@ shadow_enabled = true
 
 [node name="Ground" type="StaticBody" parent="."]
 physics_interpolation_mode = 2
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.92504, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground"]
 physics_interpolation_mode = 2
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.45767, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.457672, 0 )
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Ground"]
