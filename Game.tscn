@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Vehicles/PlayerHelicopter/ExoWolf.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Materials/Ground.tres" type="Material" id=2]
@@ -9,6 +9,11 @@ extents = Vector3( 500, 2, 500 )
 
 [sub_resource type="CubeMesh" id=2]
 size = Vector3( 500, 2, 500 )
+
+[sub_resource type="PlaneMesh" id=3]
+
+[sub_resource type="ConcavePolygonShape" id=4]
+data = PoolVector3Array( 1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 3 )
@@ -31,6 +36,7 @@ shadow_enabled = true
 [node name="Ground" type="StaticBody" parent="."]
 physics_interpolation_mode = 2
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.92504, 0 )
+visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground"]
 physics_interpolation_mode = 2
@@ -40,3 +46,13 @@ shape = SubResource( 1 )
 [node name="MeshInstance" type="MeshInstance" parent="Ground"]
 mesh = SubResource( 2 )
 material/0 = ExtResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0 )
+mesh = SubResource( 3 )
+material/0 = ExtResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
+shape = SubResource( 4 )
