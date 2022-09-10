@@ -5,17 +5,17 @@ var velocity : Vector3 = Vector3.ZERO
 
 # Movement
 var movement_speed : float = 0.0
-export var max_movement_speed : float = -25.0
-export var min_movement_speed : float = 15.0
+export var max_movement_speed : float = -50.0
+export var min_movement_speed : float = 30.0
 var movement_acc_coef : float = 0.75
 var move_damp_coef : float = 0.25
+
 # Rotation
-export var rotation_speed : float = 0.85
+export var rotation_speed : float = 2
 
 # Throttle
 export var max_altitude : int = 50
 var throttle = 1
-
 
 func _ready():
 	pass
@@ -69,10 +69,10 @@ func handle_throttle(delta):
 		throttle = -1
 	else:
 		throttle = 0
-		if(transform.origin.y > max_altitude):
-			transform.origin.y = max_altitude
-			
 	velocity += transform.basis.y * throttle
+	
+	if(transform.origin.y > max_altitude):
+		transform.origin.y = max_altitude		
 	
 func handle_rotation(delta):
 	if Input.is_action_pressed("rotate_left"):	
