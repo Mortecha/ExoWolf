@@ -22,3 +22,6 @@ func _process(delta):
 		
 		look_at_from_position(pos, target_position, up)
 		#look_at(target_position, up)
+	else:
+		transform.origin.x = target.transform.origin.x
+		transform.origin.z = target.transform.origin.z
