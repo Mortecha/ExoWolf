@@ -13,6 +13,10 @@ var move_damp_coef : float = 0.25
 # Rotation
 export var rotation_speed : float = 2
 
+# Strafing
+var strafe_speed : float = 0.0
+var max_strafe_speed : float = 25.0
+
 # Throttle
 export var max_altitude : int = 50
 var throttle = 1
@@ -24,7 +28,8 @@ func _physics_process(delta):
 	#velocity += gravity * delta
 	if(!is_on_floor()):
 		handle_movement(delta)	
-		handle_rotation(delta)
+		#handle_rotation(delta)
+		
 	handle_throttle(delta)	
 	velocity = move_and_slide(velocity, Vector3.UP)
 	
@@ -38,8 +43,9 @@ func handle_movement(delta):
 		move_backwards()	
 	else:
 		dampen_movement()
-		
+	handle_stafing()
 	velocity += transform.basis.z * movement_speed
+	velocity += transform.basis.x * strafe_speed
 	velocity.y = velocity_y
 
 func move_forwards():
@@ -80,3 +86,30 @@ func handle_rotation(delta):
 	elif Input.is_action_pressed("rotate_right"):	
 		rotate_y(-rotation_speed * delta)
 	
+func handle_stafing():
+	if Input.is_action_pressed("rotate_left"):	
+		strafe_left()	
+	elif Input.is_action_pressed("rotate_right"):	
+		strafe_right()
+	else:
+		dampen_strafing()
+
+func strafe_left():
+	if(strafe_speed > max_movement_speed):
+		strafe_speed -= movement_acc_coef
+	else:
+		strafe_speed = max_movement_speed
+
+func strafe_right():
+	if(strafe_speed < min_movement_speed):
+		strafe_speed += movement_acc_coef
+	else:
+		strafe_speed = min_movement_speed
+
+func dampen_strafing():
+	if(strafe_speed > 1):
+		strafe_speed -= move_damp_coef
+	elif(strafe_speed < -1):
+		strafe_speed += move_damp_coef
+	else:
+		strafe_speed = 0
