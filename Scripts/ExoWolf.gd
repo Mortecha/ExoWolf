@@ -10,9 +10,6 @@ export var min_movement_speed : float = 30.0
 var movement_acc_coef : float = 0.75
 var move_damp_coef : float = 0.25
 
-# Rotation
-export var rotation_speed : float = 2
-
 # Strafing
 var strafe_speed : float = 0.0
 var max_strafe_speed : float = 25.0
@@ -20,6 +17,9 @@ var max_strafe_speed : float = 25.0
 # Throttle
 export var max_altitude : int = 50
 var throttle = 1
+
+# Rotor
+onready var rotor = $Chassis/Rotor
 
 func _ready():
 	pass
@@ -71,20 +71,17 @@ func dampen_movement():
 func handle_throttle(delta):
 	if Input.is_action_pressed("increase_throttle"):
 		throttle = 1
+		rotor._set_rotor_to_boost()
 	elif Input.is_action_pressed("decrease_throttle"):
 		throttle = -1
+		rotor._set_rotor_to_landed()
 	else:
 		throttle = 0
+		rotor._set_rotor_to_flight()
 	velocity += transform.basis.y * throttle
 	
 	if(transform.origin.y > max_altitude):
 		transform.origin.y = max_altitude		
-	
-func handle_rotation(delta):
-	if Input.is_action_pressed("rotate_left"):	
-		rotate_y(rotation_speed * delta)	
-	elif Input.is_action_pressed("rotate_right"):	
-		rotate_y(-rotation_speed * delta)
 	
 func handle_stafing():
 	if Input.is_action_pressed("rotate_left"):	
