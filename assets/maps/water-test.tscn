@@ -13,11 +13,11 @@ subdivide_depth = 64
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 3 )
-shader_param/ramp = 2.0
-shader_param/rippleFactor = 0.9
+shader_param/ramp = 1.0
+shader_param/rippleFactor = 2.0
 shader_param/tilling = 20.0
-shader_param/met = 1.0
-shader_param/rou = 0.1
+shader_param/met = 1.25
+shader_param/rou = 0.027
 shader_param/waterTint1 = Vector3( 0, 0.08, 0.04 )
 shader_param/waterTint2 = Vector3( 0, 0.02, 0.02 )
 shader_param/chromatic_aberration = false
@@ -50,11 +50,12 @@ script = ExtResource( 1 )
 transform = Transform( 0.506628, -0.267836, -0.819507, 0.0459832, 0.957564, -0.284529, 0.860937, 0.106467, 0.497445, 6.90897, -0.256299, -0.469941 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.999985, 2.60537e-07, -0.00553354, 0.00288716, 0.85307, 0.521789, 0.00472063, -0.521797, 0.853057, 2.72998, 5.2074, 4.35542 )
-light_indirect_energy = 0.5
+transform = Transform( 0.999985, 2.60538e-07, -0.00553354, 0.00288716, 0.85307, 0.521789, 0.00472063, -0.521797, 0.853057, 2.72998, 5.2074, 4.35542 )
+light_energy = 4.0
 light_specular = 1.0
 light_bake_mode = 2
 shadow_enabled = true
+shadow_bias = 2.0
 directional_shadow_split_2 = 0.5
 directional_shadow_split_3 = 0.8
 directional_shadow_blend_splits = true
