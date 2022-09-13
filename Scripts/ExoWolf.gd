@@ -1,12 +1,12 @@
-extends KinematicBody
+extends CharacterBody3D
 
-export var gravity : Vector3 = Vector3.DOWN * 9.8
-var velocity : Vector3 = Vector3.ZERO
+@export var gravity : Vector3 = Vector3.DOWN * 9.8
+#var velocity : Vector3 = Vector3.ZERO
 
 # Movement
 var movement_speed : float = 0.0
-export var max_movement_speed : float = -50.0
-export var min_movement_speed : float = 30.0
+@export var max_movement_speed : float = -50.0
+@export var min_movement_speed : float = 30.0
 var movement_acc_coef : float = 0.75
 var move_damp_coef : float = 0.25
 
@@ -15,25 +15,25 @@ var strafe_speed : float = 0.0
 var max_strafe_speed : float = 25.0
 
 # Throttle
-export var max_altitude : int = 50
+@export var max_altitude : int = 50
 var throttle = 1
 
 # Rotor
-onready var rotor = $Chassis/Rotor
+@onready var rotor = $Chassis/Rotor
 
 func _ready():
 	pass
 
-func _physics_process(delta):
-	#velocity += gravity * delta
+func _physics_process(_delta):
+	velocity += gravity
 	if(!is_on_floor()):
-		handle_movement(delta)	
-		#handle_rotation(delta)
+		handle_movement()	
+		#handle_rotation()
 		
-	handle_throttle(delta)	
-	velocity = move_and_slide(velocity, Vector3.UP)
+	handle_throttle()	
+	move_and_slide()
 	
-func handle_movement(delta):
+func handle_movement():
 	var velocity_y : float = velocity.y
 	velocity = Vector3.ZERO
 	
@@ -68,7 +68,7 @@ func dampen_movement():
 	else:
 		movement_speed = 0
 
-func handle_throttle(delta):
+func handle_throttle():
 	if Input.is_action_pressed("increase_throttle"):
 		throttle = 1
 		rotor._set_rotor_to_boost()

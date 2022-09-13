@@ -2,14 +2,18 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/White Bat Audio - Man Bat.mp3-5edd317183dbca95ff770188f7774c08.mp3str"
+uid="uid://ddrm1amacigev"
+path="res://.godot/imported/White Bat Audio - Man Bat.mp3-5edd317183dbca95ff770188f7774c08.mp3str"
 
 [deps]
 
 source_file="res://Music/White Bat Audio - Man Bat.mp3"
-dest_files=[ "res://.import/White Bat Audio - Man Bat.mp3-5edd317183dbca95ff770188f7774c08.mp3str" ]
+dest_files=["res://.godot/imported/White Bat Audio - Man Bat.mp3-5edd317183dbca95ff770188f7774c08.mp3str"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

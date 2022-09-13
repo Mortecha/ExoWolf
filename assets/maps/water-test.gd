@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 var camera_pivot;
 # Declare member variables here. Examples:

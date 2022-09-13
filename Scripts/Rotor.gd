@@ -1,4 +1,4 @@
-extends MeshInstance
+extends MeshInstance3D
 
 var rotor_speed : float = 0.0
 var rotor_landed_speed : float = 2.5

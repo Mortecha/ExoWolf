@@ -1,15 +1,15 @@
-extends Spatial
+extends Node3D
 
-onready var target = $"../ExoWolf"
-export var distance = 4.0
-export var height = 2.0
+@onready var target = $"../ExoWolf"
+@export var distance = 4.0
+@export var height = 2.0
 
-export var interesting_camera : bool = false
+@export var interesting_camera : bool = false
 
 func _ready():
 	pass # Replace with function body.
 
-func _process(delta):
+func _process(_delta):
 	if(interesting_camera):
 		var target_position = target.global_transform.origin
 		var pos = global_transform.origin

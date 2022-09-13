@@ -2,14 +2,18 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/White Bat Audio - Lost City.mp3-4b8a14e66b6b85930996f900738a7449.mp3str"
+uid="uid://d3o8g4ucv70vf"
+path="res://.godot/imported/White Bat Audio - Lost City.mp3-4b8a14e66b6b85930996f900738a7449.mp3str"
 
 [deps]
 
 source_file="res://Music/White Bat Audio - Lost City.mp3"
-dest_files=[ "res://.import/White Bat Audio - Lost City.mp3-4b8a14e66b6b85930996f900738a7449.mp3str" ]
+dest_files=["res://.godot/imported/White Bat Audio - Lost City.mp3-4b8a14e66b6b85930996f900738a7449.mp3str"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
