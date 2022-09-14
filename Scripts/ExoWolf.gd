@@ -1,8 +1,10 @@
 extends CharacterBody3D
 
 @onready var gravity = -ProjectSettings.get_setting("physics/3d/default_gravity")
+@onready var rotor = $Chassis/Rotor
 
 const MAX_SPEED = 40
+const MAX_ALTITUDE = 60
 const ACCELERATION = 2
 const DECELERATION = 4
 
@@ -10,9 +12,6 @@ const DECELERATION = 4
 var dir : Vector3 = Vector3()
 var acceleration : float
 var vel : Vector3
-
-# Rotor
-@onready var rotor = $Chassis/Rotor
 
 func _ready():
 	pass
@@ -41,8 +40,14 @@ func _physics_process(delta):
 
 	# Assign vel's values back to velocity, and then move.
 	velocity.x = vel.x
-	velocity.y = vel.y
 	velocity.z = vel.z
+
+	if transform.origin.y <= MAX_ALTITUDE:
+		velocity.y = vel.y
+	else:
+		velocity.y = 0
+		transform.origin.y = MAX_ALTITUDE
+	
 	# TODO: This information should be set to the CharacterBody properties instead of arguments: , Vector3.UP
 	# TODO: Rename velocity to linear_velocity in the rest of the script.
 	move_and_slide()
