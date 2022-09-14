@@ -3,12 +3,20 @@ extends CharacterBody3D
 @export var gravity : Vector3 = Vector3.DOWN * 9.8
 #var velocity : Vector3 = Vector3.ZERO
 
+const MAX_SPEED = 20
+const JUMP_SPEED = 5
+const ACCELERATION = 4
+const DECELERATION = 8
+
 # Movement
+var movement_dir : Vector3 = Vector3()
 var movement_speed : float = 0.0
 @export var max_movement_speed : float = -50.0
 @export var min_movement_speed : float = 30.0
 var movement_acc_coef : float = 0.75
 var move_damp_coef : float = 0.25
+var acceleration
+var target
 
 # Strafing
 var strafe_speed : float = 0.0
@@ -24,13 +32,44 @@ var throttle = 1
 func _ready():
 	pass
 
-func _physics_process(_delta):
-	velocity += gravity
-	if(!is_on_floor()):
-		handle_movement()	
-		#handle_rotation()
+func _physics_process(delta):
+	velocity += delta * gravity
+	
+	var dir = Vector3()
+	dir.x = Input.get_axis(&"rotate_left", &"rotate_right")
+	dir.z = Input.get_axis(&"move_forwards", &"move_backwards")
+#
+	# Limit the input to a length of 1. length_squared is faster to check.
+	if dir.length_squared() > 1:
+		dir /= dir.length()
 		
-	handle_throttle()	
+	# Apply gravity.
+	#velocity.y += delta * gravity
+
+	# Using only the horizontal velocity, interpolate towards the input.
+	var hvel = velocity
+	hvel.y = 0
+
+	target = dir * MAX_SPEED
+	if dir.dot(hvel) > 0:
+		acceleration = ACCELERATION
+	else:
+		acceleration = DECELERATION
+
+	hvel = hvel.lerp(target, acceleration * delta)
+
+	# Assign hvel's values back to velocity, and then move.
+	velocity.x = hvel.x
+	velocity.z = hvel.z
+	# TODO: This information should be set to the CharacterBody properties instead of arguments: , Vector3.UP
+	# TODO: Rename velocity to linear_velocity in the rest of the script.
+	move_and_slide()
+#	if(!is_on_floor()):
+#		handle_movement()	
+#		#handle_rotation()
+#
+#	handle_throttle()	
+#
 	move_and_slide()
 	
 func handle_movement():

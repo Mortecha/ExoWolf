@@ -1,14 +1,6 @@
-res://Scripts/Game.gd
-res://Scripts/Rotor.gd
-res://Scripts/ExoWolf.gd
-res://Scenes/CameraPivot.gd
-res://assets/maps/water-test.gd
-res://Scenes/Game.tscn
 res://Scenes/ExoWolf.tscn
 res://Vehicles/PlayerHelicopter/Chassis.material
-res://Vehicles/PlayerHelicopter/Material_001.material
-res://Vehicles/PlayerHelicopter/24ea3b65_dds.material
-res://Shaders/ocean_material.tres
-res://Shaders/ocean_material.gdshader
+res://Scenes/Game.tscn
 res://Scenes/Level1.tscn
 res://Scenes/MainMenu.tscn
+res://Scripts/ExoWolf.gd
