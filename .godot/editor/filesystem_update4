@@ -1,6 +1,6 @@
 res://Scenes/ExoWolf.tscn
 res://Vehicles/PlayerHelicopter/Chassis.material
+res://Scripts/ExoWolf.gd
 res://Scenes/Game.tscn
 res://Scenes/Level1.tscn
 res://Scenes/MainMenu.tscn
-res://Scripts/ExoWolf.gd
