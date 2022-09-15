@@ -7,7 +7,7 @@ const MAX_SPEED = 40
 const MAX_ALTITUDE = 60
 const ACCELERATION = 2
 const DECELERATION = 4
-const TILT_ANGLE = 5
+const MAX_TILT_ANGLE = 5
 const SMOOTH_SPEED = 4
 
 # Movement
@@ -44,18 +44,20 @@ func _physics_process(delta):
 	velocity.x = vel.x
 	velocity.z = vel.z
 
+	# Altitude limit check
 	if transform.origin.y <= MAX_ALTITUDE:
 		velocity.y = vel.y
 	else:
 		velocity.y = 0
 		transform.origin.y = MAX_ALTITUDE
 	
+	# Tilt based on movement
 	var rot : Vector3 = rotation
 	var new_rot : Vector3 = Vector3()
-	new_rot.x = dir.z * TILT_ANGLE
-	new_rot.z = -dir.x * TILT_ANGLE
+	new_rot.x = dir.z * MAX_TILT_ANGLE
+	new_rot.z = -dir.x * MAX_TILT_ANGLE
 	rotation = lerp(Vector3.ZERO, new_rot, delta * SMOOTH_SPEED)
-	
+
 	# Use this to figure out how to rotate y
 	#rotation.y = lerp_angle(rotation.y, atan2(-dir.x, -dir.z), delta * SMOOTH_SPEED)
 	

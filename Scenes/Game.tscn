@@ -36,7 +36,7 @@ script = ExtResource("4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 200)
 environment = SubResource("5")
 projection = 1
-size = 250.0
+size = 200.0
 near = 0.01
 far = 1000.0
 
