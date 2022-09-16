@@ -5,63 +5,40 @@ extends CharacterBody3D
 
 const MAX_SPEED = 40
 const MAX_ALTITUDE = 60
-const ACCELERATION = 2
-const DECELERATION = 4
-const MAX_TILT_ANGLE = 5
-const SMOOTH_SPEED = 4
+const ACC = 2
+const DEC = 4
+const TILT_COEF = 4 # The max amount of tilt, Higher value less tilt  
+const TILT_RESP = 4 # The responsiveness of the tilting
 
 # Movement
 var dir : Vector3 = Vector3()
 var acceleration : float
-var vel : Vector3
 
 func _ready():
 	pass
 
-func _physics_process(delta):
-	# Apply gravity.
-	#velocity.y += delta * gravity
-	
+func _physics_process(delta):	
 	dir.x = Input.get_axis(&"strafe_left", &"strafe_right")
 	dir.y = Input.get_axis(&"decrease_throttle", &"increase_throttle")
 	dir.z = Input.get_axis(&"move_forwards", &"move_backwards")
 
 	# Limit the input to a length of 1. length_squared is faster to check.
-	if dir.length_squared() > 1:
-		dir /= dir.length()
-		
-	# Using only the horizontal velocity, interpolate towards the input.
-	vel = velocity
- 
-	if dir.dot(vel) > 0:
-		acceleration = ACCELERATION
-	else:
-		acceleration = DECELERATION
-
-	vel = vel.lerp(dir * MAX_SPEED, acceleration * delta)
-
-	# Assign vel's values back to velocity, and then move.
-	velocity.x = vel.x
-	velocity.z = vel.z
+	if dir.length_squared() > 1: dir /= dir.length()
+	acceleration = ACC if dir.dot(velocity) > 0 else DEC
+	velocity = velocity.lerp(dir * MAX_SPEED, acceleration * delta)
 
 	# Altitude limit check
-	if transform.origin.y <= MAX_ALTITUDE:
-		velocity.y = vel.y
-	else:
+	if transform.origin.y > MAX_ALTITUDE:
 		velocity.y = 0
 		transform.origin.y = MAX_ALTITUDE
+		
+	move_and_slide()
 	
 	# Tilt based on movement
-	var rot : Vector3 = rotation
-	var new_rot : Vector3 = Vector3()
-	new_rot.x = dir.z * MAX_TILT_ANGLE
-	new_rot.z = -dir.x * MAX_TILT_ANGLE
-	rotation = lerp(Vector3.ZERO, new_rot, delta * SMOOTH_SPEED)
-
-	# Use this to figure out how to rotate y
-	#rotation.y = lerp_angle(rotation.y, atan2(-dir.x, -dir.z), delta * SMOOTH_SPEED)
+	rotation.x = lerp_angle(rotation.x, dir.z / TILT_COEF, delta * TILT_RESP)
+	rotation.z = lerp_angle(rotation.z, -dir.x / TILT_COEF, delta * TILT_RESP)
 	
-	# TODO: This information should be set to the CharacterBody properties instead of arguments: , Vector3.UP
-	# TODO: Rename velocity to linear_velocity in the rest of the script.
-	move_and_slide()
+	# Use this to figure out how to rotate y
+	#rotation.y = lerp_angle(rotation.y, atan2(-dir.x, -dir.z), delta * TILT_RESP)
+	
 
