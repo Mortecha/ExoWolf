@@ -260,7 +260,6 @@ _surfaces = [{
 size = Vector3(3.31862, 3.96822, 16.8384)
 
 [node name="ExoWolf" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("2")
 
 [node name="Chassis" type="MeshInstance3D" parent="."]
