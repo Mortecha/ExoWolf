@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5rb3vtchqn1n"
-path.s3tc="res://.godot/imported/icon.png-5c54608cdf98940b04ad240121483c81.s3tc.ctex"
-path.etc2="res://.godot/imported/icon.png-5c54608cdf98940b04ad240121483c81.etc2.ctex"
+uid="uid://dfyga3gg8m12e"
+path.s3tc="res://.godot/imported/Caustic.png-30fca17b5b7f6ca85fd888368433b201.s3tc.ctex"
+path.etc2="res://.godot/imported/Caustic.png-30fca17b5b7f6ca85fd888368433b201.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Images/icon.png"
-dest_files=["res://.godot/imported/icon.png-5c54608cdf98940b04ad240121483c81.s3tc.ctex", "res://.godot/imported/icon.png-5c54608cdf98940b04ad240121483c81.etc2.ctex"]
+source_file="res://Images/Water/Caustic.png"
+dest_files=["res://.godot/imported/Caustic.png-30fca17b5b7f6ca85fd888368433b201.s3tc.ctex", "res://.godot/imported/Caustic.png-30fca17b5b7f6ca85fd888368433b201.etc2.ctex"]
 
 [params]
 

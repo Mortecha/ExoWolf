@@ -26,6 +26,7 @@ var rayEnd : Vector3
 var parameters : PhysicsRayQueryParameters3D
 var intersection : Dictionary
 var to_angle : float
+var target : Vector3
 
 func _ready():
 	pass
@@ -40,11 +41,18 @@ func _physics_process(delta):
 	# Limit the input to a length of 1. length_squared is faster to check.
 	if input_vector.length_squared() > 1: input_vector /= input_vector.length()
 	acceleration = ACC if input_vector.dot(velocity) > 0 else DEC
+
+	velocity.y = input_vector.y * MAX_SPEED
 	
-	var current_rotation = rotation
-	rotation = Vector3(0, rotation.y, 0)
-	translate(input_vector)
-	rotation = current_rotation
+	#var global_direction = Vector3(input_vector.x,0,input_vector.z)
+	var local_direction = input_vector.rotated(Vector3(0,1,0), rotation.y)
+	velocity = local_direction * MAX_SPEED
+	move_and_slide()
+	# Zeroing x and z rotations before translation prevent undesired movement downwards at odd angles
+#	var current_rotation = rotation
+#	rotation = Vector3(0, rotation.y, 0)
+#	translate(input_vector)
+#	rotation = current_rotation
 	
 #	# Altitude limit check
 	if transform.origin.y > MAX_ALTITUDE:
@@ -52,16 +60,17 @@ func _physics_process(delta):
 		transform.origin.y = MAX_ALTITUDE
 	
 	# Tilt based on movement
-	rotation.x = lerp_angle(rotation.x, input_vector.z / TILT_COEF, TILT_RESP * delta)
-	rotation.z = lerp_angle(rotation.z, -input_vector.x / TILT_COEF, TILT_RESP * delta)
+#	rotation.x = lerp_angle(rotation.x, input_vector.z / TILT_COEF, TILT_RESP * delta)
+#	rotation.z = lerp_angle(rotation.z, -input_vector.x / TILT_COEF, TILT_RESP * delta)
 
 func rotate_towards_mouse(delta):
 	space_state = get_world_3d().direct_space_state
 	mouse_position = get_viewport().get_mouse_position()
 	rayOrigin = camera.project_ray_origin(mouse_position)
 	rayEnd = rayOrigin + camera.project_ray_normal(mouse_position) * RAY_LENGTH
-	parameters = PhysicsRayQueryParameters3D.create(rayOrigin, rayEnd)
+	parameters = PhysicsRayQueryParameters3D.create(rayOrigin, rayEnd, 1)
 	intersection = space_state.intersect_ray(parameters)
-	if not intersection.is_empty():
-		rotation.y = lerp_angle(rotation.y, atan2(-intersection.position.x, -intersection.position.z), 1)
-
+	if(not intersection.is_empty()):
+		look_at(intersection.position, Vector3.UP)
+		rotation.x = 0
+		rotation.z = 0

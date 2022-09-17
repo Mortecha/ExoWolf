@@ -1,1 +1,6 @@
+StaticBody3D
+CollisionShape3D
+MeshInstance3D
+TextureRect
 Node3D
+CharacterBody3D

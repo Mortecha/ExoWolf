@@ -1,27 +1,37 @@
-[gd_scene load_steps=11 format=3 uid="uid://67e3h510yqx0"]
+[gd_scene load_steps=10 format=3 uid="uid://67e3h510yqx0"]
 
 [ext_resource type="PackedScene" uid="uid://ceeb5av6lht2p" path="res://Scenes/ExoWolf.tscn" id="1"]
-[ext_resource type="Material" path="res://Materials/Ground.tres" id="2"]
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="3"]
 [ext_resource type="Script" path="res://Scenes/CameraPivot.gd" id="4"]
-[ext_resource type="Texture2D" uid="uid://cnklmk73v7hiu" path="res://assets/textures/sky.jpg" id="6"]
+[ext_resource type="Material" uid="uid://bj3oi66sc3mgx" path="res://Materials/Ocean.tres" id="4_r2ljc"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xlf04"]
-panorama = ExtResource("6")
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vhwjv"]
+sky_top_color = Color(0.172549, 0.282353, 1, 1)
+sky_horizon_color = Color(1, 1, 1, 1)
+sky_energy_multiplier = 2.0
 
 [sub_resource type="Sky" id="Sky_0bwrm"]
-sky_material = SubResource("PanoramaSkyMaterial_xlf04")
+sky_material = SubResource("ProceduralSkyMaterial_vhwjv")
 
 [sub_resource type="Environment" id="5"]
 background_mode = 2
 background_energy_multiplier = 2.0
 sky = SubResource("Sky_0bwrm")
+ambient_light_source = 3
+ambient_light_color = Color(0.835294, 1, 0.964706, 1)
+ambient_light_energy = 4.0
+reflected_light_source = 2
 tonemap_exposure = 0.1
+glow_enabled = true
+glow_normalized = true
+volumetric_fog_albedo = Color(0.796078, 0.796078, 0.796078, 1)
+volumetric_fog_emission = Color(0.631373, 0.807843, 1, 1)
+volumetric_fog_emission_energy = 0.03
 
-[sub_resource type="PlaneMesh" id="3"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_02xpw"]
 
-[sub_resource type="ConcavePolygonShape3D" id="4"]
-data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ud1dk"]
+points = PackedVector3Array(1.01587, 0.015873, 1.01587, -1.01587, -0.015873, -1.01587, -1.01587, 0.015873, -1.01587, 1.01587, -0.015873, -1.01587, -1.01587, -0.015873, 1.01587, -1.01587, 0.015873, 1.01587, 1.01587, 0.015873, -1.01587, 1.01587, -0.015873, 1.01587)
 
 [node name="Game" type="Node3D"]
 script = ExtResource("3")
@@ -51,13 +61,12 @@ shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 2.0
 
-[node name="MeshInstance" type="MeshInstance3D" parent="."]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
-layers = 129
-mesh = SubResource("3")
-surface_material_override/0 = ExtResource("2")
+[node name="MeshInstance3d" type="MeshInstance3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+mesh = SubResource("PlaneMesh_02xpw")
+surface_material_override/0 = ExtResource("4_r2ljc")
 
-[node name="StaticBody" type="StaticBody3D" parent="MeshInstance"]
+[node name="StaticBody3d" type="StaticBody3D" parent="MeshInstance3d"]
 
-[node name="CollisionShape" type="CollisionShape3D" parent="MeshInstance/StaticBody"]
-shape = SubResource("4")
+[node name="CollisionShape3d" type="CollisionShape3D" parent="MeshInstance3d/StaticBody3d"]
+shape = SubResource("ConvexPolygonShape3D_ud1dk")

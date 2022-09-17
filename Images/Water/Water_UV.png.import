@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4mlnavsvy32g"
-path="res://.godot/imported/RadarOverlayBorder.png-34f070b7584798dd5725cc6e208f5a6b.ctex"
+uid="uid://bml4yrllva3ax"
+path="res://.godot/imported/Water_UV.png-218324ff7918a7c7241fc863eda70509.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/shaders/RadarOverlayBorder.png"
-dest_files=["res://.godot/imported/RadarOverlayBorder.png-34f070b7584798dd5725cc6e208f5a6b.ctex"]
+source_file="res://Images/Water/Water_UV.png"
+dest_files=["res://.godot/imported/Water_UV.png-218324ff7918a7c7241fc863eda70509.ctex"]
 
 [params]
 
