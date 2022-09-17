@@ -1,3 +1,5 @@
+AudioStreamPlayer
+Node
 StaticBody3D
 CollisionShape3D
 MeshInstance3D

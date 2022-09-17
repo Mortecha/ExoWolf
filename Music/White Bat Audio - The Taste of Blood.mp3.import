@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://txa1546be5g"
-path="res://.godot/imported/White Bat Audio - The Taste of Blood.mp3-d6af2c9d6f0baa9c57774cfb206fefbe.mp3str"
+path="res://.godot/imported/White Bat Audio - The Taste of Blood.mp3-bc2db61eb4fe7052799d6aa6ccd4186d.mp3str"
 
 [deps]
 
-source_file="res://Music/White Bat Audio - The Taste of Blood.mp3"
-dest_files=["res://.godot/imported/White Bat Audio - The Taste of Blood.mp3-d6af2c9d6f0baa9c57774cfb206fefbe.mp3str"]
+source_file="res://music/White Bat Audio - The Taste of Blood.mp3"
+dest_files=["res://.godot/imported/White Bat Audio - The Taste of Blood.mp3-bc2db61eb4fe7052799d6aa6ccd4186d.mp3str"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://s5v1vongqne6"
-path="res://.godot/imported/ExoWolf.glb-ec893e67b5ebad1934c8bd157292108a.scn"
+path="res://.godot/imported/ExoWolf.glb-147dbf377da096da38be6e0487aac474.scn"
 
 [deps]
 
-source_file="res://Vehicles/PlayerHelicopter/ExoWolf.glb"
-dest_files=["res://.godot/imported/ExoWolf.glb-ec893e67b5ebad1934c8bd157292108a.scn"]
+source_file="res://vehicles/PlayerHelicopter/ExoWolf.glb"
+dest_files=["res://.godot/imported/ExoWolf.glb-147dbf377da096da38be6e0487aac474.scn"]
 
 [params]
 

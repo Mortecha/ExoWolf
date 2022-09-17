@@ -1,17 +1,8 @@
-res://Scenes/ExoWolf.tscn
-res://Vehicles/PlayerHelicopter/Chassis.material
-res://Scenes/OceanA.gdshader
-res://Shaders/ocean_material.tres
-res://Scenes/Game.tscn
-res://Scenes/Level1.tscn
-res://Scenes/MainMenu.tscn
-res://Scripts/MainMenu.gd
-res://Scripts/ExoWolf.gd
-res://Materials/Ocean.tres
-res://Materials/DarkGrey.tres
-res://Scenes/GrassyTerrain.tscn
-res://Scenes/CameraPivot.gd
-res://Shaders/ocean_material.gdshader
-res://Shaders/oceanic.gdshader
-res://Shaders/Realistic Water/realistic_water_shader.gdshader
-res://Shaders/Oceanic/oceanic.gdshader
+res://scenes/MainMenu.tscn
+res://scripts/MainMenu.gd
+res://scenes/ExoWolf.tscn
+res://scenes/Game.tscn
+res://scenes/GrassyTerrain.tscn
+res://scripts/ExoWolf.gd
+res://scripts/Game.gd
+res://assets/maps/water-test.gd

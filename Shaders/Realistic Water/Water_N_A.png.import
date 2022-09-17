@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbsj4qh72n5vx"
-path.s3tc="res://.godot/imported/Water_N_A.png-4681e615b11c6bd223d6766045204f09.s3tc.ctex"
-path.etc2="res://.godot/imported/Water_N_A.png-4681e615b11c6bd223d6766045204f09.etc2.ctex"
+path.s3tc="res://.godot/imported/Water_N_A.png-b62e13c2f9bd20222b06ab7c31a3b2c7.s3tc.ctex"
+path.etc2="res://.godot/imported/Water_N_A.png-b62e13c2f9bd20222b06ab7c31a3b2c7.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Shaders/Realistic Water/Water_N_A.png"
-dest_files=["res://.godot/imported/Water_N_A.png-4681e615b11c6bd223d6766045204f09.s3tc.ctex", "res://.godot/imported/Water_N_A.png-4681e615b11c6bd223d6766045204f09.etc2.ctex"]
+source_file="res://shaders/Realistic Water/Water_N_A.png"
+dest_files=["res://.godot/imported/Water_N_A.png-b62e13c2f9bd20222b06ab7c31a3b2c7.s3tc.ctex", "res://.godot/imported/Water_N_A.png-b62e13c2f9bd20222b06ab7c31a3b2c7.etc2.ctex"]
 
 [params]
 

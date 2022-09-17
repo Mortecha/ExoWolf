@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3ix2xsv6aqhs"
-path.s3tc="res://.godot/imported/tex_combinedmap01.png-9d89a02c699778d55c44826df50f0cd0.s3tc.ctex"
-path.etc2="res://.godot/imported/tex_combinedmap01.png-9d89a02c699778d55c44826df50f0cd0.etc2.ctex"
+path.s3tc="res://.godot/imported/tex_combinedmap01.png-ec75c578e31ffb7f06e4d659d056764f.s3tc.ctex"
+path.etc2="res://.godot/imported/tex_combinedmap01.png-ec75c578e31ffb7f06e4d659d056764f.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Terrain/Grassy Terrain/tex_combinedmap01.png"
-dest_files=["res://.godot/imported/tex_combinedmap01.png-9d89a02c699778d55c44826df50f0cd0.s3tc.ctex", "res://.godot/imported/tex_combinedmap01.png-9d89a02c699778d55c44826df50f0cd0.etc2.ctex"]
+source_file="res://terrain/Grassy Terrain/tex_combinedmap01.png"
+dest_files=["res://.godot/imported/tex_combinedmap01.png-ec75c578e31ffb7f06e4d659d056764f.s3tc.ctex", "res://.godot/imported/tex_combinedmap01.png-ec75c578e31ffb7f06e4d659d056764f.etc2.ctex"]
 
 [params]
 

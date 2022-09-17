@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dmad0628xbp0u"
-path="res://.godot/imported/grassy_terrain.glb-518d751016d0e0e7f28ebbd8b39f7d9d.scn"
+path="res://.godot/imported/grassy_terrain.glb-6da63cd9d5cea5d332e81118be4b61b6.scn"
 
 [deps]
 
-source_file="res://Terrain/Grassy Terrain/grassy_terrain.glb"
-dest_files=["res://.godot/imported/grassy_terrain.glb-518d751016d0e0e7f28ebbd8b39f7d9d.scn"]
+source_file="res://terrain/Grassy Terrain/grassy_terrain.glb"
+dest_files=["res://.godot/imported/grassy_terrain.glb-6da63cd9d5cea5d332e81118be4b61b6.scn"]
 
 [params]
 
