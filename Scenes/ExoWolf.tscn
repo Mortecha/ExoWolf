@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://ceeb5av6lht2p"]
+[gd_scene load_steps=27 format=3 uid="uid://ceeb5av6lht2p"]
 
 [ext_resource type="Material" uid="uid://b6xjaaha51s0v" path="res://Vehicles/PlayerHelicopter/Chassis.material" id="1"]
 [ext_resource type="Script" path="res://Scripts/ExoWolf.gd" id="2"]
 [ext_resource type="Material" uid="uid://cxw8ysm58a6a7" path="res://Vehicles/PlayerHelicopter/Material_001.material" id="3"]
 [ext_resource type="Material" uid="uid://bjrb4qktps534" path="res://Vehicles/PlayerHelicopter/24ea3b65_dds.material" id="4"]
+[ext_resource type="Material" uid="uid://bqakgyx87tkpo" path="res://Materials/DarkGrey.tres" id="4_58a8g"]
 [ext_resource type="Script" path="res://Scripts/Rotor.gd" id="5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yde6i"]
@@ -339,6 +340,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00107465, 4.79178, -0.00215612)
 mesh = SubResource("2")
 skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("4_58a8g")
 script = ExtResource("5")
 rotor_boost_speed = 35.0
 
