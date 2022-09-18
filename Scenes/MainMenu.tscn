@@ -37,22 +37,23 @@ offset_bottom = 213.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
+[node name="StartButton" type="TextureButton" parent="VBoxContainer"]
 offset_right = 271.0
-offset_bottom = 31.0
-text = "Start"
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer"]
-offset_top = 35.0
-offset_right = 271.0
-offset_bottom = 66.0
-text = "Options"
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer/StartButton"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "START"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
-offset_top = 70.0
+[node name="OptionsButton" type="TextureButton" parent="VBoxContainer"]
+offset_top = 4.0
 offset_right = 271.0
-offset_bottom = 101.0
-text = "Quit"
+offset_bottom = 4.0
+
+[node name="QuitButton" type="TextureButton" parent="VBoxContainer"]
+offset_top = 8.0
+offset_right = 271.0
+offset_bottom = 8.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_7kvwv")

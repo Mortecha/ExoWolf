@@ -24,12 +24,14 @@ boat_fishing_r.png::CompressedTexture2D::8357740481735132786::1662994560::166319
 boat_fishing_s.png::CompressedTexture2D::7784788618537364391::1662994560::1663029318::1::::<><>::
 lake.jpg::CompressedTexture2D::7935741734859033385::1662994560::1663029317::1::::<><>::
 sky.jpg::CompressedTexture2D::5706630004637274512::1662994560::1663036825::1::::<><>::
-::res://images/::1663428928
+::res://images/::1663465092
 icon.png::CompressedTexture2D::4527292266317699237::1662278158::1663461256::1::::<><>::
 MainMenuBackground.png::CompressedTexture2D::1143148515479962586::1663391084::1663461257::1::::<><>::
 RadarOverlayBorder.png::CompressedTexture2D::4447360817773722268::1663056001::1663461256::1::::<><>::
 SelectionBox.png::CompressedTexture2D::3203591729727517497::1663056001::1663461256::1::::<><>::
 TargetCameraReticle.png::CompressedTexture2D::2029718240191365368::1663056001::1663461256::1::::<><>::
+::res://images/ui_button_images/::1663465453
+start_button_image.png::CompressedTexture2D::1133089476846825014::1663465453::1663465457::1::::<><>::
 ::res://materials/::1663433533
 DarkGrey.tres::StandardMaterial3D::3510061364226508844::1663433399::0::1::::<><>::
 Ground.tres::StandardMaterial3D::-1::1662999512::0::1::::<><>::
@@ -42,14 +44,14 @@ White Bat Audio - Ghoul.mp3::AudioStreamMP3::3607025230480363332::1662737149::16
 White Bat Audio - Lost City.mp3::AudioStreamMP3::9155466891219233219::1662737149::1663433521::1::::<><>::
 White Bat Audio - Man Bat.mp3::AudioStreamMP3::7405698056907788565::1662737149::1663433521::1::::<><>::
 White Bat Audio - The Taste of Blood.mp3::AudioStreamMP3::40621081471099306::1662737148::1663433521::1::::<><>::
-::res://scenes/::1663461256
+::res://scenes/::1663464696
 CameraPivot.gd::GDScript::-1::1663425753::0::1::::<>Node3D<>::
-ExoWolf.tscn::PackedScene::6374763690584233299::1663435536::0::1::::<><>::res://scripts/ExoWolf.gd<>uid://b6xjaaha51s0v<>uid://cxw8ysm58a6a7<>uid://bqakgyx87tkpo<>res://scripts/Rotor.gd<>uid://bjrb4qktps534
-Game.tscn::PackedScene::3422966463058182071::1663435536::0::1::::<><>::res://scripts/Game.gd<>uid://cw28orf3ym3nj<>res://scenes/CameraPivot.gd<>uid://bbsvaomoenfxk<>uid://bfk7iywxjiga3<>res://shaders/Realistic Water/realistic_water_shader.gdshader<>uid://dnm0toxpcl5cv<>uid://cbsj4qh72n5vx<>uid://deranrqhojgev<>uid://bml4yrllva3ax
-GrassyTerrain.tscn::PackedScene::2495044138258818964::1663435536::0::1::::<><>::uid://dmad0628xbp0u<>uid://d3ix2xsv6aqhs
+ExoWolf.tscn::PackedScene::6374763690584233299::1663462532::0::1::::<><>::res://scripts/ExoWolf.gd<>uid://b6xjaaha51s0v<>uid://cxw8ysm58a6a7<>uid://bqakgyx87tkpo<>res://scripts/Rotor.gd<>uid://bjrb4qktps534
+Game.tscn::PackedScene::3422966463058182071::1663462920::0::1::::<><>::res://scripts/Game.gd<>uid://cw28orf3ym3nj<>res://scenes/CameraPivot.gd<>uid://bbsvaomoenfxk<>uid://bfk7iywxjiga3<>res://shaders/Realistic Water/realistic_water_shader.gdshader<>uid://dnm0toxpcl5cv<>uid://dfyga3gg8m12e<>uid://cbsj4qh72n5vx<>uid://deranrqhojgev<>uid://bml4yrllva3ax
+GrassyTerrain.tscn::PackedScene::2495044138258818964::1663462533::0::1::::<><>::uid://dmad0628xbp0u<>uid://d3ix2xsv6aqhs
 Island.tscn::PackedScene::-1::1662379429::0::1::::<><>::res://Helicopter.tscn
 Level1.tscn::PackedScene::-1::1663433534::0::1::::<><>::res://Scenes/ExoWolf.tscn<>res://materials/Ground.tres
-MainMenu.tscn::PackedScene::8277730398785924369::1663461256::0::1::::<><>::res://scripts/MainMenu.gd<>res://images/MainMenuBackground.png<>res://music/White Bat Audio - Man Bat.mp3
+MainMenu.tscn::PackedScene::8277730398785924369::1663464696::0::1::::<><>::res://scripts/MainMenu.gd<>uid://qj0qvk8tc2eg<>uid://ddrm1amacigev
 OceanA.gdshader::Shader::-1::1663433342::0::1::::<><>::
 PauseMenu.tscn::PackedScene::-1::1662978622::0::1::::<><>::
 ::res://scripts/::1663434779
@@ -60,10 +62,10 @@ Rotor.gd::GDScript::-1::1663434695::0::1::::<>MeshInstance3D<>::
 ::res://shaders/::1663435719
 ::res://shaders/Oceanic/::1663436873
 oceanic.gdshader::Shader::-1::1663436873::0::1::::<><>::
-::res://shaders/Realistic Water/::1663436873
+::res://shaders/Realistic Water/::1663464696
 Caustic.png::CompressedTexture2D::7560117117563343282::1663431570::1663433333::1::::<><>::
 Foam.png::CompressedTexture2D::8098042177867870825::1663357555::1663433333::1::::<><>::
-realistic_water_shader.gdshader::Shader::-1::1663436873::0::1::::<><>::
+realistic_water_shader.gdshader::Shader::-1::1663464696::0::1::::<><>::
 Water_N_A.png::CompressedTexture2D::4880788104233244849::1663357555::1663433333::1::::<><>::
 Water_N_B.png::CompressedTexture2D::7475135980722153149::1663357555::1663433333::1::::<><>::
 Water_UV.png::CompressedTexture2D::3253199524905778295::1663357555::1663433333::1::::<><>::
