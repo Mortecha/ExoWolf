@@ -13,7 +13,7 @@ config_version=5
 config/name="ExoWolf"
 run/main_scene="res://scenes/Game.tscn"
 config/features=PackedStringArray("4.0")
-config/icon="res://Images/icon.png"
+config/icon="res://images/icon.png"
 
 [gui]
 

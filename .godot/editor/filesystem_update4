@@ -1,8 +1,5 @@
 res://scenes/MainMenu.tscn
-res://scripts/MainMenu.gd
 res://scenes/ExoWolf.tscn
 res://scenes/Game.tscn
 res://scenes/GrassyTerrain.tscn
-res://scripts/ExoWolf.gd
-res://scripts/Game.gd
-res://assets/maps/water-test.gd
+res://shaders/Realistic Water/realistic_water_shader.gdshader
