@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://realistic_water_shader/art/water/Water.shader" type="Shader" id=1]
 [ext_resource path="res://realistic_water_shader/art/water/Foam.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://realistic_water_shader/art/water/Water_UV.png" type="Texture" id=4]
 [ext_resource path="res://realistic_water_shader/art/water/Water_N_A.png" type="Texture" id=5]
 [ext_resource path="res://realistic_water_shader/water_env.tres" type="Environment" id=6]
+[ext_resource path="res://scenes/ExoWolf.tscn" type="PackedScene" id=7]
 
 [sub_resource type="PlaneMesh" id=2]
 size = Vector2( 128, 128 )
@@ -53,8 +54,12 @@ material/0 = SubResource( 4 )
 
 [node name="CameraGimbal" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0 )
+visible = false
 
 [node name="Camera" type="Camera" parent="CameraGimbal"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 200 )
 fov = 50.0
 size = 100.0
+far = 1000.0
+
+[node name="ExoWolf" parent="." instance=ExtResource( 7 )]

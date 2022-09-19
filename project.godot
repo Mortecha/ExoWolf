@@ -9,37 +9,37 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Field",
+"base": "Reference",
 "class": "CheckboxField",
 "language": "GDScript",
 "path": "res://src/UI/Settings/Fields/CheckboxField.gd"
 }, {
-"base": "FieldWithOptions",
+"base": "Reference",
 "class": "DropdownField",
 "language": "GDScript",
 "path": "res://src/UI/Settings/Fields/DropDownField.gd"
 }, {
-"base": "HBoxContainer",
+"base": "Reference",
 "class": "Field",
 "language": "GDScript",
 "path": "res://src/UI/Settings/Fields/Field.gd"
 }, {
-"base": "Control",
+"base": "Reference",
 "class": "FieldSet",
 "language": "GDScript",
 "path": "res://src/UI/Settings/Fields/FieldSet.gd"
 }, {
-"base": "Field",
+"base": "Reference",
 "class": "FieldWithOptions",
 "language": "GDScript",
 "path": "res://src/UI/Settings/Fields/FieldWithOptions.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "Filter",
 "language": "GDScript",
 "path": "res://src/UI/Settings/Filter/Filter.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "Form",
 "language": "GDScript",
 "path": "res://src/UI/Settings/Form/Form.gd"
@@ -49,7 +49,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/UI/Settings/Gamepad/Data/GamepadData.gd"
 }, {
-"base": "HBoxContainer",
+"base": "Reference",
 "class": "GamepadMapField",
 "language": "GDScript",
 "path": "res://src/UI/Settings/Gamepad/GamepadMapField.gd"
@@ -59,27 +59,27 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/UI/Commons/Button/GenericButton.gd"
 }, {
-"base": "FieldWithOptions",
+"base": "Reference",
 "class": "HListField",
 "language": "GDScript",
 "path": "res://src/UI/Settings/Fields/HListField.gd"
 }, {
-"base": "HBoxContainer",
+"base": "Reference",
 "class": "KeyMapField",
 "language": "GDScript",
 "path": "res://src/UI/Settings/Keymap/KeyMapField.gd"
 }, {
-"base": "Button",
+"base": "Reference",
 "class": "NavigationButton",
 "language": "GDScript",
 "path": "res://src/UI/Commons/Navigation/NavigationButton.gd"
 }, {
-"base": "Control",
+"base": "Reference",
 "class": "NavigationRouter",
 "language": "GDScript",
 "path": "res://src/UI/Commons/Navigation/NavigationRouter.gd"
 }, {
-"base": "Control",
+"base": "Reference",
 "class": "NavigationSwitch",
 "language": "GDScript",
 "path": "res://src/UI/Commons/Navigation/NavigationSwitch.gd"
@@ -89,34 +89,34 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/UI/Settings/Form/BindindForm.gd"
 }, {
-"base": "Field",
+"base": "Reference",
 "class": "SliderField",
 "language": "GDScript",
 "path": "res://src/UI/Settings/Fields/SliderField.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "Updater",
 "language": "GDScript",
 "path": "res://src/UI/Settings/Updater/Updater.gd"
 } ]
 _global_script_class_icons={
-"CheckboxField": "res://assets/icons/check-square.svg",
+"CheckboxField": "",
 "DropdownField": "",
-"Field": "res://assets/icons/field.svg",
-"FieldSet": "res://assets/icons/fieldset.svg",
-"FieldWithOptions": "res://assets/icons/field.svg",
+"Field": "",
+"FieldSet": "",
+"FieldWithOptions": "",
 "Filter": "",
-"Form": "res://assets/icons/form.svg",
+"Form": "",
 "GamepadData": "",
-"GamepadMapField": "res://assets/icons/gamepad.svg",
+"GamepadMapField": "",
 "GenericButton": "",
 "HListField": "",
-"KeyMapField": "res://assets/icons/keyboard.svg",
-"NavigationButton": "res://assets/icons/navigation.svg",
+"KeyMapField": "",
+"NavigationButton": "",
 "NavigationRouter": "",
 "NavigationSwitch": "",
 "RebindForm": "",
-"SliderField": "res://assets/icons/percent.svg",
+"SliderField": "",
 "Updater": ""
 }
 
@@ -148,8 +148,8 @@ gdscript/warnings/return_value_discarded=false
 
 [display]
 
-window/size/width=480
-window/size/height=270
+window/size/width=1920
+window/size/height=1080
 window/size/resizable=false
 window/size/test_width=1920
 window/size/test_height=1080
@@ -235,6 +235,36 @@ ui_reset_to_default={
 "deadzone": 0.5,
 "events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":3,"pressure":0.0,"pressed":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+strafe_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+strafe_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+decrease_throttle={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777238,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+increase_throttle={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_forwards={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_backwards={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 
