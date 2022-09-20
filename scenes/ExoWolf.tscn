@@ -396,11 +396,3 @@ material/0 = ExtResource( 4 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.14317, 2.88673 )
 shape = SubResource( 20 )
-
-[node name="CameraGimbal" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0 )
-
-[node name="Camera" type="Camera" parent="CameraGimbal"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 200 )
-fov = 50.0
-far = 1000.0

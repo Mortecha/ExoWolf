@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/PointGained.ogg-30a5353cc427dc8aa8dcdf1ea48615d5.oggstr"
+
+[deps]
+
+source_file="res://simple_flight/Assets/Sound/PointGained.ogg"
+dest_files=[ "res://.import/PointGained.ogg-30a5353cc427dc8aa8dcdf1ea48615d5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
