@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://water/realistic_water_shader/art/water/Water.shader" type="Shader" id=1]
 [ext_resource path="res://water/water_shader_prototype/nodes/ocean.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/maps/water-test.tscn" type="PackedScene" id=3]
 [ext_resource path="res://water/realistic_water_shader/water_env.tres" type="Environment" id=6]
 [ext_resource path="res://scenes/ExoWolf.tscn" type="PackedScene" id=7]
 
@@ -63,6 +64,10 @@ material/0 = SubResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -24.276, 2, 0 )
+visible = false
 mesh = SubResource( 2 )
 
 [node name="ocean" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="Spatial" parent="." instance=ExtResource( 3 )]

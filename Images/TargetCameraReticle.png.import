@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TargetCameraReticle.png-3cfbf16976547b5e9185c511f592839a.stex"
+path="res://.import/TargetCameraReticle.png-8ebdb17091918e8677689e59d6adf4ce.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/TargetCameraReticle.png"
-dest_files=[ "res://.import/TargetCameraReticle.png-3cfbf16976547b5e9185c511f592839a.stex" ]
+source_file="res://Images/TargetCameraReticle.png"
+dest_files=[ "res://.import/TargetCameraReticle.png-8ebdb17091918e8677689e59d6adf4ce.stex" ]
 
 [params]
 

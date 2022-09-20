@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/RadarOverlayBorder.png-74e381e0a7c25a96a63cd12e46412401.stex"
+path="res://.import/RadarOverlayBorder.png-c137a46f3d46159c6750ca331513d4b2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/RadarOverlayBorder.png"
-dest_files=[ "res://.import/RadarOverlayBorder.png-74e381e0a7c25a96a63cd12e46412401.stex" ]
+source_file="res://Images/RadarOverlayBorder.png"
+dest_files=[ "res://.import/RadarOverlayBorder.png-c137a46f3d46159c6750ca331513d4b2.stex" ]
 
 [params]
 

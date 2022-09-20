@@ -2,12 +2,12 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/White Bat Audio - The Taste of Blood.mp3-bc2db61eb4fe7052799d6aa6ccd4186d.mp3str"
+path="res://.import/White Bat Audio - The Taste of Blood.mp3-d6af2c9d6f0baa9c57774cfb206fefbe.mp3str"
 
 [deps]
 
-source_file="res://music/White Bat Audio - The Taste of Blood.mp3"
-dest_files=[ "res://.import/White Bat Audio - The Taste of Blood.mp3-bc2db61eb4fe7052799d6aa6ccd4186d.mp3str" ]
+source_file="res://Music/White Bat Audio - The Taste of Blood.mp3"
+dest_files=[ "res://.import/White Bat Audio - The Taste of Blood.mp3-d6af2c9d6f0baa9c57774cfb206fefbe.mp3str" ]
 
 [params]
 

@@ -2,12 +2,12 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/White Bat Audio - Ghoul.mp3-f2f86e571a23ec5482e2698345d3adbc.mp3str"
+path="res://.import/White Bat Audio - Ghoul.mp3-deb5ee268006f83b524130e1e623d355.mp3str"
 
 [deps]
 
-source_file="res://music/White Bat Audio - Ghoul.mp3"
-dest_files=[ "res://.import/White Bat Audio - Ghoul.mp3-f2f86e571a23ec5482e2698345d3adbc.mp3str" ]
+source_file="res://Music/White Bat Audio - Ghoul.mp3"
+dest_files=[ "res://.import/White Bat Audio - Ghoul.mp3-deb5ee268006f83b524130e1e623d355.mp3str" ]
 
 [params]
 

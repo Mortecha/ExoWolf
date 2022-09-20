@@ -2,12 +2,12 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/White Bat Audio - Man Bat.mp3-7585050b80b2a02a65638c8c42048b05.mp3str"
+path="res://.import/White Bat Audio - Man Bat.mp3-5edd317183dbca95ff770188f7774c08.mp3str"
 
 [deps]
 
-source_file="res://music/White Bat Audio - Man Bat.mp3"
-dest_files=[ "res://.import/White Bat Audio - Man Bat.mp3-7585050b80b2a02a65638c8c42048b05.mp3str" ]
+source_file="res://Music/White Bat Audio - Man Bat.mp3"
+dest_files=[ "res://.import/White Bat Audio - Man Bat.mp3-5edd317183dbca95ff770188f7774c08.mp3str" ]
 
 [params]
 

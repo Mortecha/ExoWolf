@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SelectionBox.png-d0604079f7ced4b2f39d926757d38f14.stex"
+path="res://.import/SelectionBox.png-e5b81670d8559c05894c7ba00a2be720.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/SelectionBox.png"
-dest_files=[ "res://.import/SelectionBox.png-d0604079f7ced4b2f39d926757d38f14.stex" ]
+source_file="res://Images/SelectionBox.png"
+dest_files=[ "res://.import/SelectionBox.png-e5b81670d8559c05894c7ba00a2be720.stex" ]
 
 [params]
 
