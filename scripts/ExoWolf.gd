@@ -24,7 +24,7 @@ var velocity: Vector3 = Vector3()
 
 
 func _ready():
-	camera = $CameraRig/CameraGimbal/Camera
+	camera = $CameraRig/CameraGimbal/InterpolatedCamera
 
 func _physics_process(delta):
 	
