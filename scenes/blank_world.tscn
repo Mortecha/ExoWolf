@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/components/boundaries.tscn" type="PackedScene" id=2]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=4]
 [ext_resource path="res://environments/water_env.tres" type="Environment" id=5]
-[ext_resource path="res://addons/realistic_water_shader/art/water/Water.material" type="Material" id=6]
+[ext_resource path="res://water/Water.material" type="Material" id=6]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=7]
 
 [sub_resource type="CubeMesh" id=3]
