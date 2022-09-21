@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/White Bat Audio - The Taste of Blood.mp3-809ca401b4f11a22a924e7803083181c.mp3str"
+
+[deps]
+
+source_file="res://audio/music/White Bat Audio - The Taste of Blood.mp3"
+dest_files=[ "res://.import/White Bat Audio - The Taste of Blood.mp3-809ca401b4f11a22a924e7803083181c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

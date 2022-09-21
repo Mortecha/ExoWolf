@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/White Bat Audio - Lost City.mp3-a098da26f759309b3553d302ccc3bc52.mp3str"
+
+[deps]
+
+source_file="res://audio/music/White Bat Audio - Lost City.mp3"
+dest_files=[ "res://.import/White Bat Audio - Lost City.mp3-a098da26f759309b3553d302ccc3bc52.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
