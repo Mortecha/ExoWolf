@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Caustic.png-8e9094a4903764d2da4e7fcea682d5ab.s3tc.stex"
-path.etc2="res://.import/Caustic.png-8e9094a4903764d2da4e7fcea682d5ab.etc2.stex"
+path.s3tc="res://.import/Caustic.png-1292b3b84a92f786fa933eb1fb4a8bee.s3tc.stex"
+path.etc2="res://.import/Caustic.png-1292b3b84a92f786fa933eb1fb4a8bee.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://realistic_water_shader/art/water/Caustic.png"
-dest_files=[ "res://.import/Caustic.png-8e9094a4903764d2da4e7fcea682d5ab.s3tc.stex", "res://.import/Caustic.png-8e9094a4903764d2da4e7fcea682d5ab.etc2.stex" ]
+source_file="res://addons/realistic_water_shader/art/water/Caustic.png"
+dest_files=[ "res://.import/Caustic.png-1292b3b84a92f786fa933eb1fb4a8bee.s3tc.stex", "res://.import/Caustic.png-1292b3b84a92f786fa933eb1fb4a8bee.etc2.stex" ]
 
 [params]
 

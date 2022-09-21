@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/realistic_water_shader/art/water/Water.material" type="Material" id=1]
+
+[sub_resource type="PlaneMesh" id=2]
+material = ExtResource( 1 )
+size = Vector2( 512, 512 )
+subdivide_width = 256
+subdivide_depth = 256
+
+[node name="Ocean" type="Spatial"]
+
+[node name="OceanPlane" type="MeshInstance" parent="."]
+mesh = SubResource( 2 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 1 )

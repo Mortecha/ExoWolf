@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Water_N_A.png-0ec970329b1c12c0ac232cb7c5e52c3c.s3tc.stex"
-path.etc2="res://.import/Water_N_A.png-0ec970329b1c12c0ac232cb7c5e52c3c.etc2.stex"
+path.s3tc="res://.import/Foam.png-3ae3e4cd0562620a36a1fae1f148ae41.s3tc.stex"
+path.etc2="res://.import/Foam.png-3ae3e4cd0562620a36a1fae1f148ae41.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://realistic_water_shader/art/water/Water_N_A.png"
-dest_files=[ "res://.import/Water_N_A.png-0ec970329b1c12c0ac232cb7c5e52c3c.s3tc.stex", "res://.import/Water_N_A.png-0ec970329b1c12c0ac232cb7c5e52c3c.etc2.stex" ]
+source_file="res://addons/realistic_water_shader/art/water/Foam.png"
+dest_files=[ "res://.import/Foam.png-3ae3e4cd0562620a36a1fae1f148ae41.s3tc.stex", "res://.import/Foam.png-3ae3e4cd0562620a36a1fae1f148ae41.etc2.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
-compress/normal_map=1
+compress/normal_map=0
 flags/repeat=true
 flags/filter=true
 flags/mipmaps=true

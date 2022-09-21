@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://environments/water_env.tres" type="Environment" id=1]
+
+[node name="CameraRig" type="Spatial"]
+
+[node name="CameraGimbal" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0 )
+
+[node name="Camera" type="Camera" parent="CameraGimbal"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 100 )
+environment = ExtResource( 1 )
+fov = 45.0
+size = 20.0
+far = 200.0
