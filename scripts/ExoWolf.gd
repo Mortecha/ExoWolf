@@ -3,6 +3,11 @@ extends KinematicBody
 export var gravity : Vector3 = Vector3.DOWN * 9.8
 var velocity : Vector3 = Vector3.ZERO
 
+const MAX_ALTITUDE = 12
+
+const TILT_COEF = 15 		# The max amount of tilt, Higher value less tilt  
+const TILT_RESP = 4 		# The responsiveness of the tilting
+
 # Movement
 var movement_speed : float = 0.0
 export var max_movement_speed : float = -25.0
@@ -14,12 +19,7 @@ var move_damp_coef : float = 0.25
 var strafe_speed : float = 0.0
 var max_strafe_speed : float = 25.0
 
-# Throttle
-export var max_altitude : int = 50
-var throttle = 1
-
-# Rotor
-onready var rotor = $Chassis/Rotor
+var global_direction : Vector3
 
 func _ready():
 	pass
@@ -34,6 +34,8 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector3.UP)
 	
 func handle_movement(delta):
+	set_global_direction()
+	
 	var velocity_y : float = velocity.y
 	velocity = Vector3.ZERO
 	
@@ -43,10 +45,25 @@ func handle_movement(delta):
 		move_backwards()	
 	else:
 		dampen_movement()
+		
 	handle_stafing()
+	
 	velocity += transform.basis.z * movement_speed
 	velocity += transform.basis.x * strafe_speed
 	velocity.y = velocity_y
+
+	# Tilt based on movement
+	rotation.x = lerp_angle(rotation.x, global_direction.z / TILT_COEF, TILT_RESP)
+	rotation.z = lerp_angle(rotation.z, -global_direction.x / TILT_COEF, TILT_RESP)
+
+func set_global_direction():
+	global_direction.x = Input.get_axis("player_left", "player_right")
+	global_direction.y = Input.get_axis("player_decrease_throttle", "player_increase_throttle")
+	global_direction.z = Input.get_axis("player_forwards", "player_backwards")
+
+	# Limit the input to a length of 1. length_squared is faster to check.
+	if global_direction.length_squared() > 1: 
+		global_direction /= global_direction.length()
 
 func move_forwards():
 	if(movement_speed > max_movement_speed):
@@ -69,16 +86,16 @@ func dampen_movement():
 		movement_speed = 0
 
 func handle_throttle(delta):
-	if Input.is_action_pressed("player_increase_throttle"):
-		throttle = 1
-	elif Input.is_action_pressed("player_decrease_throttle"):
-		throttle = -1
-	else:
-		throttle = 0
-	velocity += transform.basis.y * throttle
+	velocity += transform.basis.y * global_direction.y 
 	
-	if(transform.origin.y > max_altitude):
-		transform.origin.y = max_altitude		
+	# Dampen vertical movement if no input
+	if global_direction.y == 0:
+		velocity.y = 0
+	
+	# Altitude limit check
+	if transform.origin.y > MAX_ALTITUDE:
+		velocity.y = 0
+		transform.origin.y = MAX_ALTITUDE		
 	
 func handle_stafing():
 	if Input.is_action_pressed("player_left"):	
