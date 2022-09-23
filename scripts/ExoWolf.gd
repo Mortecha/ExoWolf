@@ -10,8 +10,8 @@ const TILT_RESP = 4 		# The responsiveness of the tilting
 
 # Movement
 var movement_speed : float = 0.0
-export var max_movement_speed : float = -25.0
-export var min_movement_speed : float = 25.0
+export var max_movement_speed : float = -35.0
+export var min_movement_speed : float = 35.0
 var movement_acc_coef : float = 0.75
 var move_damp_coef : float = 0.25
 
