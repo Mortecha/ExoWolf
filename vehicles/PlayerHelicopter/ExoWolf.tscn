@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://scripts/Rotor.gd" type="Script" id=1]
 [ext_resource path="res://materials/zenith_blue.tres" type="Material" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://materials/vehicle_glass.tres" type="Material" id=5]
 [ext_resource path="res://materials/dark_steel_grey.tres" type="Material" id=6]
 [ext_resource path="res://scripts/ExoWolf.gd" type="Script" id=7]
+[ext_resource path="res://audio/sound/helicopter_engine/MD500_Flug.wav" type="AudioStream" id=8]
+[ext_resource path="res://vehicles/PlayerHelicopter/HelicopterEngineAudioStreamPlayer3D.gd" type="Script" id=9]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "ExoWolf_Ambassador Gunship058"
@@ -397,3 +399,11 @@ material/0 = ExtResource( 4 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.14317, 2.88673 )
 shape = SubResource( 20 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 8 )
+unit_db = 12.0
+unit_size = 4.0
+autoplay = true
+max_distance = 1000.0
+script = ExtResource( 9 )
