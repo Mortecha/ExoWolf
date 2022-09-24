@@ -12,7 +12,8 @@ onready var gui: = $CanvasLayer/GUI
 var visible: = false setget set_visible
 
 func _ready()->void:
-	gui.visible = visible
+#	gui.visible = visible
+	gui.visible = true
 
 func set_visible(value: bool)->void:
 	visible = value
@@ -29,9 +30,6 @@ layer = 10
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/GUI"]
 anchor_right = 1.0
@@ -48,25 +46,25 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GUI/MarginContainer"]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 316.0
-margin_bottom = 176.0
+margin_right = 1916.0
+margin_bottom = 1076.0
 mouse_filter = 2
 
 [node name="Top" type="HBoxContainer" parent="CanvasLayer/GUI/MarginContainer/VBoxContainer"]
-margin_right = 312.0
+margin_right = 1912.0
 margin_bottom = 34.0
 mouse_filter = 2
 
 [node name="HP" type="Label" parent="CanvasLayer/GUI/MarginContainer/VBoxContainer/Top"]
-margin_right = 193.0
+margin_right = 1793.0
 margin_bottom = 34.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 text = "HP: 3"
 
 [node name="Score" type="Label" parent="CanvasLayer/GUI/MarginContainer/VBoxContainer/Top"]
-margin_left = 197.0
-margin_right = 312.0
+margin_left = 1797.0
+margin_right = 1912.0
 margin_bottom = 34.0
 custom_fonts/font = ExtResource( 1 )
 text = "Score: 0000"

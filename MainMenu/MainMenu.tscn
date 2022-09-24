@@ -16,6 +16,8 @@ First_Level = "res://scenes/levels/level1.tscn"
 
 [node name="BG" type="Panel" parent="."]
 pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="TextureRect" type="TextureRect" parent="BG"]
@@ -36,8 +38,8 @@ custom_constants/margin_bottom = 16
 [node name="VBoxMain" type="VBoxContainer" parent="BG/MarginContainer"]
 margin_left = 16.0
 margin_top = 16.0
-margin_right = 536.0
-margin_bottom = 1064.0
+margin_right = 2456.0
+margin_bottom = 2144.0
 size_flags_vertical = 3
 alignment = 1
 
@@ -53,16 +55,16 @@ margin_bottom = 64.0
 texture = ExtResource( 2 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BG/MarginContainer/VBoxMain"]
-margin_right = 520.0
-margin_bottom = 1048.0
+margin_right = 2440.0
+margin_bottom = 2128.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
 [node name="RightMargin" type="Control" parent="BG/MarginContainer/VBoxMain/HBoxContainer"]
-margin_right = 520.0
-margin_bottom = 1048.0
-size_flags_horizontal = 3
+margin_left = 1220.0
+margin_right = 1220.0
+margin_bottom = 2128.0
 size_flags_vertical = 3
 
 [node name="ButtonContainer" type="VBoxContainer" parent="BG/MarginContainer/VBoxMain/HBoxContainer/RightMargin"]

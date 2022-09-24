@@ -15,4 +15,3 @@ script = SubResource( 1 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 autoplay = true
-bus = "Music"
