@@ -10,6 +10,10 @@ uniform sampler2D texture_map : hint_albedo;
 uniform vec2 texture_scale = vec2(8.0, 4.0);
 uniform sampler2D normal_map : hint_normal;
 
+uniform vec2 amplitude = vec2(0.2, 0.1);
+uniform vec2 frequency = vec2(3.0, 2.5);
+uniform vec2 time_factor = vec2(2.0, 3.0);
+
 // Wave settings:
 uniform float wave_speed = 0.5; // Speed scale for the waves
 uniform vec4 wave_a = vec4(1.0, 1.0, 0.35, 3.0); // xy = Direction, z = Steepness, w = Length
@@ -22,9 +26,9 @@ varying vec3 vertex_normal; // Vertex normal -> Needed for refraction calculatio
 varying vec3 vertex_binormal; // Vertex binormal -> Needed for refraction calculation
 varying vec3 vertex_tangent; // Vertex tangent -> Needed for refraction calculation
 
-//float height(vec2 pos, float time) {
-//	return (amplitude.x * sin(pos.x * frequency.x + time * time_factor.x)) + (amplitude.y * sin(pos.y * frequency.y + time * time_factor.y));
-//}
+float height(vec4 parameter, vec2 pos, float time) {
+	return (parameter.z * sin(pos.x * parameter.w + time * time_factor.x)) + (parameter.z * sin(pos.y * parameter.w + time * time_factor.y));
+}
 
 // Wave function:
 vec4 wave(vec4 parameter, vec2 position, float time, inout vec3 tangent, inout vec3 binormal) {
@@ -37,8 +41,8 @@ vec4 wave(vec4 parameter, vec2 position, float time, inout vec3 tangent, inout v
 	float f = k * (dot(d, position) - c * time);
 	float a = wave_steepness / k;
 
-	tangent += normalize(vec3(1.0 - d.x * d.x * (wave_steepness * sin(f)), d.x * (wave_steepness * cos(f)), -d.x * d.y * (wave_steepness * sin(f))));
-	binormal += normalize(vec3(-d.x * d.y * (wave_steepness * sin(f)), d.y * (wave_steepness * cos(f)), 1.0 - d.y * d.y * (wave_steepness * sin(f))));
+	tangent = normalize(vec3(0.0, height(parameter, position + vec2(0.0, 0.2), TIME) - height(parameter, position + vec2(0.0, -0.2), TIME), 0.4));
+	binormal = normalize(vec3(0.4, height(parameter, position + vec2(0.2, 0.0), TIME) - height(parameter, position + vec2(-0.2, 0.0), TIME), 0.0));
 
 	return vec4(d.x * (a * cos(f)), a * sin(f) * 0.25, d.y * (a * cos(f)), 0.0);
 }
@@ -53,37 +57,25 @@ void vertex() {
 	vertex += wave(wave_a, vertex_position.xz, time, vertex_tangent, vertex_binormal);
 	vertex += wave(wave_b, vertex_position.xz, time, vertex_tangent, vertex_binormal);
 	vertex += wave(wave_c, vertex_position.xz, time, vertex_tangent, vertex_binormal);
-
-	vertex_position = vertex.xyz;
-	vertex_height = (PROJECTION_MATRIX * MODELVIEW_MATRIX * vertex).z;
-
-	TANGENT = vertex_tangent;
-	BINORMAL = vertex_binormal; 
-	NORMAL = normalize(cross(TANGENT, BINORMAL));
-
-	//	UV				 = vertex.xz * sampler_scale;
-
+	
 	VERTEX = vertex.xyz;
-
-	//	inv_mvp = inverse(PROJECTION_MATRIX * MODELVIEW_MATRIX);
-
-	//	VERTEX.y += height(VERTEX.xz, TIME);
-	//	TANGENT = normalize(vec3(0.0, height(VERTEX.xz + vec2(0.0, 0.2), TIME) - height(VERTEX.xz + vec2(0.0, -0.2), TIME), 0.4));
-	//	BINORMAL = normalize(vec3(0.4, height(VERTEX.xz + vec2(0.2, 0.0), TIME) - height(VERTEX.xz + vec2(-0.2, 0.0), TIME), 0.0));
-	// NORMAL = cross(TANGENT, BINORMAL);
+	NORMAL = cross(TANGENT, BINORMAL);
 }
 
 void fragment() {
 	ALBEDO = texture(texture_map, UV * texture_scale).rgb;
 	NORMALMAP = texture(normal_map, UV * texture_scale).rgb;
-	METALLIC = 0.7;
-	ROUGHNESS = 0.1;
+	METALLIC = 0.5;
+	ROUGHNESS = 0.025;
 }
 "
 
 [resource]
 shader = SubResource( 1 )
 shader_param/texture_scale = Vector2( 1, 1 )
+shader_param/amplitude = Vector2( 0.5, 0.05 )
+shader_param/frequency = Vector2( 3, 3 )
+shader_param/time_factor = Vector2( 0.5, 0.75 )
 shader_param/wave_speed = 0.5
 shader_param/wave_a = Plane( 4, 2, 0.35, 5 )
 shader_param/wave_b = Plane( 5, 0.6, 0.3, 6 )

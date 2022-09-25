@@ -11,7 +11,7 @@ uniform vec2 frequency = vec2(3.0, 2.5);
 uniform vec2 time_factor = vec2(2.0, 3.0);
 
 uniform sampler2D texture_map : hint_albedo;
-uniform vec2 texture_scale = vec2(8.0, 4.0);
+//uniform vec2 texture_scale = vec2(8.0, 4.0);
 
 uniform sampler2D normal_map : hint_normal;
 
@@ -27,8 +27,8 @@ void vertex() {
 }
 
 void fragment() {
-	ALBEDO = texture(texture_map, UV * texture_scale).rgb;
-	NORMALMAP = texture(normal_map, UV * texture_scale).rgb;
+	ALBEDO = texture(texture_map, UV).rgb;
+	NORMALMAP = texture(normal_map, UV).rgb;
 	METALLIC = 0.25;
 	ROUGHNESS = 0.025;
 }"
@@ -37,7 +37,6 @@ void fragment() {
 shader = SubResource( 1 )
 shader_param/amplitude = Vector2( 0.5, 0.05 )
 shader_param/frequency = Vector2( 3, 3 )
-shader_param/time_factor = Vector2( 0.5, 0.75 )
-shader_param/texture_scale = Vector2( 1, 1 )
+shader_param/time_factor = Vector2( 0.25, 0.5 )
 shader_param/texture_map = ExtResource( 1 )
 shader_param/normal_map = ExtResource( 2 )

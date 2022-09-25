@@ -25,7 +25,7 @@ var time_delta
 
 func _ready():
 	pass
-	#OS.window_fullscreen = true
+	OS.window_fullscreen = false
 	
 func _physics_process(delta):
 	time_delta = delta
