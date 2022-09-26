@@ -60,7 +60,7 @@ enabled=PoolStringArray( "res://addons/zylann.hterrain/plugin.cfg" )
 
 [gui]
 
-theme/custom="res://themes/MetalPixel/MetalPixel.tres"
+theme/custom="res://themes/MinimalUI/MinimalUI.tres"
 
 [importer_defaults]
 
