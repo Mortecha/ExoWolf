@@ -6,9 +6,9 @@ const HTerrainData = preload("res://addons/zylann.hterrain/hterrain_data.gd")
 const HTerrainTextureSet = preload("res://addons/zylann.hterrain/hterrain_texture_set.gd")
 
 # You may want to change paths to your own textures
-var grass_texture = load("res://addons/zylann.hterrain_demo/textures/ground/grass_albedo_bump.png")
-var sand_texture = load("res://addons/zylann.hterrain_demo/textures/ground/sand_albedo_bump.png")
-var leaves_texture = load("res://addons/zylann.hterrain_demo/textures/ground/leaves_albedo_bump.png")
+var grass_texture = load("res://terrain/textures/grass/stylized-grass1_albedo.png")
+var sand_texture = load("res://terrain/textures/sandy_ground/sandyground1_Base_Color.png")
+var leaves_texture = load("res://terrain/textures/forest_floor/forest_floor_albedo.png")
 
 
 func _ready():
