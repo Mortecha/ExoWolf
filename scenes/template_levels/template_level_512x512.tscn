@@ -2,7 +2,7 @@
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://environments/default_env.tres" type="Environment" id=2]
-[ext_resource path="res://scenes/Main.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Main.gd" type="Script" id=3]
 [ext_resource path="res://vehicles/carrier/Carrier.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/components/boundaries.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/components/ocean.tscn" type="PackedScene" id=6]
@@ -10,6 +10,7 @@
 [ext_resource path="res://vehicles/PlayerHelicopter/ExoWolf.tscn" type="PackedScene" id=8]
 [ext_resource path="res://terrain_data/level_1/data.hterrain" type="Resource" id=9]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=10]
+
 
 [sub_resource type="Resource" id=4]
 script = ExtResource( 10 )

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://scenes/Main.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://environments/default_env.tres" type="Environment" id=2]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=3]
 [ext_resource path="res://terrain_data/level_2/data.hterrain" type="Resource" id=4]

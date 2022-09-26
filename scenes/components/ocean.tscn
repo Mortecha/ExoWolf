@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://shaders/ocean_test.tres" type="Material" id=1]
-[ext_resource path="res://shaders/ocean_test_3.tres" type="Material" id=2]
+[ext_resource path="res://shaders/ocean/ocean_test.tres" type="Material" id=1]
+[ext_resource path="res://shaders/ocean/ocean_final.tres" type="Material" id=2]
 
 [sub_resource type="PlaneMesh" id=2]
 size = Vector2( 512, 512 )
