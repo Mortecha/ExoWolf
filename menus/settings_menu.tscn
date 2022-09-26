@@ -117,10 +117,7 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.415686, 0.415686, 0.415686, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+color = Color( 0, 0, 0, 0.74902 )
 
 [node name="SettingTabs" type="TabContainer" parent="."]
 anchor_right = 1.0
@@ -133,10 +130,10 @@ __meta__ = {
 [node name="Video" type="Tabs" parent="SettingTabs"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 43.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 1.0
+margin_top = 28.0
+margin_right = -1.0
+margin_bottom = -1.0
 tab_close_display_policy = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="SettingTabs/Video"]
@@ -153,8 +150,8 @@ __meta__ = {
 [node name="VideoSettings" type="GridContainer" parent="SettingTabs/Video/MarginContainer"]
 margin_left = 25.0
 margin_top = 25.0
-margin_right = 888.0
-margin_bottom = 517.0
+margin_right = 894.0
+margin_bottom = 535.0
 custom_constants/vseparation = 20
 columns = 2
 __meta__ = {
@@ -162,70 +159,69 @@ __meta__ = {
 }
 
 [node name="ScreenMode" type="Label" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_right = 12.0
-margin_bottom = 12.0
+margin_right = 216.0
+margin_bottom = 44.0
 size_flags_vertical = 1
 text = "Display Mode"
 
 [node name="DisplayOptions" type="OptionButton" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_left = 841.0
-margin_right = 863.0
-margin_bottom = 12.0
+margin_left = 761.0
+margin_right = 869.0
+margin_bottom = 44.0
 size_flags_horizontal = 10
 text = "Windowed"
 items = [ "Windowed", null, false, 0, null, "Fullscreen", null, false, 1, null ]
 selected = 0
 
 [node name="Vsync" type="Label" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_top = 47.0
-margin_right = 12.0
-margin_bottom = 49.0
+margin_top = 64.0
+margin_right = 216.0
+margin_bottom = 108.0
 text = "Vsync"
 
 [node name="VsyncBtn" type="CheckButton" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_left = 799.0
-margin_top = 32.0
-margin_right = 863.0
-margin_bottom = 64.0
+margin_left = 835.0
+margin_top = 64.0
+margin_right = 869.0
+margin_bottom = 108.0
 size_flags_horizontal = 8
 
 [node name="DisplayFps" type="Label" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_top = 99.0
-margin_right = 12.0
-margin_bottom = 101.0
+margin_top = 128.0
+margin_right = 216.0
+margin_bottom = 172.0
 text = "Display FPS"
 
 [node name="DisplayFpsBtn" type="CheckButton" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_left = 799.0
-margin_top = 84.0
-margin_right = 863.0
-margin_bottom = 116.0
+margin_left = 835.0
+margin_top = 128.0
+margin_right = 869.0
+margin_bottom = 172.0
 size_flags_horizontal = 8
 
 [node name="MaxFps" type="Label" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_top = 143.0
-margin_right = 12.0
-margin_bottom = 145.0
+margin_top = 192.0
+margin_right = 216.0
+margin_bottom = 236.0
 text = "Max FPS"
 
 [node name="MaxFpsOption" type="HBoxContainer" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_left = 450.0
-margin_top = 136.0
-margin_right = 863.0
-margin_bottom = 152.0
+margin_left = 393.0
+margin_top = 192.0
+margin_right = 869.0
+margin_bottom = 236.0
 size_flags_horizontal = 10
 custom_constants/separation = 10
 
 [node name="MaxFpsVal" type="Label" parent="SettingTabs/Video/MarginContainer/VideoSettings/MaxFpsOption"]
-margin_top = 7.0
-margin_right = 3.0
-margin_bottom = 9.0
+margin_right = 66.0
+margin_bottom = 44.0
 text = "max"
 
 [node name="MaxFpsSlider" type="HSlider" parent="SettingTabs/Video/MarginContainer/VideoSettings/MaxFpsOption"]
-margin_left = 13.0
-margin_right = 413.0
-margin_bottom = 16.0
+margin_left = 76.0
+margin_right = 476.0
+margin_bottom = 44.0
 rect_min_size = Vector2( 400, 0 )
 size_flags_horizontal = 8
 size_flags_vertical = 1
@@ -235,29 +231,29 @@ value = 500.0
 rounded = true
 
 [node name="DisplayFps2" type="Label" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_top = 187.0
-margin_right = 12.0
-margin_bottom = 189.0
+margin_top = 256.0
+margin_right = 216.0
+margin_bottom = 300.0
 text = "Bloom"
 
 [node name="BloomBtn" type="CheckButton" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_left = 799.0
-margin_top = 172.0
-margin_right = 863.0
-margin_bottom = 204.0
+margin_left = 835.0
+margin_top = 256.0
+margin_right = 869.0
+margin_bottom = 300.0
 size_flags_horizontal = 8
 
 [node name="Brightness" type="Label" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_top = 231.0
-margin_right = 12.0
-margin_bottom = 233.0
+margin_top = 320.0
+margin_right = 216.0
+margin_bottom = 364.0
 text = "Brightness"
 
 [node name="BrightnessSlider" type="HSlider" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_left = 463.0
-margin_top = 224.0
-margin_right = 863.0
-margin_bottom = 240.0
+margin_left = 469.0
+margin_top = 320.0
+margin_right = 869.0
+margin_bottom = 364.0
 rect_min_size = Vector2( 400, 0 )
 size_flags_horizontal = 8
 size_flags_vertical = 1

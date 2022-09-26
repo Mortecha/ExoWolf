@@ -24,8 +24,7 @@ onready var camera = $CameraRig/CameraGimbal/Camera as Camera
 var time_delta
 
 func _ready():
-	pass
-	OS.window_fullscreen = false
+	OS.window_fullscreen = true
 	
 func _physics_process(delta):
 	time_delta = delta

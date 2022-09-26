@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://environments/default_env.tres" type="Environment" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://vehicles/PlayerHelicopter/ExoWolf.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/components/ocean.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/components/camera_rig.tscn" type="PackedScene" id=10]
+[ext_resource path="res://menus/pause_menu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://menus/fps_label.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Resource" id=4]
 script = ExtResource( 5 )
@@ -61,3 +63,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 148.433, 0, 130.946 )
 
 [node name="Carrier" parent="." instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 128.094, -0.640536, 129.201 )
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="FpsLabel" parent="GUI" instance=ExtResource( 12 )]
+
+[node name="PauseMenu" parent="GUI" instance=ExtResource( 11 )]

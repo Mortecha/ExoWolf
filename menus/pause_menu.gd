@@ -28,7 +28,7 @@ func _unhandled_input(event):
 
 func _on_ResumeBtn_pressed():
 	self.is_paused = false
-
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _on_SettingsBtn_pressed():
 	settings_menu.popup_centered()
