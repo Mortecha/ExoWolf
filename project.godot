@@ -34,6 +34,7 @@ _global_script_class_icons={
 
 config/name="ExoWolf-NEW"
 run/main_scene="res://menus/start_screen.tscn"
+boot_splash/show_image=false
 config/icon="res://icon.png"
 
 [autoload]

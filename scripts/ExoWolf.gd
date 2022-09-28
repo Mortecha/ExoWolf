@@ -3,7 +3,7 @@ extends KinematicBody
 export var gravity : Vector3 = Vector3.DOWN * 9.8
 var velocity : Vector3 = Vector3.ZERO
 
-const MAX_ALTITUDE = 12
+const MAX_ALTITUDE = 25
 
 const TILT_COEF = 15 		# The max amount of tilt, Higher value less tilt  
 const TILT_RESP = 4 		# The responsiveness of the tilting

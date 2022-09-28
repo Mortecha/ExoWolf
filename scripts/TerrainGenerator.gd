@@ -84,7 +84,7 @@ func _generate_vertices():
 	for x in range(view_distance+1):
 		for y in range(view_distance+1):
 			var gradient_value = data.get_pixel(x, y).r
-			var h = noise.get_noise_2d(x, y) * height_bias - (gradient_value * 2)
+			var h = noise.get_noise_2d(x, y) * height_bias - (gradient_value * 4)
 			var is_negative = sign(h);
 			h *= h
 			h *= height * is_negative
@@ -174,6 +174,7 @@ func _initialize():
 
 	_generate_noise()
 	mesh_node.mesh = _generate_mesh()
+	mesh_node.create_trimesh_collision()
 	is_initialized = true
 
 func _clear():
