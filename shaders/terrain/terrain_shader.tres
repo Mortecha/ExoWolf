@@ -2,71 +2,47 @@
 
 [resource]
 code = "shader_type spatial;
+uniform sampler2D grass_texture;
+uniform sampler2D rock_texture;
+uniform sampler2D sand_texture;
 
-uniform float max_grass_height = 2.0;
-uniform float min_snow_height = 18.0;
-uniform float slope_factor = 8.0;
+uniform float min_rock_slope:hint_range(0.0f,1.0f) = 0.25;
+uniform float max_grass_slope:hint_range(0.0f,1.0f) = 0.35;
+uniform float min_rockgrass_height = 7.0;
+uniform float max_sand_height = 10.0f;
 
-uniform sampler2D grass_tex : hint_albedo;
-uniform sampler2D dirt_tex : hint_albedo;
-uniform sampler2D snow_tex : hint_albedo;
-
-uniform sampler2D grass_normal_map : hint_normal;
-uniform sampler2D dirt_normal_map : hint_normal;
-uniform sampler2D snow_normal_map : hint_normal;
-
-varying float height_val;
-varying vec3 normal;
+varying float normal_y;
+varying float vertex_y;
 
 void vertex(){
-	height_val = VERTEX.y;
-	normal = NORMAL;
-}
-
-float get_slope_of_terrain(float height_normal){
-	float slope = 1.0-height_normal;
-	slope *= slope;
-	return (slope*slope_factor);
-}
-
-float get_snow_and_grass_mix(float curr_height){
-	if (curr_height > min_snow_height){
-		return 1.0;
-	}
-	if (curr_height  < max_grass_height){
-		return 0.0;
-	}
-	float mix_height = (curr_height-max_grass_height) / (min_snow_height-max_grass_height);
-	return mix_height;
+	normal_y = NORMAL.y;
+	vertex_y = VERTEX.y;
 }
 
 void fragment(){
-	vec3 dirt = vec3(texture(dirt_tex, UV).rgb)*0.35;
-	vec3 grass = vec3(texture(grass_tex, UV).rgb)*0.5;
-	vec3 snow = vec3(texture(snow_tex, UV).rgb);
+	//Albedo Values
+	vec3 grass_albedo = texture(grass_texture,UV).xyz;
+	vec3 rock_albedo = texture(rock_texture,UV).xyz;
+	vec3 sand_albedo = texture(sand_texture,UV).xyz;
+	//Weights
+	float rock_grass_weight = normal_y;
+	float sand_rockgrass_weight = vertex_y;
+	//Calculating Rock/Grass Weight
+	rock_grass_weight = max(min_rock_slope, rock_grass_weight);
+	rock_grass_weight = min(max_grass_slope, rock_grass_weight);
+	rock_grass_weight -= min_rock_slope;
+	rock_grass_weight /= max_grass_slope - min_rock_slope;
+	//Calculating Sand/RockGrass Weight
+	sand_rockgrass_weight = max(min_rockgrass_height, sand_rockgrass_weight);
+	sand_rockgrass_weight = min(max_sand_height, sand_rockgrass_weight);
+	sand_rockgrass_weight -= min_rockgrass_height;
+	sand_rockgrass_weight /= max_sand_height - min_rockgrass_height;
+	//Mixing and Assigning Albedo
+	vec3 rockgrass_albedo = mix(rock_albedo, grass_albedo, rock_grass_weight);
 	
-	float slope = clamp(get_slope_of_terrain(normal.y), 0.0, 1.0);
-	float snow_mix = clamp(get_snow_and_grass_mix(height_val), 0.0, 1.0);
+	ALBEDO = mix(sand_albedo, rockgrass_albedo, sand_rockgrass_weight);
 	
-	vec3 grass_mixin = mix(grass, dirt, slope);
-	vec3 dirt_mixin = mix(dirt, snow, snow_mix/slope);
-	vec3 snow_mixin = mix(snow, dirt_mixin, slope);
-	vec3 mixin = mix(grass_mixin, dirt_mixin, snow_mix);
-
-	vec3 dirt_normal = vec3(texture(dirt_normal_map, UV).rgb)*0.35;
-	vec3 grass_normal = vec3(texture(grass_normal_map, UV).rgb)*0.5;
-	vec3 snow_normal = vec3(texture(snow_normal_map, UV).rgb);
-	
-	//float slope_normal = clamp(get_slope_of_terrain(normal.y), 0.0, 1.0);
-	//float snow_mix = clamp(get_snow_and_grass_mix(height_val), 0.0, 1.0);
-
-	vec3 grass_normal_map_mixin = mix(grass, dirt, slope);
-	vec3 dirt_normal_map_mixin = mix(dirt, snow, snow_mix/slope);
-	vec3 snow_normal_map_mixin = mix(snow, dirt_mixin, slope);
-	vec3 normal_map_mix = mix(grass_normal_map_mixin, dirt_normal_map_mixin, snow_normal_map_mixin);
-
-	ALBEDO = mixin;
-	NORMALMAP = normal_map_mix;
-	METALLIC = 0.01;
-	ROUGHNESS = 1.0;
+	ROUGHNESS = 0.5;
+	METALLIC = 0.25;
+	SPECULAR = 0.0;
 }"

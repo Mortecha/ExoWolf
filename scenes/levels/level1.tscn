@@ -1,10 +1,7 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://environments/default_env.tres" type="Environment" id=2]
-[ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=3]
-[ext_resource path="res://terrain_data/level_1/data.hterrain" type="Resource" id=4]
-[ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=5]
 [ext_resource path="res://vehicles/carrier/Carrier.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/components/boundaries.tscn" type="PackedScene" id=7]
 [ext_resource path="res://vehicles/PlayerHelicopter/ExoWolf.tscn" type="PackedScene" id=8]
@@ -13,27 +10,6 @@
 [ext_resource path="res://menus/pause_menu.tscn" type="PackedScene" id=11]
 [ext_resource path="res://menus/fps_label.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/components/TerrainGenerator.tscn" type="PackedScene" id=13]
-
-[sub_resource type="StreamTexture" id=5]
-flags = 23
-load_path = "res://.import/level1_slot0_albedo_bump.packed_tex-9d5c1fd65144a8883f5a2f60b09a438b.s3tc.stex"
-
-[sub_resource type="StreamTexture" id=6]
-flags = 23
-load_path = "res://.import/level1_slot1_albedo_bump.packed_tex-3dd45ad1ef40fb046912818e387db253.s3tc.stex"
-
-[sub_resource type="StreamTexture" id=7]
-flags = 7
-load_path = "res://.import/level1_slot0_normal_roughness.packed_tex-af41cf044f44c3ca52889bf7c02f2295.s3tc.stex"
-
-[sub_resource type="StreamTexture" id=8]
-flags = 7
-load_path = "res://.import/level1_slot1_normal_roughness.packed_tex-fff626cca08082774d35cde0aa927b10.s3tc.stex"
-
-[sub_resource type="Resource" id=4]
-script = ExtResource( 5 )
-mode = 0
-textures = [ [ SubResource( 5 ), SubResource( 6 ) ], [ SubResource( 7 ), SubResource( 8 ) ] ]
 
 [node name="Main" type="Spatial"]
 script = ExtResource( 1 )
@@ -51,27 +27,6 @@ shadow_enabled = true
 [node name="Ocean" parent="." instance=ExtResource( 9 )]
 
 [node name="Boundaries" parent="." instance=ExtResource( 7 )]
-
-[node name="HTerrain" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -25, 0 )
-visible = false
-script = ExtResource( 3 )
-lod_scale = 2.0
-centered = true
-_terrain_data = ExtResource( 4 )
-chunk_size = 32
-collision_enabled = true
-collision_layer = 1
-collision_mask = 1
-shader_type = "Classic4Lite"
-custom_shader = null
-custom_globalmap_shader = null
-texture_set = SubResource( 4 )
-render_layers = 1
-shader_params/u_ground_uv_scale = 20
-shader_params/u_depth_blending = true
-shader_params/u_triplanar = false
-shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
 [node name="ExoWolf" parent="." instance=ExtResource( 8 )]
 transform = Transform( -1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, 148.433, 5.0077, 130.946 )
