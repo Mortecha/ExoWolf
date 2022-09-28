@@ -44,3 +44,8 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 128.094
 [node name="PauseMenu" parent="GUI" instance=ExtResource( 11 )]
 
 [node name="TerrainGenerator" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0 )
+height = 50
+seed_val = 3
+lacunarity = 2.5
+persistence = 0.3

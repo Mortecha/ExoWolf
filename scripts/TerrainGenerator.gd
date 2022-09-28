@@ -1,6 +1,8 @@
 tool
 extends Spatial
 
+export var boundary = 40
+
 export (NodePath) var block_map = null setget set_block_map
 func set_block_map(val):
 	_clear()
@@ -11,7 +13,7 @@ export (int) var view_distance = 12 setget set_view_distance
 func set_view_distance(val):
 	_clear()
 	view_distance = val
-	view_distance = clamp(view_distance, 1, 256)
+	view_distance = clamp(view_distance, 1, 512)
 	_initialize()
 
 export (int) var height = 4 setget set_height
@@ -70,10 +72,19 @@ var is_initialized = false
 
 func _generate_vertices():
 	vertices = PoolVector3Array()
+	
+	var custom_gradient = CustomGradientTexture.new()
+	custom_gradient.gradient = Gradient.new()
+	custom_gradient.type = CustomGradientTexture.GradientType.RADIAL
+	custom_gradient.size = Vector2(view_distance + 1, view_distance + 1)
+	var data = custom_gradient.get_data()
+	data.lock()
+			
 	var centre_offset = floor(view_distance / 2)
 	for x in range(view_distance+1):
 		for y in range(view_distance+1):
-			var h = noise.get_noise_2d(x, y) * height_bias
+			var gradient_value = data.get_pixel(x, y).r
+			var h = noise.get_noise_2d(x, y) * height_bias - (gradient_value * 2)
 			var is_negative = sign(h);
 			h *= h
 			h *= height * is_negative
