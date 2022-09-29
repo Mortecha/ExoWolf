@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://menus/briefings/level_1_briefing/level_1_briefing.gd" type="Script" id=1]
+[ext_resource path="res://menus/briefings/images/briefing_background.png" type="Texture" id=2]
+[ext_resource path="res://audio/music/White Bat Audio - Lost City.mp3" type="AudioStream" id=3]
+
+[node name="Briefing_1" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+level = "res://scenes/levels/level1.tscn"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.979
+anchor_top = 0.981
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.680054
+margin_top = 0.519897
+text = "Start"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -69.5
+margin_top = -14.0
+margin_right = 69.5
+margin_bottom = 14.0
+text = "BRIEFING for level 1"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

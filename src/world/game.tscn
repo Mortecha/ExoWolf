@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/player/player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://menus/fps_label.tscn" type="PackedScene" id=2]
+[ext_resource path="res://menus/components/fps_label/fps_label.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/world/world_environment.tscn" type="PackedScene" id=6]
-[ext_resource path="res://menus/pause_menu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://menus/components/pause_menu/pause_menu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/world/game.gd" type="Script" id=9]
 
 [sub_resource type="SpatialMaterial" id=1]
