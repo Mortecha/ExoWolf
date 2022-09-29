@@ -13,21 +13,9 @@ _global_script_classes=[ {
 "class": "CustomGradientTexture",
 "language": "GDScript",
 "path": "res://assets/maujoe.custom_gradient_texture/custom_gradient_texture.gd"
-}, {
-"base": "ResourceFormatLoader",
-"class": "HTerrainDataLoader",
-"language": "GDScript",
-"path": "res://addons/zylann.hterrain/hterrain_resource_loader.gd"
-}, {
-"base": "ResourceFormatSaver",
-"class": "HTerrainDataSaver",
-"language": "GDScript",
-"path": "res://addons/zylann.hterrain/hterrain_resource_saver.gd"
 } ]
 _global_script_class_icons={
-"CustomGradientTexture": "",
-"HTerrainDataLoader": "",
-"HTerrainDataSaver": ""
+"CustomGradientTexture": ""
 }
 
 [application]
@@ -41,7 +29,6 @@ config/icon="res://icon.png"
 
 Save="*res://src/save/save.gd"
 GlobalSettings="*res://src/global_settings.gd"
-Music="*res://src/music/music.tscn"
 
 [debug]
 
@@ -63,7 +50,7 @@ window/stretch/aspect="keep_height"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/zylann.hterrain/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [gui]
 
