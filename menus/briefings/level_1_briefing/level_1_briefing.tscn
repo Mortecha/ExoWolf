@@ -2,7 +2,7 @@
 
 [ext_resource path="res://menus/briefings/level_1_briefing/level_1_briefing.gd" type="Script" id=1]
 [ext_resource path="res://menus/briefings/images/briefing_background.png" type="Texture" id=2]
-[ext_resource path="res://audio/music/White Bat Audio - Lost City.mp3" type="AudioStream" id=3]
+[ext_resource path="res://audio/music/White Bat Audio - The Heist (320 kbps).mp3" type="AudioStream" id=3]
 
 [node name="Briefing_1" type="Control"]
 anchor_right = 1.0

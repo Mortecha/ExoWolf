@@ -3,9 +3,9 @@
 [resource]
 code = "shader_type canvas_item;
 
-uniform float battery : hint_range(0.0,1.0) = 1.0;
+uniform float battery : hint_range(0.0, 1.0) = 1.0;
 uniform float anchor : hint_range(-1.0,1.0) = -0.5;
-uniform float speed_scale : hint_range(1.0, 10.0) = 1.0;
+uniform float speed_scale : hint_range(-10.0, 10.0) = 1.0;
 uniform float fov : hint_range(0.01, 1.0) = 0.2;
 uniform vec4 background_color : hint_color = vec4(0.0, 0.1, 0.2, 1.0);
 uniform vec4 grid_color : hint_color = vec4(1.0, 0.5, 1.0, 1.0);

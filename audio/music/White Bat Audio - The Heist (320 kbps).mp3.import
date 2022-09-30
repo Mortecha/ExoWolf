@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/White Bat Audio - The Heist (320 kbps).mp3-af6acb7a1d869659c05341e3f91f5502.mp3str"
+
+[deps]
+
+source_file="res://audio/music/White Bat Audio - The Heist (320 kbps).mp3"
+dest_files=[ "res://.import/White Bat Audio - The Heist (320 kbps).mp3-af6acb7a1d869659c05341e3f91f5502.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
