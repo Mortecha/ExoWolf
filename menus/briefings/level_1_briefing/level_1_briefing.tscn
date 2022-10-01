@@ -1,42 +1,122 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://menus/briefings/level_1_briefing/level_1_briefing.gd" type="Script" id=1]
-[ext_resource path="res://menus/briefings/images/briefing_background.png" type="Texture" id=2]
+[ext_resource path="res://menus/briefings/level_1_briefing/images/briefing_background.png" type="Texture" id=2]
 [ext_resource path="res://audio/music/White Bat Audio - The Heist (320 kbps).mp3" type="AudioStream" id=3]
+[ext_resource path="res://heli_test/ui/styles/button/button_normal.tres" type="StyleBox" id=4]
+[ext_resource path="res://heli_test/ui/styles/button/button_hover.tres" type="StyleBox" id=5]
+[ext_resource path="res://heli_test/ui/styles/button/button_pressed.tres" type="StyleBox" id=6]
+[ext_resource path="res://heli_test/shaders/canvas_blur.shader" type="Shader" id=7]
+[ext_resource path="res://heli_test/ui/nodes/BlurBackground.tscn" type="PackedScene" id=12]
+[ext_resource path="res://heli_test/ui/fonts/JetBrainsMono/JetBrainsMono.tres" type="DynamicFont" id=13]
 
-[node name="Briefing_1" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 7 )
+shader_param/amount = 2.0
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0, 0, 0.294118 )
+
+[node name="Briefing_1" type="CanvasLayer"]
 script = ExtResource( 1 )
+main_menu = "res://menus/start_screen.tscn"
 level = "res://scenes/levels/level1.tscn"
 
-[node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 2 )
-
-[node name="Button" type="Button" parent="."]
-anchor_left = 0.979
-anchor_top = 0.981
+[node name="BackgroundImage" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -0.680054
-margin_top = 0.519897
-text = "Start"
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -69.5
-margin_top = -14.0
-margin_right = 69.5
-margin_bottom = 14.0
-text = "BRIEFING for level 1"
+[node name="BlurBackground" parent="." instance=ExtResource( 12 )]
+material = SubResource( 1 )
+
+[node name="InGameMenu2" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 5 )
+
+[node name="Buttons" type="VBoxContainer" parent="InGameMenu2"]
+modulate = Color( 0, 1, 0.392157, 1 )
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 300.0
+margin_bottom = -40.0
+grow_vertical = 0
+custom_constants/separation = 5
+alignment = 2
+
+[node name="start" type="Button" parent="InGameMenu2/Buttons"]
+margin_top = 935.0
+margin_right = 260.0
+margin_bottom = 965.0
+grow_vertical = 0
+rect_min_size = Vector2( 0, 30 )
+custom_fonts/font = ExtResource( 13 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 4 )
+text = " Start"
+align = 0
+
+[node name="BlurBackground" parent="InGameMenu2/Buttons/start" instance=ExtResource( 12 )]
+material = SubResource( 1 )
+
+[node name="main_menu" type="Button" parent="InGameMenu2/Buttons"]
+margin_top = 970.0
+margin_right = 260.0
+margin_bottom = 1000.0
+grow_vertical = 0
+rect_min_size = Vector2( 0, 30 )
+custom_fonts/font = ExtResource( 13 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 4 )
+text = " Main Menu"
+align = 0
+
+[node name="BlurBackground" parent="InGameMenu2/Buttons/main_menu" instance=ExtResource( 12 )]
+material = SubResource( 1 )
+
+[node name="ControlHelp" type="Panel" parent="InGameMenu2"]
+modulate = Color( 0, 1, 0.392157, 1 )
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 550.0
+margin_bottom = 330.0
+custom_styles/panel = ExtResource( 4 )
+
+[node name="BlurBackground" parent="InGameMenu2/ControlHelp" instance=ExtResource( 12 )]
+modulate = Color( 0.52549, 0.52549, 0.52549, 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="InGameMenu2/ControlHelp"]
+margin_left = 14.0
+margin_top = 14.0
+margin_right = 496.0
+margin_bottom = 276.0
+custom_fonts/normal_font = ExtResource( 13 )
+text = "Controls:
+[MOUSE] or [WASD]  Move helicopter
+[SHIFT] or [Z]     Lift up/down
+[Q]     or [E]     Pedal left/right
+[ALT]   +  [MOUSE] Camera freelook
+[C]                Camera toggle
+[G]                Gear toggle
+[P]                Power toggle
+[F5]               Reset scene
+[ESC]              Menu toggle
+[MOUSE SCROLL]     3rd person camera zoom in/out"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 autoplay = true
 
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="InGameMenu2/Buttons/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="InGameMenu2/Buttons/main_menu" to="InGameMenu2" method="_on_quit_pressed"]
+[connection signal="pressed" from="InGameMenu2/Buttons/main_menu" to="." method="_on_main_menu_pressed"]

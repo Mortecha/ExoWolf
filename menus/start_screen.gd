@@ -5,9 +5,6 @@ export(String, FILE) var level
 onready var settings_menu = $SettingsMenu
 onready var start_btn = $MainMenu/MarginContainer/VBoxContainer/StartGameBtn
 
-func _ready():
-	start_btn.grab_focus()
-
 func _on_start_pressed():
 	get_tree().change_scene(level)
 
