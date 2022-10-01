@@ -4,7 +4,18 @@
 [ext_resource path="res://menus/components/fps_label/fps_label.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/world/world_environment.tscn" type="PackedScene" id=6]
 [ext_resource path="res://menus/components/pause_menu/pause_menu.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/world/game.gd" type="Script" id=9]
+
+[sub_resource type="GDScript" id=6]
+script/source = "extends Node
+
+onready var world_env = $WorldEnvironment
+
+func _ready():
+	world_env.environment.dof_blur_far_enabled = false
+	world_env.environment.dof_blur_near_enabled = false
+#	Music.stream = load(\"res://assets/music/BrandonMorris-LoadingScreenLoop-cc0-qmix.mp3\")
+#	Music.play()
+"
 
 [sub_resource type="SpatialMaterial" id=1]
 uv1_triplanar = true
@@ -22,7 +33,7 @@ uv1_triplanar = true
 uv1_triplanar = true
 
 [node name="Game" type="Node"]
-script = ExtResource( 9 )
+script = SubResource( 6 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 13, 8 )

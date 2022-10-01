@@ -168,7 +168,7 @@ nodes/mix/position = Vector2( 273.5, -24.625 )
 nodes/output/position = Vector2( 500, -25 )
 nodes/vertical/node = SubResource( 17 )
 nodes/vertical/position = Vector2( -125, 200 )
-node_connections = [ "output", 0, "mix", "vertical", 0, "Animation", "vertical", 1, "Animation 2", "mix", 0, "horizontal", "mix", 1, "vertical", "horizontal", 0, "Animation 3", "horizontal", 1, "Animation 5" ]
+node_connections = [ "horizontal", 0, "Animation 3", "horizontal", 1, "Animation 5", "output", 0, "mix", "mix", 0, "horizontal", "mix", 1, "vertical", "vertical", 0, "Animation", "vertical", 1, "Animation 2" ]
 
 [node name="dauphin" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )

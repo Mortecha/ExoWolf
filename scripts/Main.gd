@@ -20,6 +20,9 @@ var look_target : Vector3 = Vector3()
 
 onready var player = $ExoWolf as KinematicBody
 onready var camera = $CameraRig/CameraGimbal/Camera as Camera
+#onready var compas = $InGameMenu/Compass
+onready var compass : HBoxContainer = $InGameMenu/Compass/Panel/Clip/HBoxContainer
+onready var compass_degree : Label = $InGameMenu/Compass/Panel/DegreeContainer/degree
 
 var time_delta
 
@@ -30,6 +33,7 @@ func _physics_process(delta):
 	time_delta = delta
 	cam_movement()
 	player_mouse_look()
+	update_compass(player.rotation_degrees.y)
 
 func cam_movement():
 	mouse_player_interpolation()
@@ -56,3 +60,14 @@ func player_mouse_look():
 		var diff = look_target - player.transform.origin
 		if diff.x > 0.1 or diff.x < 0.1 and diff.z > 0.1 or diff.z < 0.1:
 			player.look_at(look_target, Vector3.UP)
+			
+func update_compass(var angle : float):
+	# Angle gets multiplied by 2 so it can counts half direction between two directions (i.e. NE/NW/SW/SE)
+	# Angle * 2 - offset
+	compass.set_position(Vector2(angle * 2 - 360, 20), true)
+	
+	# Compas degree config
+	var degree : int = int(angle)
+	if degree < 1:
+		degree = angle + 360
+	compass_degree.set_text("%s" % Globals.invert_by_max(degree, 360))
