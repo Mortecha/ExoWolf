@@ -30,6 +30,7 @@ config/icon="res://icon.png"
 Save="*res://src/save/save.gd"
 GlobalSettings="*res://src/global_settings.gd"
 Music="*res://src/music/music.tscn"
+Globals="*res://heli_test/scripts/globals.gd"
 
 [debug]
 

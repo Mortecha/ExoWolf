@@ -1,0 +1,13 @@
+[gd_resource type="Animation" format=2]
+
+[resource]
+resource_name = "BackRotorAction"
+length = 2.5
+loop = true
+tracks/0/type = "transform"
+tracks/0/path = NodePath("Body/BackRotorPod001/RotorPodHandler/BackRotorPod/BackRotor")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0.00528834, 0.589742, -2.28294, 0, 0, 0, 1, 1, 1, 1, 0.6, 1, 0.00528834, 0.589742, -2.28294, 0.187381, 0, 0, 0.982287, 1, 1, 1, 1.2, 1, 0.00528834, 0.589742, -2.28294, 0.368125, 0, 0, 0.929776, 1, 1, 1, 1.8, 1, 0.00528834, 0.589742, -2.28294, 0.535827, 0, 0, 0.844328, 1, 1, 1, 2.4, 1, 0.00528834, 0.589742, -2.28294, 0.684547, 0, 0, 0.728969, 1, 1, 1, 2.5, 1, 0.00528834, 0.589742, -2.28294, 0.707107, 0, 0, 0.707107, 1, 1, 1 )

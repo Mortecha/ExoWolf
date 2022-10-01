@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ui/fonts/JetBrainsMono/JetBrainsMono.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scripts/ui/message_panel.gd" type="Script" id=3]
+[ext_resource path="res://ui/nodes/BlurBackground.tscn" type="PackedScene" id=4]
+
+[node name="MessagePanel" type="Label"]
+margin_top = 210.0
+margin_right = 315.0
+margin_bottom = 240.0
+grow_vertical = 0
+rect_min_size = Vector2( 0, 30 )
+custom_fonts/font = ExtResource( 1 )
+text = "[INFO] helicopter landed, couldn't configure gear"
+valign = 1
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlurBackground" parent="." instance=ExtResource( 4 )]
+margin_left = -5.0
+margin_right = 5.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
