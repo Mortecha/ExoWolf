@@ -3,7 +3,7 @@ extends KinematicBody
 export var gravity : Vector3 = Vector3.DOWN * 9.8
 var velocity : Vector3 = Vector3.ZERO
 
-const MAX_ALTITUDE = 25
+const MAX_ALTITUDE = 15
 
 const TILT_COEF = 15 		# The max amount of tilt, Higher value less tilt  
 const TILT_RESP = 4 		# The responsiveness of the tilting
@@ -20,6 +20,12 @@ var strafe_speed : float = 0.0
 var max_strafe_speed : float = 25.0
 
 var global_direction : Vector3
+
+onready var turret_rotator = $"Chassis/Turret Barrel Rotator"
+onready var turret_base = $"Chassis/Turret Barrel Rotator/Turret Base"
+onready var barrels = $"Chassis/Turret Barrel Rotator/Turret Base/Barrels"
+onready var sensor_mount = $Chassis/Mount
+onready var sensor = $Chassis/Mount/Sensors
 
 func _ready():
 	pass
@@ -124,3 +130,9 @@ func dampen_strafing():
 		strafe_speed += move_damp_coef
 	else:
 		strafe_speed = 0
+
+func rotate_turret():
+	pass
+	
+func fire_minigun():
+	pass

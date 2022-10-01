@@ -5,11 +5,12 @@ code = "shader_type spatial;
 uniform sampler2D grass_texture;
 uniform sampler2D rock_texture;
 uniform sampler2D sand_texture;
+uniform sampler2D wet_sand_texture;
 
-uniform float min_rock_slope:hint_range(0.0f,1.0f) = 0.25;
-uniform float max_grass_slope:hint_range(0.0f,1.0f) = 0.35;
-uniform float min_rockgrass_height = 7.0;
-uniform float max_sand_height = 10.0f;
+uniform float min_rock_slope:hint_range(0.0f,1.0f) = 0.9;
+uniform float max_grass_slope:hint_range(0.0f,1.0f) = 1.0;
+uniform float min_rockgrass_height = -15.0f;
+uniform float max_sand_height = -10.0f;
 
 varying float normal_y;
 varying float vertex_y;
@@ -47,6 +48,6 @@ void fragment(){
 	ALBEDO = mix(sand_albedo, rockgrass_albedo, sand_rockgrass_weight);
 	
 	ROUGHNESS = 0.5;
-	METALLIC = 0.25;
+	METALLIC = 0.45;
 	SPECULAR = 0.0;
 }"

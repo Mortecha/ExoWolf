@@ -15,7 +15,7 @@
 
 [sub_resource type="ShaderMaterial" id=8]
 shader = ExtResource( 11 )
-shader_param/battery = 2.0
+shader_param/battery = 0.05
 shader_param/anchor = -0.5
 shader_param/speed_scale = -1.0
 shader_param/fov = 0.01
