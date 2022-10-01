@@ -39,9 +39,9 @@ __meta__ = {
 }
 
 [node name="resume" type="Button" parent="Buttons"]
-margin_top = 255.0
+margin_top = 735.0
 margin_right = 230.0
-margin_bottom = 285.0
+margin_bottom = 765.0
 grow_vertical = 0
 rect_min_size = Vector2( 0, 30 )
 custom_fonts/font = ExtResource( 6 )
@@ -57,9 +57,9 @@ align = 0
 material = SubResource( 2 )
 
 [node name="settings" type="Button" parent="Buttons"]
-margin_top = 290.0
+margin_top = 770.0
 margin_right = 230.0
-margin_bottom = 320.0
+margin_bottom = 800.0
 grow_vertical = 0
 rect_min_size = Vector2( 0, 30 )
 custom_fonts/font = ExtResource( 6 )
@@ -75,9 +75,9 @@ align = 0
 material = SubResource( 2 )
 
 [node name="msens_slider" type="Panel" parent="Buttons"]
-margin_top = 325.0
+margin_top = 805.0
 margin_right = 230.0
-margin_bottom = 355.0
+margin_bottom = 835.0
 grow_vertical = 0
 rect_min_size = Vector2( 0, 30 )
 custom_styles/panel = ExtResource( 4 )
@@ -95,9 +95,9 @@ max_value = 99.0
 value = 75.0
 
 [node name="restart" type="Button" parent="Buttons"]
-margin_top = 360.0
+margin_top = 840.0
 margin_right = 230.0
-margin_bottom = 390.0
+margin_bottom = 870.0
 grow_vertical = 0
 rect_min_size = Vector2( 0, 30 )
 custom_fonts/font = ExtResource( 6 )
@@ -113,9 +113,9 @@ align = 0
 material = SubResource( 2 )
 
 [node name="menu" type="Button" parent="Buttons"]
-margin_top = 395.0
+margin_top = 875.0
 margin_right = 230.0
-margin_bottom = 425.0
+margin_bottom = 905.0
 grow_vertical = 0
 rect_min_size = Vector2( 0, 30 )
 custom_fonts/font = ExtResource( 6 )
@@ -131,9 +131,9 @@ align = 0
 material = SubResource( 2 )
 
 [node name="quit" type="Button" parent="Buttons"]
-margin_top = 430.0
+margin_top = 910.0
 margin_right = 230.0
-margin_bottom = 460.0
+margin_bottom = 940.0
 grow_vertical = 0
 rect_min_size = Vector2( 0, 30 )
 custom_fonts/font = ExtResource( 6 )
