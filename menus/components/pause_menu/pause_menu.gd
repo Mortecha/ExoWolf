@@ -21,12 +21,16 @@ func _on_return_pressed():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _on_restart_mission_pressed():
+	self.is_paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().change_scene(level)
 	
 func _on_settings_pressed():
 	settings_menu.popup_centered()
 
 func _on_main_menu_pressed():
+	self.is_paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().change_scene(main_menu)
 
 func _on_quit_to_desktop_pressed():

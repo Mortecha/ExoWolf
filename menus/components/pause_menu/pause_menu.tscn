@@ -19,7 +19,7 @@ shader_param/amount = 2.0
 [node name="PauseMenu" type="CanvasLayer"]
 pause_mode = 2
 script = ExtResource( 3 )
-main_menu = "res://menus/main_menu.tscn"
+main_menu = "res://menus/main_menu/main_menu.tscn"
 level = "res://scenes/levels/level1.tscn"
 
 [node name="Background" type="ColorRect" parent="."]
