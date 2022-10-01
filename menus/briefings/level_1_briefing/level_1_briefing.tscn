@@ -19,7 +19,7 @@ bg_color = Color( 0, 0, 0, 0.294118 )
 
 [node name="Briefing_1" type="CanvasLayer"]
 script = ExtResource( 1 )
-main_menu = "res://menus/start_screen.tscn"
+main_menu = "res://menus/main_menu/main_menu.tscn"
 level = "res://scenes/levels/level1.tscn"
 
 [node name="BackgroundImage" type="TextureRect" parent="."]
@@ -48,24 +48,6 @@ grow_vertical = 0
 custom_constants/separation = 5
 alignment = 2
 
-[node name="start" type="Button" parent="InGameMenu2/Buttons"]
-margin_top = 935.0
-margin_right = 260.0
-margin_bottom = 965.0
-grow_vertical = 0
-rect_min_size = Vector2( 0, 30 )
-custom_fonts/font = ExtResource( 13 )
-custom_styles/hover = ExtResource( 5 )
-custom_styles/pressed = ExtResource( 6 )
-custom_styles/focus = ExtResource( 4 )
-custom_styles/disabled = ExtResource( 6 )
-custom_styles/normal = ExtResource( 4 )
-text = " Start"
-align = 0
-
-[node name="BlurBackground" parent="InGameMenu2/Buttons/start" instance=ExtResource( 12 )]
-material = SubResource( 1 )
-
 [node name="main_menu" type="Button" parent="InGameMenu2/Buttons"]
 margin_top = 970.0
 margin_right = 260.0
@@ -88,8 +70,8 @@ material = SubResource( 1 )
 modulate = Color( 0, 1, 0.392157, 1 )
 margin_left = 40.0
 margin_top = 40.0
-margin_right = 550.0
-margin_bottom = 330.0
+margin_right = 900.0
+margin_bottom = 940.0
 custom_styles/panel = ExtResource( 4 )
 
 [node name="BlurBackground" parent="InGameMenu2/ControlHelp" instance=ExtResource( 12 )]
@@ -113,10 +95,42 @@ text = "Controls:
 [ESC]              Menu toggle
 [MOUSE SCROLL]     3rd person camera zoom in/out"
 
+[node name="Buttons2" type="VBoxContainer" parent="InGameMenu2"]
+modulate = Color( 0, 1, 0.392157, 1 )
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -500.0
+margin_right = -40.0
+margin_bottom = 500.0
+grow_vertical = 0
+custom_constants/separation = 5
+alignment = 2
+
+[node name="start_mission" type="Button" parent="InGameMenu2/Buttons2"]
+margin_top = 970.0
+margin_right = 260.0
+margin_bottom = 1000.0
+grow_vertical = 0
+rect_min_size = Vector2( 0, 30 )
+custom_fonts/font = ExtResource( 13 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 4 )
+text = " Start Mission"
+align = 0
+
+[node name="BlurBackground" parent="InGameMenu2/Buttons2/start_mission" instance=ExtResource( 12 )]
+material = SubResource( 1 )
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 autoplay = true
 
-[connection signal="pressed" from="InGameMenu2/Buttons/start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="InGameMenu2/Buttons/main_menu" to="InGameMenu2" method="_on_quit_pressed"]
 [connection signal="pressed" from="InGameMenu2/Buttons/main_menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="InGameMenu2/Buttons/main_menu" to="InGameMenu2" method="_on_quit_pressed"]
+[connection signal="pressed" from="InGameMenu2/Buttons2/start_mission" to="." method="_on_start_mission_pressed"]

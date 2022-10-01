@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://menus/start_screen.gd" type="Script" id=1]
+[ext_resource path="res://menus/main_menu/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://themes/default.theme" type="Theme" id=2]
 [ext_resource path="res://assets/prototype_textures/PNG/Green/texture_01.png" type="Texture" id=3]
 [ext_resource path="res://assets/prototype_textures/PNG/Dark/texture_01.png" type="Texture" id=4]
