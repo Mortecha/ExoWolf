@@ -20,19 +20,34 @@ var look_target : Vector3 = Vector3()
 
 onready var player = $ExoWolf as KinematicBody
 onready var camera = $CameraRig/CameraGimbal/Camera as Camera
+
 onready var compass : HBoxContainer = $InGameMenu/Compass/Panel/Clip/HBoxContainer
 onready var compass_degree : Label = $InGameMenu/Compass/Panel/DegreeContainer/degree
 
 var time_delta
 
+# Minimap
+export var minimap_zoom = 1.5
+onready var minimap_grid = $InGameMenu/MiniMap/MiniMap/Grid
+onready var minimap_player_marker = $InGameMenu/MiniMap/MiniMap/Grid/PlayerMarker
+onready var minimap_enemy_marker = $InGameMenu/MiniMap/MiniMap/Grid/EnemyMarker
+onready var minimap_icons = {"enemy" : minimap_enemy_marker}
+var minimap_grid_scale # Size of the world down to the size of the map
+var minimap_markers = {}
+
 func _ready():
 	OS.window_fullscreen = true
+	
+	# Minimap
+	minimap_player_marker.position = minimap_grid.rect_size / 2
+	minimap_grid_scale = minimap_grid.rect_size / (minimap_grid.get_parent().get_viewport_rect().size * minimap_zoom)
 	
 func _physics_process(delta):
 	time_delta = delta
 	cam_movement()
 	player_mouse_look()
 	update_compass(player.rotation_degrees.y)
+	update_minimap(player.rotation_degrees.y)
 
 func cam_movement():
 	mouse_player_interpolation()
@@ -69,3 +84,6 @@ func update_compass(var angle : float):
 	if degree < 1:
 		degree = angle + 360
 	compass_degree.set_text("%s" % Globals.invert_by_max(degree, 360))
+
+func update_minimap(var angle : float):
+	minimap_player_marker.rotation = deg2rad(-angle)

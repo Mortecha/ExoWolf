@@ -1,16 +1,24 @@
 extends MarginContainer
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+#export (NodePath) var player
+#export var zoom = 1.5
+#
+#onready var grid = $Grid
+#onready var player_marker = $Grid/PlayerMarker
+#onready var enemy_marker = $Grid/EnemyMarker
+#
+#onready var icons = {"enemy" : enemy_marker}
+#
+#var grid_scale # Size of the world down to the size of the map
+#var markers = {}
+#
+#func _ready():
+#	player_marker.position = grid.rect_size / 2
+#	grid_scale = grid.rect_size / (get_viewport_rect().size * zoom)
+#
 #func _process(delta):
-#	pass
+#	if !player:
+#		return
+#
+#	player_marker.rotation = player.rotation
+#	#.rotation + PI / 2
