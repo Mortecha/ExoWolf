@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://menus/briefings/level_1_briefing/level_1_briefing.gd" type="Script" id=1]
 [ext_resource path="res://menus/briefings/level_1_briefing/images/briefing_background.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://heli_test/ui/styles/button/button_hover.tres" type="StyleBox" id=5]
 [ext_resource path="res://heli_test/ui/styles/button/button_pressed.tres" type="StyleBox" id=6]
 [ext_resource path="res://heli_test/shaders/canvas_blur.shader" type="Shader" id=7]
+[ext_resource path="res://menus/briefings/level_1_briefing/images/2022-10-03 00_49_05-Window.png" type="Texture" id=8]
 [ext_resource path="res://heli_test/ui/nodes/BlurBackground.tscn" type="PackedScene" id=12]
 [ext_resource path="res://heli_test/ui/fonts/JetBrainsMono/JetBrainsMono.tres" type="DynamicFont" id=13]
 
@@ -66,35 +67,6 @@ align = 0
 [node name="BlurBackground" parent="InGameMenu2/Buttons/main_menu" instance=ExtResource( 12 )]
 material = SubResource( 1 )
 
-[node name="ControlHelp" type="Panel" parent="InGameMenu2"]
-modulate = Color( 0, 1, 0.392157, 1 )
-margin_left = 40.0
-margin_top = 40.0
-margin_right = 900.0
-margin_bottom = 940.0
-custom_styles/panel = ExtResource( 4 )
-
-[node name="BlurBackground" parent="InGameMenu2/ControlHelp" instance=ExtResource( 12 )]
-modulate = Color( 0.52549, 0.52549, 0.52549, 1 )
-
-[node name="RichTextLabel" type="RichTextLabel" parent="InGameMenu2/ControlHelp"]
-margin_left = 14.0
-margin_top = 14.0
-margin_right = 496.0
-margin_bottom = 276.0
-custom_fonts/normal_font = ExtResource( 13 )
-text = "Controls:
-[MOUSE] or [WASD]  Move helicopter
-[SHIFT] or [Z]     Lift up/down
-[Q]     or [E]     Pedal left/right
-[ALT]   +  [MOUSE] Camera freelook
-[C]                Camera toggle
-[G]                Gear toggle
-[P]                Power toggle
-[F5]               Reset scene
-[ESC]              Menu toggle
-[MOUSE SCROLL]     3rd person camera zoom in/out"
-
 [node name="Buttons2" type="VBoxContainer" parent="InGameMenu2"]
 modulate = Color( 0, 1, 0.392157, 1 )
 anchor_left = 1.0
@@ -130,6 +102,127 @@ material = SubResource( 1 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 autoplay = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 1880.0
+margin_bottom = 964.0
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer"]
+margin_right = 1840.0
+margin_bottom = 924.0
+split_offset = 920
+
+[node name="ControlHelp" type="Panel" parent="MarginContainer/HSplitContainer"]
+modulate = Color( 0, 1, 0.392157, 1 )
+margin_right = 920.0
+margin_bottom = 924.0
+custom_styles/panel = ExtResource( 4 )
+
+[node name="BlurBackground" parent="MarginContainer/HSplitContainer/ControlHelp" instance=ExtResource( 12 )]
+modulate = Color( 0.52549, 0.52549, 0.52549, 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HSplitContainer/ControlHelp"]
+margin_left = 14.0
+margin_top = 14.0
+margin_right = 496.0
+margin_bottom = 276.0
+custom_fonts/normal_font = ExtResource( 13 )
+text = "Controls:
+[MOUSE] or [WASD]  Move helicopter
+[SHIFT] or [Z]     Lift up/down
+[Q]     or [E]     Pedal left/right
+[ALT]   +  [MOUSE] Camera freelook
+[C]                Camera toggle
+[G]                Gear toggle
+[P]                Power toggle
+[F5]               Reset scene
+[ESC]              Menu toggle
+[MOUSE SCROLL]     3rd person camera zoom in/out"
+
+[node name="ControlHelp2" type="Panel" parent="MarginContainer/HSplitContainer/ControlHelp"]
+margin_right = 1840.0
+margin_bottom = 924.0
+custom_styles/panel = ExtResource( 4 )
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HSplitContainer/ControlHelp/ControlHelp2"]
+margin_left = 14.0
+margin_top = 14.0
+margin_right = 915.0
+margin_bottom = 990.0
+texture = ExtResource( 8 )
+stretch_mode = 4
+
+[node name="ControlHelp2" type="Panel" parent="MarginContainer/HSplitContainer"]
+modulate = Color( 0, 1, 0.392157, 1 )
+margin_left = 932.0
+margin_right = 1840.0
+margin_bottom = 924.0
+custom_styles/panel = ExtResource( 4 )
+
+[node name="BlurBackground" parent="MarginContainer/HSplitContainer/ControlHelp2" instance=ExtResource( 12 )]
+modulate = Color( 0.52549, 0.52549, 0.52549, 1 )
+
+[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/HSplitContainer/ControlHelp2"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 893.0
+margin_bottom = 899.0
+split_offset = 500
+
+[node name="ControlHelp" type="Panel" parent="MarginContainer/HSplitContainer/ControlHelp2/VSplitContainer"]
+margin_right = 878.0
+margin_bottom = 500.0
+custom_styles/panel = ExtResource( 4 )
+
+[node name="BlurBackground" parent="MarginContainer/HSplitContainer/ControlHelp2/VSplitContainer/ControlHelp" instance=ExtResource( 12 )]
+modulate = Color( 0.52549, 0.52549, 0.52549, 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HSplitContainer/ControlHelp2/VSplitContainer/ControlHelp"]
+margin_left = 14.0
+margin_top = 14.0
+margin_right = 496.0
+margin_bottom = 276.0
+custom_fonts/normal_font = ExtResource( 13 )
+text = "Controls:
+[MOUSE] or [WASD]  Move helicopter
+[SHIFT] or [Z]     Lift up/down
+[Q]     or [E]     Pedal left/right
+[ALT]   +  [MOUSE] Camera freelook
+[C]                Camera toggle
+[G]                Gear toggle
+[P]                Power toggle
+[F5]               Reset scene
+[ESC]              Menu toggle
+[MOUSE SCROLL]     3rd person camera zoom in/out"
+
+[node name="ControlHelp2" type="Panel" parent="MarginContainer/HSplitContainer/ControlHelp2/VSplitContainer"]
+margin_top = 512.0
+margin_right = 878.0
+margin_bottom = 884.0
+custom_styles/panel = ExtResource( 4 )
+
+[node name="BlurBackground" parent="MarginContainer/HSplitContainer/ControlHelp2/VSplitContainer/ControlHelp2" instance=ExtResource( 12 )]
+modulate = Color( 0.52549, 0.52549, 0.52549, 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HSplitContainer/ControlHelp2/VSplitContainer/ControlHelp2"]
+margin_left = 14.0
+margin_top = 14.0
+margin_right = 496.0
+margin_bottom = 276.0
+custom_fonts/normal_font = ExtResource( 13 )
+text = "Controls:
+[MOUSE] or [WASD]  Move helicopter
+[SHIFT] or [Z]     Lift up/down
+[Q]     or [E]     Pedal left/right
+[ALT]   +  [MOUSE] Camera freelook
+[C]                Camera toggle
+[G]                Gear toggle
+[P]                Power toggle
+[F5]               Reset scene
+[ESC]              Menu toggle
+[MOUSE SCROLL]     3rd person camera zoom in/out"
 
 [connection signal="pressed" from="InGameMenu2/Buttons/main_menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="InGameMenu2/Buttons/main_menu" to="InGameMenu2" method="_on_quit_pressed"]
