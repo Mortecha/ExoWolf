@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://heli_test/ui/styles/button/button_normal.tres" type="StyleBox" id=1]
 [ext_resource path="res://heli_test/ui/styles/button/button_hover.tres" type="StyleBox" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://heli_test/ui/fonts/JetBrainsMono/JetBrainsMono.tres" type="DynamicFont" id=14]
 [ext_resource path="res://fonts/Lato-Regular.ttf" type="DynamicFontData" id=15]
 [ext_resource path="res://shaders/main_menu_grid_shader.tres" type="Shader" id=16]
+[ext_resource path="res://menus/components/ControlHelp.tscn" type="PackedScene" id=17]
 
 [sub_resource type="ShaderMaterial" id=10]
 shader = ExtResource( 5 )
@@ -174,34 +175,7 @@ align = 0
 [node name="BlurBackground" parent="InGameMenu2/Buttons/quit" instance=ExtResource( 12 )]
 material = SubResource( 10 )
 
-[node name="ControlHelp" type="Panel" parent="InGameMenu2"]
-modulate = Color( 0, 1, 0.392157, 1 )
-margin_left = 40.0
-margin_top = 40.0
-margin_right = 550.0
-margin_bottom = 330.0
-custom_styles/panel = ExtResource( 1 )
-
-[node name="BlurBackground" parent="InGameMenu2/ControlHelp" instance=ExtResource( 12 )]
-modulate = Color( 0.52549, 0.52549, 0.52549, 1 )
-
-[node name="RichTextLabel" type="RichTextLabel" parent="InGameMenu2/ControlHelp"]
-margin_left = 14.0
-margin_top = 14.0
-margin_right = 496.0
-margin_bottom = 276.0
-custom_fonts/normal_font = ExtResource( 14 )
-text = "Controls:
-[MOUSE] or [WASD]  Move helicopter
-[SHIFT] or [Z]     Lift up/down
-[Q]     or [E]     Pedal left/right
-[ALT]   +  [MOUSE] Camera freelook
-[C]                Camera toggle
-[G]                Gear toggle
-[P]                Power toggle
-[F5]               Reset scene
-[ESC]              Menu toggle
-[MOUSE SCROLL]     3rd person camera zoom in/out"
+[node name="ControlHelp" parent="InGameMenu2" instance=ExtResource( 17 )]
 
 [node name="LabelExoWolfVersion" type="Label" parent="InGameMenu2"]
 modulate = Color( 0, 1, 0.392157, 1 )

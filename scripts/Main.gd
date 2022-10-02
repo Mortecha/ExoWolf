@@ -20,7 +20,6 @@ var look_target : Vector3 = Vector3()
 
 onready var player = $ExoWolf as KinematicBody
 onready var camera = $CameraRig/CameraGimbal/Camera as Camera
-#onready var compas = $InGameMenu/Compass
 onready var compass : HBoxContainer = $InGameMenu/Compass/Panel/Clip/HBoxContainer
 onready var compass_degree : Label = $InGameMenu/Compass/Panel/DegreeContainer/degree
 
@@ -41,7 +40,6 @@ func cam_movement():
 	$CameraRig.transform.origin.y = 0.0
 	$CameraRig.transform.origin.z = clamp($CameraRig.transform.origin.z, CAMERA_MIN_Z, CAMERA_MAX_Z)
 	
-
 func mouse_player_interpolation():
 	#$CameraRig.transform.origin = player.transform.origin
 	var target_position : Vector3 = (look_target + player.transform.origin) / 2

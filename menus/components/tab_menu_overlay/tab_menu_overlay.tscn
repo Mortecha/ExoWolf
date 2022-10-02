@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://menus/components/tab_menu_overlay/tab_menu_overlay.gd" type="Script" id=1]
 [ext_resource path="res://themes/default.theme" type="Theme" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://heli_test/ui/styles/panel_wireframe_rounded_5.tres" type="StyleBox" id=14]
 [ext_resource path="res://heli_test/ui/fonts/JetBrainsMono/JetBrainsMono.tres" type="DynamicFont" id=15]
 [ext_resource path="res://heli_test/ui/styles/panel_transparent.tres" type="StyleBox" id=16]
+[ext_resource path="res://menus/components/ControlHelp.tscn" type="PackedScene" id=17]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.294118 )
@@ -236,34 +237,7 @@ align = 0
 [node name="BlurBackground" parent="InGameMenu/Buttons/quit" instance=ExtResource( 13 )]
 material = SubResource( 2 )
 
-[node name="ControlHelp" type="Panel" parent="InGameMenu"]
-modulate = Color( 0, 1, 0.392157, 1 )
-margin_left = 40.0
-margin_top = 40.0
-margin_right = 550.0
-margin_bottom = 330.0
-custom_styles/panel = ExtResource( 3 )
-
-[node name="BlurBackground" parent="InGameMenu/ControlHelp" instance=ExtResource( 13 )]
-modulate = Color( 0.52549, 0.52549, 0.52549, 1 )
-
-[node name="RichTextLabel" type="RichTextLabel" parent="InGameMenu/ControlHelp"]
-margin_left = 14.0
-margin_top = 14.0
-margin_right = 496.0
-margin_bottom = 276.0
-custom_fonts/normal_font = ExtResource( 15 )
-text = "Controls:
-[MOUSE] or [WASD]  Move helicopter
-[SHIFT] or [Z]     Lift up/down
-[Q]     or [E]     Pedal left/right
-[ALT]   +  [MOUSE] Camera freelook
-[C]                Camera toggle
-[G]                Gear toggle
-[P]                Power toggle
-[F5]               Reset scene
-[ESC]              Menu toggle
-[MOUSE SCROLL]     3rd person camera zoom in/out"
+[node name="ControlHelp" parent="InGameMenu" instance=ExtResource( 17 )]
 
 [node name="LabelFPS2" type="Label" parent="InGameMenu"]
 modulate = Color( 0, 1, 0.392157, 1 )
