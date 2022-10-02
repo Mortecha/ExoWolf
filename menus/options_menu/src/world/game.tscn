@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/player/player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://menus/components/fps_label/fps_label.tscn" type="PackedScene" id=2]
+[ext_resource path="res://hud/fps_label/fps_label.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/prototype_textures/Vector/texture_01.svg" type="Texture" id=3]
 [ext_resource path="res://assets/prototype_textures/PNG/Green/texture_01.png" type="Texture" id=4]
 [ext_resource path="res://assets/prototype_textures/PNG/Orange/texture_01.png" type="Texture" id=5]

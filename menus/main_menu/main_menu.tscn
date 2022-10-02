@@ -5,7 +5,7 @@
 [ext_resource path="res://heli_test/ui/styles/button/button_pressed.tres" type="StyleBox" id=3]
 [ext_resource path="res://menus/main_menu/main_menu.gd" type="Script" id=4]
 [ext_resource path="res://heli_test/shaders/canvas_blur.shader" type="Shader" id=5]
-[ext_resource path="res://menus/components/fps_label/fps_label.gd" type="Script" id=6]
+[ext_resource path="res://hud/fps_label/fps_label.gd" type="Script" id=6]
 [ext_resource path="res://menus/main_menu/images/title.png" type="Texture" id=7]
 [ext_resource path="res://audio/music/White Bat Audio - Man Bat.mp3" type="AudioStream" id=8]
 [ext_resource path="res://menus/main_menu/images/main_logo.png" type="Texture" id=9]

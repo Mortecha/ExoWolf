@@ -9,7 +9,7 @@
 [ext_resource path="res://menus/components/settings_menu/settings_menu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://fonts/main_menu.tres" type="DynamicFont" id=8]
 [ext_resource path="res://assets/fonts/Lato-Regular.ttf" type="DynamicFontData" id=9]
-[ext_resource path="res://menus/components/fps_label/fps_label.gd" type="Script" id=10]
+[ext_resource path="res://hud/fps_label/fps_label.gd" type="Script" id=10]
 [ext_resource path="res://src/world/world_environment.tscn" type="PackedScene" id=11]
 
 [sub_resource type="SpatialMaterial" id=1]

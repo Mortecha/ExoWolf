@@ -26,7 +26,7 @@ func _on_restart_mission_pressed():
 	get_tree().change_scene(level)
 	
 func _on_settings_pressed():
-	settings_menu.popup_centered()
+	settings_menu.show()
 
 func _on_main_menu_pressed():
 	self.is_paused = false

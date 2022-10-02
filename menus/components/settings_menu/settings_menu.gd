@@ -1,4 +1,4 @@
-extends Popup
+extends Panel
 
 # Video Settings
 onready var display_options = $SettingTabs/Video/MarginContainer/VideoSettings/DisplayOptions
@@ -22,19 +22,19 @@ onready var mouse_slider = $SettingTabs/GamePlay/MarginContainer3/GameplaySettin
 
 
 func _ready():
-	
-	display_options.select(1 if Save.game_data.fullscreen_on else 0)
-	GlobalSettings.toggle_fullscreen(Save.game_data.fullscreen_on)
-	vsync_btn.pressed = Save.game_data.vsync_on
-	display_fps_btn.pressed = Save.game_data.display_fps
-	max_fps_slider.value = Save.game_data.max_fps
-	bloom_btn.pressed = Save.game_data.bloom_on
-	brightness_slider.value = Save.game_data.brightness
-	
-	master_slider.value = Save.game_data.master_vol
-	
-	fov_slider.value = Save.game_data.fov
-	mouse_slider.value = Save.game_data.mouse_sens
+	pass
+#	display_options.select(1 if Save.game_data.fullscreen_on else 0)
+#	GlobalSettings.toggle_fullscreen(Save.game_data.fullscreen_on)
+#	vsync_btn.pressed = Save.game_data.vsync_on
+#	display_fps_btn.pressed = Save.game_data.display_fps
+#	max_fps_slider.value = Save.game_data.max_fps
+#	bloom_btn.pressed = Save.game_data.bloom_on
+#	brightness_slider.value = Save.game_data.brightness
+#
+#	master_slider.value = Save.game_data.master_vol
+#
+#	fov_slider.value = Save.game_data.fov
+#	mouse_slider.value = Save.game_data.mouse_sens
 	
 
 

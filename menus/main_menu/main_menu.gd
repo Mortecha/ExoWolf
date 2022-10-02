@@ -9,7 +9,7 @@ func _on_start_pressed():
 	get_tree().change_scene(level)
 
 func _on_settings_pressed():
-	settings_menu.popup_centered()
+	settings_menu.show()
 
 func _on_quit_pressed():
 	get_tree().quit()
