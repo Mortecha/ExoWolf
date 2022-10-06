@@ -27,11 +27,12 @@ onready var compass_degree : Label = $InGameMenu/Compass/Panel/DegreeContainer/d
 var time_delta
 
 # Minimap
-export var minimap_zoom = 1.5
+export var minimap_zoom = .25
 onready var minimap_grid = $InGameMenu/MiniMap/MiniMap/Grid
 onready var minimap_player_marker = $InGameMenu/MiniMap/MiniMap/Grid/PlayerMarker
 onready var minimap_enemy_marker = $InGameMenu/MiniMap/MiniMap/Grid/EnemyMarker
 onready var minimap_icons = {"enemy" : minimap_enemy_marker}
+var minimap_edge_offset = 10
 var minimap_grid_scale # Size of the world down to the size of the map
 var minimap_markers = {}
 
@@ -41,6 +42,12 @@ func _ready():
 	# Minimap
 	minimap_player_marker.position = minimap_grid.rect_size / 2
 	minimap_grid_scale = minimap_grid.rect_size / (minimap_grid.get_parent().get_viewport_rect().size * minimap_zoom)
+	var enemies = $Enemies.get_children()#.get_nodes_in_group(minimap_objects)
+	for enemy in enemies:
+		var new_enemy_marker = minimap_enemy_marker.duplicate()
+		minimap_grid.add_child(new_enemy_marker)
+		new_enemy_marker.show()
+		minimap_markers[enemy] = new_enemy_marker
 	
 func _physics_process(delta):
 	time_delta = delta
@@ -87,3 +94,20 @@ func update_compass(var angle : float):
 
 func update_minimap(var angle : float):
 	minimap_player_marker.rotation = deg2rad(-angle)
+	
+	for marker in minimap_markers:
+		var marker_pos = Vector2(marker.transform.origin.x, marker.transform.origin.z)
+		var player_pos = Vector2(player.transform.origin.x, player.transform.origin.z)
+		var marker_position = (marker_pos - player_pos) * minimap_grid_scale + minimap_grid.rect_size / 2
+		var dist_from_center = (minimap_grid.rect_size / 2).distance_to(marker_position)
+		var detection_range = 125
+		if minimap_grid.get_rect().has_point(marker_position + minimap_grid.rect_position) and dist_from_center < detection_range:
+			#minimap_markers[marker].scale = Vector2(0.2, 0.2)
+			if !minimap_markers[marker].visible:
+				minimap_markers[marker].show()
+		else:
+			minimap_markers[marker].hide()
+
+		marker_position.x = clamp(marker_position.x, minimap_edge_offset, minimap_grid.rect_size.x - minimap_edge_offset)
+		marker_position.y = clamp(marker_position.y, minimap_edge_offset, minimap_grid.rect_size.y - minimap_edge_offset)
+		minimap_markers[marker].position = marker_position

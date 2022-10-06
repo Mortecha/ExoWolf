@@ -130,16 +130,16 @@ margin_right = 496.0
 margin_bottom = 276.0
 custom_fonts/normal_font = ExtResource( 13 )
 text = "Controls:
-[MOUSE] or [WASD]  Move helicopter
-[SHIFT] or [Z]     Lift up/down
-[Q]     or [E]     Pedal left/right
-[ALT]   +  [MOUSE] Camera freelook
-[C]                Camera toggle
-[G]                Gear toggle
-[P]                Power toggle
-[F5]               Reset scene
-[ESC]              Menu toggle
-[MOUSE SCROLL]     3rd person camera zoom in/out"
+[WASD]			   Move helicopter
+[SPACE] 			 Decrease Altitude
+[LCTRL] 			 Increase Altitude
+
+[LMOUSE]			 Fire Chain Gun
+[RMOUSE]			 Fire Missiles or Rockets
+[MOUSE WHEEL]		Select Missiles or Rockets
+
+[T]				  Select Target
+[T] + [LSHIFT]	   Deselect Target"
 
 [node name="ControlHelp2" type="Panel" parent="MarginContainer/HSplitContainer/ControlHelp"]
 margin_right = 1840.0
@@ -178,16 +178,16 @@ margin_right = 496.0
 margin_bottom = 276.0
 custom_fonts/normal_font = ExtResource( 13 )
 text = "Controls:
-[MOUSE] or [WASD]  Move helicopter
-[SHIFT] or [Z]     Lift up/down
-[Q]     or [E]     Pedal left/right
-[ALT]   +  [MOUSE] Camera freelook
-[C]                Camera toggle
-[G]                Gear toggle
-[P]                Power toggle
-[F5]               Reset scene
-[ESC]              Menu toggle
-[MOUSE SCROLL]     3rd person camera zoom in/out"
+[WASD]			   Move helicopter
+[SPACE] 			 Decrease Altitude
+[LCTRL] 			 Increase Altitude
+
+[LMOUSE]			 Fire Chain Gun
+[RMOUSE]			 Fire Missiles or Rockets
+[MOUSE WHEEL]		Select Missiles or Rockets
+
+[T]				  Select Target
+[T] + [LSHIFT]	   Deselect Target"
 
 [node name="ControlHelp2" type="Panel" parent="MarginContainer/HSplitContainer/ControlHelp2/VSplitContainer"]
 margin_top = 512.0
@@ -205,16 +205,16 @@ margin_right = 496.0
 margin_bottom = 276.0
 custom_fonts/normal_font = ExtResource( 13 )
 text = "Controls:
-[MOUSE] or [WASD]  Move helicopter
-[SHIFT] or [Z]     Lift up/down
-[Q]     or [E]     Pedal left/right
-[ALT]   +  [MOUSE] Camera freelook
-[C]                Camera toggle
-[G]                Gear toggle
-[P]                Power toggle
-[F5]               Reset scene
-[ESC]              Menu toggle
-[MOUSE SCROLL]     3rd person camera zoom in/out"
+[WASD]			   Move helicopter
+[SPACE] 			 Decrease Altitude
+[LCTRL] 			 Increase Altitude
+
+[LMOUSE]			 Fire Chain Gun
+[RMOUSE]			 Fire Missiles or Rockets
+[MOUSE WHEEL]		Select Missiles or Rockets
+
+[T]				  Select Target
+[T] + [LSHIFT]	   Deselect Target"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_left = 52.0
