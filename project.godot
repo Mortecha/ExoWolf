@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Spatial",
 "class": "Turret",
 "language": "GDScript",
-"path": "res://scripts/Turret.gd"
+"path": "res://turret_test/Turret.gd"
 } ]
 _global_script_class_icons={
 "CustomGradientTexture": "",
