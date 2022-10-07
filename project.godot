@@ -13,9 +13,21 @@ _global_script_classes=[ {
 "class": "CustomGradientTexture",
 "language": "GDScript",
 "path": "res://assets/maujoe.custom_gradient_texture/custom_gradient_texture.gd"
+}, {
+"base": "Spatial",
+"class": "TankTurret",
+"language": "GDScript",
+"path": "res://turret_test/Tank/Tank.gd"
+}, {
+"base": "Spatial",
+"class": "Turret",
+"language": "GDScript",
+"path": "res://scripts/Turret.gd"
 } ]
 _global_script_class_icons={
-"CustomGradientTexture": ""
+"CustomGradientTexture": "",
+"TankTurret": "",
+"Turret": ""
 }
 
 [application]

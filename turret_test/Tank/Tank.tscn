@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://turret_test/Tank/Tank.glb" type="PackedScene" id=1]
+[ext_resource path="res://turret_test/Tank/Tank.gd" type="Script" id=2]
+
+[node name="Tank" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+body_path = NodePath("Hinge/Turret")
+head_path = NodePath("Hinge/Turret/Barrel")
