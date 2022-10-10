@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://scripts/Rotor.gd" type="Script" id=1]
 [ext_resource path="res://materials/zenith_blue.tres" type="Material" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scripts/ExoWolf.gd" type="Script" id=7]
 [ext_resource path="res://audio/sound/helicopter_engine/MD500_Flug.wav" type="AudioStream" id=8]
 [ext_resource path="res://vehicles/PlayerHelicopter/HelicopterEngineAudioStreamPlayer3D.gd" type="Script" id=9]
+[ext_resource path="res://vehicles/PlayerHelicopter/ExowolfTurret.gd" type="Script" id=10]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "ExoWolf_Ambassador Gunship058"
@@ -361,7 +362,7 @@ skeleton = NodePath("../..")
 material/0 = ExtResource( 3 )
 
 [node name="Turret Base" type="MeshInstance" parent="Chassis/Turret Barrel Rotator"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00448267, 0.138396, -0.0683084 )
+transform = Transform( 0.999963, -1.0278e-09, -0.00862182, 1.0278e-09, 1, -4.42668e-12, 0.00862182, -4.46221e-12, 0.999963, -0.00448267, 0.138396, -0.0683084 )
 mesh = SubResource( 14 )
 skeleton = NodePath("../../..")
 material/0 = ExtResource( 3 )
@@ -407,3 +408,8 @@ unit_size = 4.0
 autoplay = true
 max_distance = 2000.0
 script = ExtResource( 9 )
+
+[node name="Turret" type="Spatial" parent="."]
+script = ExtResource( 10 )
+body_path = NodePath("../Chassis/Turret Barrel Rotator")
+head_path = NodePath("../Chassis/Turret Barrel Rotator/Turret Base")
