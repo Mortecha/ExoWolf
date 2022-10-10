@@ -24,6 +24,7 @@ var global_direction : Vector3
 onready var turret_rotator = $"Chassis/Turret Barrel Rotator"
 onready var turret_base = $"Chassis/Turret Barrel Rotator/Turret Base"
 onready var barrels = $"Chassis/Turret Barrel Rotator/Turret Base/Barrels"
+onready var gun = $"Chassis/Turret Barrel Rotator/Turret Base/Barrels/Gun"
 onready var sensor_mount = $Chassis/Mount
 onready var sensor = $Chassis/Mount/Sensors
 
@@ -130,9 +131,7 @@ func dampen_strafing():
 		strafe_speed += move_damp_coef
 	else:
 		strafe_speed = 0
-
-func rotate_turret():
-	pass
 	
 func fire_minigun():
-	pass
+	print("Firing")
+	gun.shoot()

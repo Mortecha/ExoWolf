@@ -126,3 +126,6 @@ func _get_global_x() -> float:
 
 func set_target(var target):
 	current_target = target
+	
+func fire_chaingun():
+	pass

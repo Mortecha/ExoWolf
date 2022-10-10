@@ -57,9 +57,8 @@ func _physics_process(delta):
 	update_compass(player.rotation_degrees.y)
 	update_minimap(player.rotation_degrees.y)
 	
-	if Input.is_action_pressed("fire_weapon"):
-		pass
-		#gun_controller.shoot()
+	if Input.is_action_pressed("fire_minigun"):
+		player.fire_minigun()
 
 func cam_movement():
 	mouse_player_interpolation()

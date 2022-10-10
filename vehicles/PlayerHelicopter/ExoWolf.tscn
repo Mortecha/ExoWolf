@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://scripts/Rotor.gd" type="Script" id=1]
 [ext_resource path="res://materials/zenith_blue.tres" type="Material" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://audio/sound/helicopter_engine/MD500_Flug.wav" type="AudioStream" id=8]
 [ext_resource path="res://vehicles/PlayerHelicopter/HelicopterEngineAudioStreamPlayer3D.gd" type="Script" id=9]
 [ext_resource path="res://vehicles/PlayerHelicopter/ExowolfTurret.gd" type="Script" id=10]
+[ext_resource path="res://-tests/player_weapons_test/Gun.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "ExoWolf_Ambassador Gunship058"
@@ -372,6 +373,9 @@ transform = Transform( 1.05582, 0.0148887, 0.731493, -1.25626e-07, 0.674134, -0.
 mesh = SubResource( 15 )
 skeleton = NodePath("../../../..")
 material/0 = ExtResource( 3 )
+
+[node name="Gun" parent="Chassis/Turret Barrel Rotator/Turret Base/Barrels" instance=ExtResource( 11 )]
+transform = Transform( 1, -2.37559e-10, 5.56386e-08, 6.60451e-09, 1, -7.45058e-09, 1.15459e-09, 0, 1, 0, 0, 0 )
 
 [node name="Mount" type="MeshInstance" parent="Chassis"]
 transform = Transform( 1.33672, 0, 0, 0, -1.5935e-07, -1.33672, 0, 1.33672, -1.5935e-07, -0.000235044, 1.64341, -5.39633 )
