@@ -1,9 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://heli_test/ui/styles/button/button_normal.tres" type="StyleBox" id=1]
-[ext_resource path="res://heli_test/shaders/canvas_blur.shader" type="Shader" id=2]
-[ext_resource path="res://heli_test/ui/nodes/BlurBackground.tscn" type="PackedScene" id=3]
-[ext_resource path="res://heli_test/ui/fonts/JetBrainsMono/JetBrainsMono.tres" type="DynamicFont" id=4]
+[ext_resource path="res://-tests/heli_test/ui/styles/button/button_normal.tres" type="StyleBox" id=1]
+[ext_resource path="res://-tests/heli_test/shaders/canvas_blur.shader" type="Shader" id=2]
+[ext_resource path="res://-tests/heli_test/ui/nodes/BlurBackground.tscn" type="PackedScene" id=3]
+[ext_resource path="res://-tests/heli_test/ui/fonts/JetBrainsMono/JetBrainsMono.tres" type="DynamicFont" id=4]
+
 
 [sub_resource type="ShaderMaterial" id=11]
 shader = ExtResource( 2 )

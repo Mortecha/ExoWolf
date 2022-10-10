@@ -17,12 +17,12 @@ _global_script_classes=[ {
 "base": "Spatial",
 "class": "TankTurret",
 "language": "GDScript",
-"path": "res://turret_test/Tank/Tank.gd"
+"path": "res://-tests/turret_test/Tank/Tank.gd"
 }, {
 "base": "Spatial",
 "class": "Turret",
 "language": "GDScript",
-"path": "res://turret_test/Turret.gd"
+"path": "res://-tests/turret_test/Turret.gd"
 } ]
 _global_script_class_icons={
 "CustomGradientTexture": "",
@@ -42,7 +42,7 @@ config/icon="res://icon.png"
 Save="*res://src/save/save.gd"
 GlobalSettings="*res://src/global_settings.gd"
 Music="*res://src/music/music.tscn"
-Globals="*res://heli_test/scripts/globals.gd"
+Globals="*res://-tests/heli_test/scripts/globals.gd"
 
 [debug]
 

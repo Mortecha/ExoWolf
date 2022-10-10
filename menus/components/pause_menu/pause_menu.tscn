@@ -1,14 +1,15 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://heli_test/ui/styles/button/button_normal.tres" type="StyleBox" id=1]
+[ext_resource path="res://-tests/heli_test/ui/styles/button/button_normal.tres" type="StyleBox" id=1]
 [ext_resource path="res://menus/components/ControlHelp.tscn" type="PackedScene" id=2]
 [ext_resource path="res://menus/components/pause_menu/pause_menu.gd" type="Script" id=3]
 [ext_resource path="res://menus/components/settings_menu/settings_menu.tscn" type="PackedScene" id=4]
-[ext_resource path="res://heli_test/ui/styles/button/button_hover.tres" type="StyleBox" id=6]
-[ext_resource path="res://heli_test/ui/styles/button/button_pressed.tres" type="StyleBox" id=7]
-[ext_resource path="res://heli_test/shaders/canvas_blur.shader" type="Shader" id=8]
-[ext_resource path="res://heli_test/ui/nodes/BlurBackground.tscn" type="PackedScene" id=13]
-[ext_resource path="res://heli_test/ui/fonts/JetBrainsMono/JetBrainsMono.tres" type="DynamicFont" id=15]
+[ext_resource path="res://-tests/heli_test/ui/styles/button/button_hover.tres" type="StyleBox" id=6]
+[ext_resource path="res://-tests/heli_test/ui/styles/button/button_pressed.tres" type="StyleBox" id=7]
+[ext_resource path="res://-tests/heli_test/shaders/canvas_blur.shader" type="Shader" id=8]
+[ext_resource path="res://-tests/heli_test/ui/nodes/BlurBackground.tscn" type="PackedScene" id=13]
+[ext_resource path="res://-tests/heli_test/ui/fonts/JetBrainsMono/JetBrainsMono.tres" type="DynamicFont" id=15]
+
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.294118 )

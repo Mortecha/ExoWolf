@@ -1,0 +1,243 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://-tests/heli_test/meshes/vehicles/dauphin/dauphin.glb" type="PackedScene" id=1]
+[ext_resource path="res://-tests/heli_test/addons/kenney_prototypes/assets/colors/orange/materials/material_001.tres" type="Material" id=2]
+[ext_resource path="res://-tests/heli_test/addons/kenney_prototypes/assets/colors/dark/materials/material_001.tres" type="Material" id=3]
+[ext_resource path="res://-tests/heli_test/addons/kenney_prototypes/assets/colors/light/materials/material_001.tres" type="Material" id=4]
+[ext_resource path="res://-tests/heli_test/meshes/vehicles/dauphin/dauphinRotorAction.tres" type="Animation" id=5]
+[ext_resource path="res://-tests/heli_test/scripts/dauphin.gd" type="Script" id=6]
+[ext_resource path="res://-tests/heli_test/addons/kenney_prototypes/assets/colors/dark/materials/material_002.tres" type="Material" id=7]
+
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 180, 0 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Body:rotation_degrees:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Body:rotation_degrees:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 180, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Body:rotation_degrees:z")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "backward"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Body:rotation_degrees:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -35, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "forward"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Body:rotation_degrees:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 35, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "left"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Body:rotation_degrees:z")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -70, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "right"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Body:rotation_degrees:z")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 70, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "y_left"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Body:rotation_degrees:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 180, -0.25, 0, 0.25, 0, 200, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "y_right"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Body:rotation_degrees:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 180, -0.25, 0, 0.25, 0, 160, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "backward"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "left"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "right"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "forward"
+
+[sub_resource type="AnimationNodeBlend2" id=18]
+
+[sub_resource type="AnimationNodeAdd2" id=16]
+
+[sub_resource type="AnimationNodeBlend2" id=17]
+filter_enabled = true
+filters = [ "Body:rotation_degrees", "Body:rotation_degrees:x", "Body:rotation_degrees:y", "Body:rotation_degrees:z", "PilotOffset:rotation_degrees:x", "PilotOffset:translation:y", "PilotOffset:translation:z" ]
+
+[sub_resource type="AnimationNodeBlendTree" id=19]
+graph_offset = Vector2( -443.75, -172.188 )
+nodes/Animation/node = SubResource( 15 )
+nodes/Animation/position = Vector2( -350, 175 )
+"nodes/Animation 2/node" = SubResource( 10 )
+"nodes/Animation 2/position" = Vector2( -350, 300 )
+"nodes/Animation 3/node" = SubResource( 11 )
+"nodes/Animation 3/position" = Vector2( -250, -275 )
+"nodes/Animation 5/node" = SubResource( 13 )
+"nodes/Animation 5/position" = Vector2( -350, 25 )
+nodes/horizontal/node = SubResource( 18 )
+nodes/horizontal/position = Vector2( -50, -175 )
+nodes/mix/node = SubResource( 16 )
+nodes/mix/position = Vector2( 273.5, -24.625 )
+nodes/output/position = Vector2( 500, -25 )
+nodes/vertical/node = SubResource( 17 )
+nodes/vertical/position = Vector2( -125, 200 )
+node_connections = [ "horizontal", 0, "Animation 3", "horizontal", 1, "Animation 5", "output", 0, "mix", "mix", 0, "horizontal", "mix", 1, "vertical", "vertical", 0, "Animation", "vertical", 1, "Animation 2" ]
+
+[node name="dauphin" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+script = ExtResource( 6 )
+
+[node name="Body" parent="." index="0"]
+transform = Transform( -2.2, 0, -1.9233e-07, 0, 2.2, 0, 1.9233e-07, 0, -2.2, 0, 0, 0 )
+material/0 = ExtResource( 2 )
+
+[node name="BackRotorPod" parent="Body" index="1"]
+material/0 = ExtResource( 2 )
+
+[node name="RotorPodHandler" parent="Body/BackRotorPod" index="0"]
+material/0 = ExtResource( 3 )
+
+[node name="BackRotorPod001" parent="Body/BackRotorPod/RotorPodHandler" index="0"]
+material/0 = ExtResource( 3 )
+
+[node name="CockpitCabin" parent="Body" index="2"]
+material/0 = ExtResource( 7 )
+
+[node name="CockpitDashboard" parent="Body/CockpitCabin" index="0"]
+material/0 = ExtResource( 3 )
+
+[node name="DashboardPlane" parent="Body/CockpitCabin/CockpitDashboard" index="0"]
+material/0 = ExtResource( 3 )
+
+[node name="LowerControl" parent="Body/CockpitCabin/CockpitDashboard" index="1"]
+material/0 = ExtResource( 3 )
+
+[node name="Wheel" parent="Body/FrontWheelHandler" index="0"]
+material/0 = ExtResource( 3 )
+
+[node name="Roof" parent="Body" index="5"]
+material/0 = ExtResource( 2 )
+
+[node name="RotorMain" parent="Body" index="6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+material/0 = ExtResource( 2 )
+
+[node name="RotorPod" parent="Body" index="7"]
+material_override = ExtResource( 2 )
+
+[node name="WindowFrame" parent="Body" index="9"]
+material/0 = ExtResource( 3 )
+
+[node name="WindowGlass" parent="Body/WindowFrame" index="1"]
+material/0 = ExtResource( 4 )
+
+[node name="Wing" parent="Body" index="10"]
+material/0 = ExtResource( 2 )
+
+[node name="AnimRotor" type="AnimationPlayer" parent="." index="2"]
+anims/dauphinRotorAction = ExtResource( 5 )
+
+[node name="AnimTurning" type="AnimationPlayer" parent="." index="3"]
+anims/RESET = SubResource( 2 )
+anims/backward = SubResource( 3 )
+anims/forward = SubResource( 1 )
+anims/left = SubResource( 4 )
+anims/right = SubResource( 5 )
+anims/y_left = SubResource( 7 )
+anims/y_right = SubResource( 6 )
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="4"]
+tree_root = SubResource( 19 )
+anim_player = NodePath("../AnimTurning")
+active = true
+parameters/horizontal/blend_amount = 0.5
+parameters/mix/add_amount = 1.0
+parameters/vertical/blend_amount = 0.5
