@@ -76,6 +76,7 @@ texture = ExtResource( 11 )
 expand = true
 
 [node name="FpsLabel" type="Label" parent="."]
+visible = false
 margin_right = 64.0
 margin_bottom = 20.0
 custom_fonts/font = SubResource( 7 )
@@ -122,9 +123,9 @@ custom_constants/separation = 5
 alignment = 2
 
 [node name="start" type="Button" parent="InGameMenu2/Buttons"]
-margin_top = 900.0
+margin_top = 935.0
 margin_right = 260.0
-margin_bottom = 930.0
+margin_bottom = 965.0
 grow_vertical = 0
 rect_min_size = Vector2( 0, 30 )
 custom_fonts/font = ExtResource( 14 )
@@ -140,6 +141,7 @@ align = 0
 material = SubResource( 10 )
 
 [node name="settings" type="Button" parent="InGameMenu2/Buttons"]
+visible = false
 margin_top = 935.0
 margin_right = 260.0
 margin_bottom = 965.0
@@ -216,6 +218,7 @@ align = 2
 valign = 2
 
 [node name="LabelFPS" type="Label" parent="InGameMenu2"]
+visible = false
 modulate = Color( 0, 1, 0.392157, 1 )
 margin_right = 80.0
 margin_bottom = 20.0
