@@ -124,3 +124,8 @@ func _get_local_y() -> float:
 func _get_global_x() -> float:
 	var local_target = current_target - head.global_transform.origin
 	return (local_target * Vector3(1, 0, 1)).angle_to(local_target) * sign(local_target.y)
+
+func _on_Stats_death_signal():
+	emit_signal("enemy_destroyed_signal")
+	# TODO: do death stuff here
+	queue_free()

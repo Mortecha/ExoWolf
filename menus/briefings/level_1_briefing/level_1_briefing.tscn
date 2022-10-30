@@ -123,29 +123,6 @@ custom_styles/panel = ExtResource( 4 )
 [node name="BlurBackground" parent="MarginContainer/HSplitContainer/ControlHelp" instance=ExtResource( 12 )]
 modulate = Color( 0.52549, 0.52549, 0.52549, 1 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HSplitContainer/ControlHelp"]
-margin_left = 14.0
-margin_top = 14.0
-margin_right = 496.0
-margin_bottom = 276.0
-custom_fonts/normal_font = ExtResource( 13 )
-text = "Controls:
-[MOUSE] or [WASD]  Move helicopter
-[SHIFT] or [Z]     Lift up/down
-[Q]     or [E]     Pedal left/right
-[ALT]   +  [MOUSE] Camera freelook
-[C]                Camera toggle
-[G]                Gear toggle
-[P]                Power toggle
-[F5]               Reset scene
-[ESC]              Menu toggle
-[MOUSE SCROLL]     3rd person camera zoom in/out"
-
-[node name="ControlHelp2" type="Panel" parent="MarginContainer/HSplitContainer/ControlHelp"]
-margin_right = 1840.0
-margin_bottom = 924.0
-custom_styles/panel = ExtResource( 4 )
-
 [node name="ControlHelp2" type="Panel" parent="MarginContainer/HSplitContainer"]
 modulate = Color( 0, 1, 0.392157, 1 )
 margin_left = 932.0
@@ -174,20 +151,21 @@ modulate = Color( 0.52549, 0.52549, 0.52549, 1 )
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HSplitContainer/ControlHelp2/VSplitContainer/ControlHelp"]
 margin_left = 14.0
 margin_top = 14.0
-margin_right = 496.0
-margin_bottom = 276.0
+margin_right = 875.0
+margin_bottom = 496.0
 custom_fonts/normal_font = ExtResource( 13 )
-text = "Controls:
-[MOUSE] or [WASD]  Move helicopter
-[SHIFT] or [Z]     Lift up/down
-[Q]     or [E]     Pedal left/right
-[ALT]   +  [MOUSE] Camera freelook
-[C]                Camera toggle
-[G]                Gear toggle
-[P]                Power toggle
-[F5]               Reset scene
-[ESC]              Menu toggle
-[MOUSE SCROLL]     3rd person camera zoom in/out"
+text = "Briefing:
+
+Enemied have been deployed onto this small island in an attempt tp gain a foot hold and establish a base, 
+
+Objectives:
+Seek and Destroy 
+
+There are 4 tanks on this island, they should be fairly easy pickings for your gunship. 
+
+Location: Our carrier is located south of the island, this is your staging point.
+
+Good luck and good hunting. "
 
 [node name="ControlHelp2" type="Panel" parent="MarginContainer/HSplitContainer/ControlHelp2/VSplitContainer"]
 margin_top = 512.0
@@ -198,29 +176,11 @@ custom_styles/panel = ExtResource( 4 )
 [node name="BlurBackground" parent="MarginContainer/HSplitContainer/ControlHelp2/VSplitContainer/ControlHelp2" instance=ExtResource( 12 )]
 modulate = Color( 0.52549, 0.52549, 0.52549, 1 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HSplitContainer/ControlHelp2/VSplitContainer/ControlHelp2"]
-margin_left = 14.0
-margin_top = 14.0
-margin_right = 496.0
-margin_bottom = 276.0
-custom_fonts/normal_font = ExtResource( 13 )
-text = "Controls:
-[MOUSE] or [WASD]  Move helicopter
-[SHIFT] or [Z]     Lift up/down
-[Q]     or [E]     Pedal left/right
-[ALT]   +  [MOUSE] Camera freelook
-[C]                Camera toggle
-[G]                Gear toggle
-[P]                Power toggle
-[F5]               Reset scene
-[ESC]              Menu toggle
-[MOUSE SCROLL]     3rd person camera zoom in/out"
-
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_left = 52.0
-margin_top = 52.0
-margin_right = 953.0
-margin_bottom = 526.0
+margin_left = 42.0
+margin_top = 42.0
+margin_right = 958.0
+margin_bottom = 965.0
 texture = ExtResource( 8 )
 stretch_mode = 4
 

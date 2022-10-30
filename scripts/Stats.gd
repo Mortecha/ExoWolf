@@ -1,14 +1,19 @@
 extends Node
 
-var health = 100
-var is_dead = false
+class_name Stats
 
-# Called when the node enters the scene tree for the first time.
+export var max_hp = 1
+onready var current_hp = max_hp
+
+signal death_signal
+
 func _ready():
-	pass # Replace with function body.
-
+	pass
 
 func take_hit(damage):
-	health -= damage
-	if(health <= 0):
-		is_dead = true
+	current_hp -= damage
+	if current_hp <= 0:
+		die()
+		
+func die():
+	emit_signal("death_signal")
