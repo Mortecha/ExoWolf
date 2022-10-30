@@ -42,7 +42,7 @@ grow_vertical = 0
 custom_constants/separation = 5
 alignment = 2
 
-[node name="start" type="Button" parent="InGameMenu/Buttons"]
+[node name="resume" type="Button" parent="InGameMenu/Buttons"]
 margin_top = 935.0
 margin_right = 260.0
 margin_bottom = 965.0
@@ -54,10 +54,10 @@ custom_styles/pressed = ExtResource( 7 )
 custom_styles/focus = ExtResource( 3 )
 custom_styles/disabled = ExtResource( 7 )
 custom_styles/normal = ExtResource( 3 )
-text = " Start"
+text = "Resume"
 align = 0
 
-[node name="BlurBackground" parent="InGameMenu/Buttons/start" instance=ExtResource( 13 )]
+[node name="BlurBackground" parent="InGameMenu/Buttons/resume" instance=ExtResource( 13 )]
 material = SubResource( 2 )
 
 [node name="settings" type="Button" parent="InGameMenu/Buttons"]
@@ -101,5 +101,6 @@ material = SubResource( 2 )
 
 [node name="SettingsMenu" parent="." instance=ExtResource( 4 )]
 
-[connection signal="pressed" from="InGameMenu/Buttons/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="InGameMenu/Buttons/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="InGameMenu/Buttons/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="InGameMenu/Buttons/quit" to="InGameMenu" method="_on_quit_pressed"]

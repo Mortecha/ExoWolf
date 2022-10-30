@@ -10,7 +10,6 @@
 [ext_resource path="res://-tests/heli_test/ui/nodes/BlurBackground.tscn" type="PackedScene" id=13]
 [ext_resource path="res://-tests/heli_test/ui/fonts/JetBrainsMono/JetBrainsMono.tres" type="DynamicFont" id=15]
 
-
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.294118 )
 
@@ -51,9 +50,9 @@ custom_constants/separation = 5
 alignment = 2
 
 [node name="return" type="Button" parent="InGameMenu/Buttons"]
-margin_top = 830.0
+margin_top = 865.0
 margin_right = 260.0
-margin_bottom = 860.0
+margin_bottom = 895.0
 grow_vertical = 0
 rect_min_size = Vector2( 0, 30 )
 custom_fonts/font = ExtResource( 15 )
@@ -69,9 +68,9 @@ align = 0
 material = SubResource( 2 )
 
 [node name="restart_mission" type="Button" parent="InGameMenu/Buttons"]
-margin_top = 865.0
+margin_top = 900.0
 margin_right = 260.0
-margin_bottom = 895.0
+margin_bottom = 930.0
 grow_vertical = 0
 rect_min_size = Vector2( 0, 30 )
 custom_fonts/font = ExtResource( 15 )
@@ -87,6 +86,7 @@ align = 0
 material = SubResource( 2 )
 
 [node name="settings" type="Button" parent="InGameMenu/Buttons"]
+visible = false
 margin_top = 900.0
 margin_right = 260.0
 margin_bottom = 930.0
