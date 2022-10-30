@@ -53,7 +53,6 @@ func _physics_process(delta):
 	time_delta = delta
 	cam_movement()
 	player_mouse_look()
-	player_nose_turret_to_target()
 	update_compass(player.rotation_degrees.y)
 	update_minimap(player.rotation_degrees.y)
 	
@@ -84,9 +83,7 @@ func player_mouse_look():
 		var diff = look_target - player.transform.origin
 		if diff.x > 0.1 or diff.x < 0.1 and diff.z > 0.1 or diff.z < 0.1:
 			player.look_at(look_target, Vector3.UP)
-
-func player_nose_turret_to_target():
-	player.get_child(3).set_target(look_target)
+			player.set_turret_target(intersection.position)
 	
 func update_compass(var angle : float):
 	# Angle gets multiplied by 2 so it can counts half direction between two directions (i.e. NE/NW/SW/SE)

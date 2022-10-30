@@ -16,8 +16,7 @@ func _physics_process(delta):
 
 
 func _on_Area_body_entered(body: Node):
-	pass
-#	if body.has_node("Stats"):
-#		var stats_node = body.find_node("Stats") as Stats
-#		stats_node.take_hit(1)
-#	queue_free()
+	#if body.has_node("Stats"):
+		#var stats_node = body.find_node("Stats") as Stats
+		#stats_node.take_hit(1)
+	queue_free()

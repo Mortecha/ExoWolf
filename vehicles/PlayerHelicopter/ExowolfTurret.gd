@@ -6,6 +6,7 @@ extends Spatial
 # parts
 export var body_path: NodePath
 export var head_path: NodePath
+export var target_path: NodePath
 
 # movement
 export var elevation_speed_deg: float = 45
@@ -22,7 +23,7 @@ export var max_elevation: float = 60
 # parts
 onready var body: Spatial = get_node(body_path)
 onready var head: Spatial = get_node(head_path)
-onready var target #= get_node(target_path)
+onready var target: Position3D = get_node(target_path)
 # movement
 onready var elevation_speed: float = deg2rad(elevation_speed_deg)
 onready var rotation_speed: float = deg2rad(rotation_speed_deg)

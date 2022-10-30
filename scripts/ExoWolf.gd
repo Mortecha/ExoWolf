@@ -21,21 +21,23 @@ var max_strafe_speed : float = 25.0
 
 var global_direction : Vector3
 
-onready var turret_rotator = $"Chassis/Turret Barrel Rotator"
-onready var turret_base = $"Chassis/Turret Barrel Rotator/Turret Base"
-onready var barrels = $"Chassis/Turret Barrel Rotator/Turret Base/Barrels"
-onready var gun = $"Chassis/Turret Barrel Rotator/Turret Base/Barrels/Gun"
+var current_target
+
+onready var gun = $Gun
 onready var sensor_mount = $Chassis/Mount
 onready var sensor = $Chassis/Mount/Sensors
 
 func _ready():
 	pass
 
+func set_turret_target(target):
+	current_target = target
+
 func _physics_process(delta):
 	#velocity += gravity * delta
 	if(!is_on_floor()):
 		handle_movement(delta)	
-		#handle_rotation(delta)
+		gun.look_at(current_target, Vector3.UP)
 		
 	handle_throttle(delta)	
 	velocity = move_and_slide(velocity, Vector3.UP)
@@ -133,5 +135,4 @@ func dampen_strafing():
 		strafe_speed = 0
 	
 func fire_minigun():
-	print("Firing")
 	gun.shoot()
