@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://menus/components/tab_menu_overlay/tab_menu_overlay.gd" type="Script" id=1]
+[ext_resource path="res://audio/music/White Bat Audio - The Taste of Blood.mp3" type="AudioStream" id=2]
 [ext_resource path="res://-tests/heli_test/ui/styles/button/button_normal.tres" type="StyleBox" id=3]
 [ext_resource path="res://menus/components/settings_menu/settings_menu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://-tests/heli_test/ui/styles/button/button_hover.tres" type="StyleBox" id=6]
@@ -8,7 +9,6 @@
 [ext_resource path="res://-tests/heli_test/shaders/canvas_blur.shader" type="Shader" id=8]
 [ext_resource path="res://-tests/heli_test/ui/nodes/BlurBackground.tscn" type="PackedScene" id=13]
 [ext_resource path="res://-tests/heli_test/ui/fonts/JetBrainsMono/JetBrainsMono.tres" type="DynamicFont" id=15]
-[ext_resource path="res://menus/components/ControlHelp.tscn" type="PackedScene" id=17]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.294118 )
@@ -17,11 +17,16 @@ bg_color = Color( 0, 0, 0, 0.294118 )
 shader = ExtResource( 8 )
 shader_param/amount = 2.0
 
-[node name="TabMenuOverlay" type="Control"]
+[sub_resource type="ShaderMaterial" id=11]
+shader = ExtResource( 8 )
+shader_param/amount = 1.0
+
+[node name="MissionCompleteOverlay" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+main_menu = "res://menus/main_menu/main_menu.tscn"
 
 [node name="InGameMenu" type="Panel" parent="."]
 anchor_right = 1.0
@@ -54,7 +59,7 @@ custom_styles/pressed = ExtResource( 7 )
 custom_styles/focus = ExtResource( 3 )
 custom_styles/disabled = ExtResource( 7 )
 custom_styles/normal = ExtResource( 3 )
-text = "Resume"
+text = " Complete Mission"
 align = 0
 
 [node name="BlurBackground" parent="InGameMenu/Buttons/resume" instance=ExtResource( 13 )]
@@ -97,9 +102,46 @@ align = 0
 [node name="BlurBackground" parent="InGameMenu/Buttons/quit" instance=ExtResource( 13 )]
 material = SubResource( 2 )
 
-[node name="ControlHelp" parent="InGameMenu" instance=ExtResource( 17 )]
+[node name="MissionCompleteText" type="Panel" parent="InGameMenu"]
+modulate = Color( 0, 1, 0.392157, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -375.0
+margin_top = -136.0
+margin_right = 375.0
+margin_bottom = 136.0
+custom_styles/panel = ExtResource( 3 )
+
+[node name="BlurBackground" parent="InGameMenu/MissionCompleteText" instance=ExtResource( 13 )]
+modulate = Color( 0.52549, 0.52549, 0.52549, 1 )
+material = SubResource( 11 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="InGameMenu/MissionCompleteText"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -370.0
+margin_top = -131.0
+margin_right = 370.0
+margin_bottom = 131.0
+custom_fonts/normal_font = ExtResource( 15 )
+text = "MISSION COMPLETE
+
+Thank you for playing this brief demo, this is just an incredibly small tast of the things to come. 
+
+Feel free to stay posted by following development as it progresses on either Itch.IO or through the games GitHub repo. 
+
+Kindest regards,
+
+Sam Keightley"
 
 [node name="SettingsMenu" parent="." instance=ExtResource( 4 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
 
 [connection signal="pressed" from="InGameMenu/Buttons/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="InGameMenu/Buttons/quit" to="." method="_on_quit_pressed"]

@@ -59,6 +59,7 @@ func _physics_process(delta):
 	
 	if(num_enemies == 0):
 		mission_complete_overlay.is_paused = true
+		$GUI/MissionCompleteOverlay/AudioStreamPlayer.play()
 	
 	time_delta = delta
 	cam_movement()
