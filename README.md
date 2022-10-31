@@ -19,3 +19,13 @@ Future Plans:
 - A larger number of mission sets, objectives, and adversaries.
 
 Until then, I hope you enjoy previewing this brief demo and I look forward to hearing your feedback. 
+
+Current Bugs:
+- The Minimap creates new blips after the destruction of the first enemy
+- Once the level has been completed, the main munu buttons on longer function
+- There are still some yet to be wired information shown on the screen
+
+Missing features
+- Targeting isnt in the game yet
+- The player can only fire the chaingun for now with the left mouse button
+ 
