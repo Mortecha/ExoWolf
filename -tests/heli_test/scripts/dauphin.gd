@@ -9,21 +9,21 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-extends Spatial
+extends Node3D
 
 
 # Properties
-export(NodePath) var meta_helicopter_path : NodePath
-var meta_helicopter : Spatial
+@export var meta_helicopter_path: NodePath : NodePath
+var meta_helicopter : Node3D
 
 # Animation properties
-onready var rotor_animation : AnimationPlayer = get_node("AnimRotor")
-onready var back_rotor_animation : AnimationPlayer = get_node("AnimationPlayer")
-onready var turning_animation_tree : AnimationTree = get_node("AnimationTree")
+@onready var rotor_animation : AnimationPlayer = get_node("AnimRotor")
+@onready var back_rotor_animation : AnimationPlayer = get_node("AnimationPlayer")
+@onready var turning_animation_tree : AnimationTree = get_node("AnimationTree")
 
 # Gear properties
-onready var front_gear : Spatial = get_node("Body/FrontWheelHandler")
-onready var back_gear : Spatial = get_node("Body/BackWheelHandler")
+@onready var front_gear : Node3D = get_node("Body/FrontWheelHandler")
+@onready var back_gear : Node3D = get_node("Body/BackWheelHandler")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -48,20 +48,20 @@ func interpolate_to_parent() -> void:
 	
 	if !meta_helicopter.is_grounded:
 		# Set mesh as top level to detach from jittering rigidbody
-		self.set_as_toplevel(true)
+		self.set_as_top_level(true)
 	else:
-		self.set_as_toplevel(false)
+		self.set_as_top_level(false)
 
 
 func configure_animation() -> void:
-	# Rotor animations based on engine power
+	# Rotor animations based checked engine power
 	rotor_animation.play("dauphinRotorAction", -1, (meta_helicopter.engine_power / 100) * 30)
 	back_rotor_animation.play("BackRotorAction", -1, (meta_helicopter.engine_power / 100) * 5)
 	
-	# Turning animation based on mouse position
+	# Turning animation based checked mouse position
 	if !meta_helicopter.is_grounded:
-		var x : float = (meta_helicopter.helper_rot.translation.x / 8) + 1 * 0.5
-		var z : float = (meta_helicopter.helper_rot.translation.z / 5) + 1 * 0.5
+		var x : float = (meta_helicopter.helper_rot.position.x / 8) + 1 * 0.5
+		var z : float = (meta_helicopter.helper_rot.position.z / 5) + 1 * 0.5
 		
 		var x_weight : float = lerp(turning_animation_tree.get("parameters/horizontal/blend_amount"), x, 0.3)
 		var z_weight : float = lerp(turning_animation_tree.get("parameters/vertical/blend_amount"), z, 0.3)

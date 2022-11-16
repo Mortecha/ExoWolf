@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-onready var pause_menu = $PauseMenu
+@onready var pause_menu = $PauseMenu
 #onready var tab_menu_overlay = $TabMenuOverlay
 
 # Called when the node enters the scene tree for the first time.

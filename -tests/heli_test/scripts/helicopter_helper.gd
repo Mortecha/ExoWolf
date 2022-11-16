@@ -9,11 +9,11 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-extends Spatial
+extends Node3D
 
 # Configurations
-export(NodePath) var meta_helicopter_path : NodePath
-var meta_helicopter : RigidBody
+@export var meta_helicopter_path: NodePath : NodePath
+var meta_helicopter : RigidBody3D
 
 # Keyboard configurations
 var keyboard_x : float = 0
@@ -42,22 +42,22 @@ func _physics_process(delta) -> void:
 func _unhandled_input(event) -> void:
 	if event is InputEventMouseMotion:
 		# Emit signal to feed the UI info to show
-		emit_signal("ui_direction_moved", $Pivot/DirectionHelper.translation)
+		emit_signal("ui_direction_moved", $Pivot/DirectionHelper.position)
 
 
 func helper_direction_move() -> void:
 	if Globals.mouse_receiving:
-		$Pivot/RotationHelper.translation.x = clamp($Pivot/RotationHelper.translation.x, -8, 8)
-		$Pivot/RotationHelper.translation.z = clamp($Pivot/RotationHelper.translation.z, -5, 5)
+		$Pivot/RotationHelper.position.x = clamp($Pivot/RotationHelper.position.x, -8, 8)
+		$Pivot/RotationHelper.position.z = clamp($Pivot/RotationHelper.position.z, -5, 5)
 	
-	$Pivot/DirectionHelper.translation = $Pivot/RotationHelper.translation
-	$Pivot/DirectionHelper.translation.x = clamp($Pivot/DirectionHelper.translation.x, -1, 1)
-	$Pivot/DirectionHelper.translation.z = clamp($Pivot/DirectionHelper.translation.z, -1, 1)
+	$Pivot/DirectionHelper.position = $Pivot/RotationHelper.position
+	$Pivot/DirectionHelper.position.x = clamp($Pivot/DirectionHelper.position.x, -1, 1)
+	$Pivot/DirectionHelper.position.z = clamp($Pivot/DirectionHelper.position.z, -1, 1)
 
 
 # $RotationHelper keyboard input for cosmetic rotation
 # Mixed with mouse input but under specified conditions
-func helper_rotation_keyboard(var delta : float) -> void:
+func helper_rotation_keyboard(delta : float) -> void:
 	var inputs : Array = [
 			Input.is_action_pressed("cl_cyclic_forward"), 
 			Input.is_action_pressed("cl_cyclic_backward"), 
@@ -65,7 +65,7 @@ func helper_rotation_keyboard(var delta : float) -> void:
 			Input.is_action_pressed("cl_cyclic_left"),
 	]
 	var mouse_offset : Vector3 = Globals.mouse_offset
-	self.keyboard_move_dir = $Pivot/RotationHelper.translation
+	self.keyboard_move_dir = $Pivot/RotationHelper.position
 	
 	if Globals.freelook or meta_helicopter.is_grounded:
 		mouse_offset = Vector3.ZERO
@@ -79,7 +79,7 @@ func helper_rotation_keyboard(var delta : float) -> void:
 		self.keyboard_move_dir.z = lerp(self.keyboard_move_dir.z, self.keyboard_z, delta)
 		
 		# Feed info to UI
-		emit_signal("ui_direction_moved", $Pivot/DirectionHelper.translation)
+		emit_signal("ui_direction_moved", $Pivot/DirectionHelper.position)
 	# If no input key pressed
 	if !inputs.has(true):
 		# Reset direction
@@ -91,27 +91,27 @@ func helper_rotation_keyboard(var delta : float) -> void:
 			self.keyboard_move_dir.z = lerp(self.keyboard_move_dir.z, 0, delta)
 			
 			# Feed info to UI
-			emit_signal("ui_direction_moved", $Pivot/DirectionHelper.translation)
+			emit_signal("ui_direction_moved", $Pivot/DirectionHelper.position)
 	
 	# Use keyboard input when mouse isn't moved
 	if Globals.mouse_receiving:
-		$Pivot/RotationHelper.translation += mouse_offset * 2
+		$Pivot/RotationHelper.position += mouse_offset * 2
 	else:
-		$Pivot/RotationHelper.translation = self.keyboard_move_dir
+		$Pivot/RotationHelper.position = self.keyboard_move_dir
 	#printt(inputs.has(true), meta_helicopter.linear_damp, keyboard_x, keyboard_z)
 
 
 # $VerticalVelocity helper
-func helper_vertical_velocity(var delta : float) -> void:
-	var helper_yvel : float = $Pivot/VerticalVelocity.translation.y
+func helper_vertical_velocity(delta : float) -> void:
+	var helper_yvel : float = $Pivot/VerticalVelocity.position.y
 	if Input.is_action_pressed("cl_collective_raise"):
 		helper_yvel = lerp(helper_yvel, 1, 5 * delta)
-		emit_signal("ui_lifts_weight", $Pivot/VerticalVelocity.translation.y)
+		emit_signal("ui_lifts_weight", $Pivot/VerticalVelocity.position.y)
 	elif Input.is_action_pressed("cl_collective_lower"):
 		helper_yvel = lerp(helper_yvel, -1, 5 * delta)
-		emit_signal("ui_lifts_weight", $Pivot/VerticalVelocity.translation.y)
+		emit_signal("ui_lifts_weight", $Pivot/VerticalVelocity.position.y)
 	else:
 		helper_yvel = lerp(helper_yvel, 0, 5 * delta)
 		emit_signal("ui_lifts_weight", 0)
-	$Pivot/VerticalVelocity.translation.y = helper_yvel
+	$Pivot/VerticalVelocity.position.y = helper_yvel
 

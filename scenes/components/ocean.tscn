@@ -8,26 +8,26 @@ size = Vector2( 512, 512 )
 subdivide_width = 256
 subdivide_depth = 256
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape3D" id=3]
 extents = Vector3( 256, 0, 256 )
 
-[node name="Ocean" type="Spatial"]
+[node name="Ocean" type="Node3D"]
 
-[node name="OceanPlane" type="MeshInstance" parent="."]
+[node name="OceanPlane" type="MeshInstance3D" parent="."]
 visible = false
 mesh = SubResource( 2 )
 material/0 = ExtResource( 1 )
 
-[node name="StaticBody" type="StaticBody" parent="OceanPlane"]
+[node name="StaticBody3D" type="StaticBody3D" parent="OceanPlane"]
 
-[node name="CollisionShape" type="CollisionShape" parent="OceanPlane/StaticBody"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OceanPlane/StaticBody3D"]
 shape = SubResource( 3 )
 
-[node name="OceanPlaneTest" type="MeshInstance" parent="."]
+[node name="OceanPlaneTest" type="MeshInstance3D" parent="."]
 mesh = SubResource( 2 )
 material/0 = ExtResource( 2 )
 
-[node name="StaticBody" type="StaticBody" parent="OceanPlaneTest"]
+[node name="StaticBody3D" type="StaticBody3D" parent="OceanPlaneTest"]
 
-[node name="CollisionShape" type="CollisionShape" parent="OceanPlaneTest/StaticBody"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OceanPlaneTest/StaticBody3D"]
 shape = SubResource( 3 )

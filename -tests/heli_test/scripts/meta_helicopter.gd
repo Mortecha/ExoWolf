@@ -8,21 +8,21 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-extends RigidBody
+extends RigidBody3D
 
 
 # Configurations
-export var move_force : float = 200.0
-export var lift_force : float = 2.0
-export var torque_rate : float = 200.0
-export var linear_damping : float = 0.3
-export var angular_damping : float = 0.5
-export var default_linear_damping : float = -0.025
-export var default_angular_damping : float = 0.3
-export var engine_default_on : bool = false
+@export var move_force : float = 200.0
+@export var lift_force : float = 2.0
+@export var torque_rate : float = 200.0
+@export var linear_damping : float = 0.3
+@export var angular_damping : float = 0.5
+@export var default_linear_damping : float = -0.025
+@export var default_angular_damping : float = 0.3
+@export var engine_default_on : bool = false
 
 # Properties
-onready var collision_shape : CollisionShape = get_node("CollisionShape")
+@onready var collision_shape : CollisionShape3D = get_node("CollisionShape3D")
 var vertical_velocity : float = 0.0
 var falling_force : float = 0.0
 var move_direction : Vector3 = Vector3()
@@ -42,10 +42,10 @@ var is_grounded : bool = false
 var intersect_point : Vector3 = Vector3.ZERO
 
 # Helper
-onready var helpers_node : Spatial = get_node("HelicopterHelper")
-var helper_dir : Spatial
-var helper_rot : Spatial
-var helper_yvel : Spatial
+@onready var helpers_node : Node3D = get_node("HelicopterHelper")
+var helper_dir : Node3D
+var helper_rot : Node3D
+var helper_yvel : Node3D
 
 # Signal to feed the UI
 signal ui_power_changed(power)
@@ -77,13 +77,13 @@ func _input(event) -> void:
 	# Engine power toggle
 	if Input.is_action_just_pressed("cl_engine_power"):
 		if self.engine_on:
-			emit_signal("ui_messaging", "INFO", "engine powered off")
+			emit_signal("ui_messaging", "INFO", "engine powered unchecked")
 		if !self.engine_on:
-			emit_signal("ui_messaging", "INFO", "engine powered on")
+			emit_signal("ui_messaging", "INFO", "engine powered checked")
 		
 		self.engine_on = !self.engine_on
 		
-		# If the power off set the rigidbody to sleep, and vice versa
+		# If the power unchecked set the rigidbody to sleep, and vice versa
 		self.can_sleep = !self.engine_on
 	
 	# Gear toggle
@@ -94,17 +94,17 @@ func _input(event) -> void:
 					emit_signal("ui_messaging", "INFO", "gear up")
 					
 					# Configure collision offset
-					collision_shape.translation = Vector3(0, 1.333, 0)
+					collision_shape.position = Vector3(0, 1.333, 0)
 				if !self.gear_toggle:
 					emit_signal("ui_messaging", "INFO", "gear down")
-					collision_shape.translation = Vector3(0, 1, 0)
+					collision_shape.position = Vector3(0, 1, 0)
 				
 				self.gear_toggle = !self.gear_toggle
 			else:
 				emit_signal("ui_messaging", "ERROR", "helicopter touches the ground but gear isn't down")
 		else:
 			if !self.engine_on:
-				emit_signal("ui_messaging", "WARN", "engine is powered off")
+				emit_signal("ui_messaging", "WARN", "engine is powered unchecked")
 			else:
 				emit_signal("ui_messaging", "ERROR", "helicopter landed, couldn't configure gear")
 
@@ -112,7 +112,7 @@ func _input(event) -> void:
 # Process
 func _process(delta) -> void:
 	engine_config(delta)
-	damp_physics(helper_dir.translation.abs())
+	damp_physics(helper_dir.position.abs())
 	
 	if abs(self.angular_velocity.y) > 0:
 		emit_signal("ui_angular_changed", self.angular_velocity.y * -1)
@@ -136,9 +136,9 @@ func _integrate_forces(state) -> void:
 	if self.engine_power > 85:
 		#  Collective raise & lower
 		if Input.is_action_pressed("cl_collective_raise"):
-			self.vertical_velocity += helper_yvel.translation.y * get_process_delta_time()
+			self.vertical_velocity += helper_yvel.position.y * get_process_delta_time()
 		elif Input.is_action_pressed("cl_collective_lower"):
-			self.vertical_velocity += helper_yvel.translation.y * get_process_delta_time()
+			self.vertical_velocity += helper_yvel.position.y * get_process_delta_time()
 		else:
 			self.vertical_velocity = lerp(self.vertical_velocity, 0, get_process_delta_time())
 		
@@ -154,40 +154,40 @@ func _integrate_forces(state) -> void:
 		state.set_linear_velocity(Vector3(v.x, self.vertical_velocity, v.z))
 
 
-func move(var delta: float) -> void:
+func move(delta: float) -> void:
 	# Wait until power is enough to do movement
 	if self.engine_power < 50:
 		return
 	
 	# Force control from directional helper (from mouse & keyboard input)
-	var force : Vector3 = self.transform.basis.xform(helper_dir.translation * self.move_force * delta)
-	var position : Vector3 = self.transform.basis.xform(Vector3.ZERO)
-	add_force(force, position)
+	var force : Vector3 = self.transform.basis * helper_dir.position * self.move_force * delta
+	var position : Vector3 = self.transform.basis * Vector3.ZERO
+	apply_force(position, force)
 	
 	# Torque Pedal
 	if Input.is_action_pressed("cl_pedal_right"):
-		add_torque(Vector3.DOWN * self.torque_rate * delta)
+		apply_torque(Vector3.DOWN * self.torque_rate * delta)
 	if Input.is_action_pressed("cl_pedal_left"):
-		add_torque(Vector3.DOWN * -self.torque_rate * delta)
+		apply_torque(Vector3.DOWN * -self.torque_rate * delta)
 	
-	# Add rotational force based on helper/move/mouse input left & right (-1 & 1)
-	var torque : float = helper_dir.translation.x * (self.torque_rate / 100) * delta
+	# Add rotational force based checked helper/move/mouse input left & right (-1 & 1)
+	var torque : float = helper_dir.position.x * (self.torque_rate / 100) * delta
 	
 	# Helper is way back, allows heavy rotation (torque * 1.5)
-	if helper_dir.translation.z > 0.3:
-		torque = helper_dir.translation.x * (self.torque_rate * 1.5) * delta
+	if helper_dir.position.z > 0.3:
+		torque = helper_dir.position.x * (self.torque_rate * 1.5) * delta
 	# Helper is further front, allows light rotation (torque / 10)
-	elif helper_dir.translation.z < -0.2:
-		torque = helper_dir.translation.x * (self.torque_rate / 10) * delta
+	elif helper_dir.position.z < -0.2:
+		torque = helper_dir.position.x * (self.torque_rate / 10) * delta
 	# Helper is around the middle, tiny force (torque / 100)
 	else:
-		torque = helper_dir.translation.x * (self.torque_rate / 100) * delta
-	add_torque(Vector3.DOWN * torque)
+		torque = helper_dir.position.x * (self.torque_rate / 100) * delta
+	apply_torque(Vector3.DOWN * torque)
 
 
 # Raycasting the ground
 func get_ground_distance() -> void:
-	var world_collision : PhysicsDirectSpaceState = get_world().direct_space_state
+	var world_collision : PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 	var intersect : Dictionary = world_collision.intersect_ray(self.transform.origin + Vector3(0, 1, 0), Vector3(0, -300, 0))
 	
 	# If raycast intersects something, get the data
@@ -203,7 +203,7 @@ func get_ground_distance() -> void:
 
 
 # Conditional damping
-func damp_physics(var m_offset : Vector3) -> void:
+func damp_physics(m_offset : Vector3) -> void:
 	var mx : bool = m_offset.x > 0.1								# Mouse X offset
 	var mz : bool = m_offset.z > 0.1								# Mouse Y offset
 	var cf : bool = Input.is_action_pressed("cl_cyclic_forward")	# Key W/UP pressed
@@ -235,12 +235,12 @@ func damp_physics(var m_offset : Vector3) -> void:
 		# If not then free to rotate
 		self.angular_damp = self.default_angular_damping
 	
-	# See what the hell is going on
+	# See what the hell is going checked
 	#printt(force_damping, torque_damping, c, m, p, f)
 
 
-func engine_config(var delta : float) -> void:
-	# Powering on and off is simply a linear interpolation to the desired number
+func engine_config(delta : float) -> void:
+	# Powering checked and unchecked is simply a linear interpolation to the desired number
 	if self.engine_on:
 		self.engine_power = lerp(self.engine_power, 100, 0.4 * delta)
 		

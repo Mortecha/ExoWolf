@@ -1,22 +1,22 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=24 format=3]
 
-[ext_resource path="res://-tests/heli_test/ui/styles/button/button_normal.tres" type="StyleBox" id=1]
-[ext_resource path="res://-tests/heli_test/ui/styles/button/button_hover.tres" type="StyleBox" id=2]
-[ext_resource path="res://-tests/heli_test/ui/styles/button/button_pressed.tres" type="StyleBox" id=3]
-[ext_resource path="res://menus/main_menu/main_menu.gd" type="Script" id=4]
-[ext_resource path="res://-tests/heli_test/shaders/canvas_blur.shader" type="Shader" id=5]
-[ext_resource path="res://hud/fps_label/fps_label.gd" type="Script" id=6]
-[ext_resource path="res://menus/main_menu/images/title.png" type="Texture" id=7]
-[ext_resource path="res://audio/music/White Bat Audio - Man Bat.mp3" type="AudioStream" id=8]
-[ext_resource path="res://menus/main_menu/images/main_logo.png" type="Texture" id=9]
-[ext_resource path="res://menus/main_menu/images/MainMenuBackground.png" type="Texture" id=10]
-[ext_resource path="res://menus/main_menu/images/main_menu_overlay_stripe.png" type="Texture" id=11]
-[ext_resource path="res://-tests/heli_test/ui/nodes/BlurBackground.tscn" type="PackedScene" id=12]
-[ext_resource path="res://menus/components/settings_menu/settings_menu.tscn" type="PackedScene" id=13]
-[ext_resource path="res://-tests/heli_test/ui/fonts/JetBrainsMono/JetBrainsMono.tres" type="DynamicFont" id=14]
-[ext_resource path="res://fonts/Lato-Regular.ttf" type="DynamicFontData" id=15]
-[ext_resource path="res://shaders/main_menu_grid_shader.tres" type="Shader" id=16]
-[ext_resource path="res://menus/components/ControlHelp.tscn" type="PackedScene" id=17]
+[ext_resource type="StyleBox" path="res://-tests/heli_test/ui/styles/button/button_normal.tres" id="1"]
+[ext_resource type="StyleBox" path="res://-tests/heli_test/ui/styles/button/button_hover.tres" id="2"]
+[ext_resource type="StyleBox" path="res://-tests/heli_test/ui/styles/button/button_pressed.tres" id="3"]
+[ext_resource type="Script" path="res://menus/main_menu/main_menu.gd" id="4"]
+[ext_resource type="Shader" path="res://-tests/heli_test/shaders/canvas_blur.gdshader" id="5"]
+[ext_resource type="Script" path="res://hud/fps_label/fps_label.gd" id="6"]
+[ext_resource type="Texture2D" uid="uid://b1jkumvlcducb" path="res://menus/main_menu/images/title.png" id="7"]
+[ext_resource type="AudioStream" uid="uid://jf5ltqw2kkrr" path="res://audio/music/White Bat Audio - Man Bat.mp3" id="8"]
+[ext_resource type="Texture2D" uid="uid://dlqxnur5l3b85" path="res://menus/main_menu/images/main_logo.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://dmgx3combxkhx" path="res://menus/main_menu/images/MainMenuBackground.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://bdl7rck2e8bcg" path="res://menus/main_menu/images/main_menu_overlay_stripe.png" id="11"]
+[ext_resource type="PackedScene" path="res://-tests/heli_test/ui/nodes/BlurBackground.tscn" id="12"]
+[ext_resource type="PackedScene" path="res://menus/components/settings_menu/settings_menu.tscn" id="13"]
+[ext_resource type="FontFile" path="res://-tests/heli_test/ui/fonts/JetBrainsMono/JetBrainsMono.tres" id="14"]
+[ext_resource type="FontFile" uid="uid://c5v2lt11fb35y" path="res://fonts/Lato-Regular.ttf" id="15"]
+[ext_resource type="Shader" path="res://shaders/main_menu_grid_shader.tres" id="16"]
+[ext_resource type="PackedScene" path="res://menus/components/ControlHelp.tscn" id="17"]
 
 [sub_resource type="ShaderMaterial" id=10]
 shader = ExtResource( 5 )
@@ -31,7 +31,7 @@ shader_param/fov = 0.01
 shader_param/background_color = Color( 0, 0, 0, 0.611765 )
 shader_param/grid_color = Color( 0.847059, 0, 0.0509804, 0.501961 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="FontFile" id=7]
 font_data = ExtResource( 15 )
 
 [sub_resource type="StyleBoxFlat" id=6]
@@ -68,17 +68,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -369.5
-margin_top = -540.0
-margin_right = 369.5
-margin_bottom = 540.0
+offset_left = -369.5
+offset_top = -540.0
+offset_right = 369.5
+offset_bottom = 540.0
 texture = ExtResource( 11 )
 expand = true
 
 [node name="FpsLabel" type="Label" parent="."]
 visible = false
-margin_right = 64.0
-margin_bottom = 20.0
+offset_right = 64.0
+offset_bottom = 20.0
 custom_fonts/font = SubResource( 7 )
 custom_styles/normal = SubResource( 6 )
 text = "FPS: 60"
@@ -89,10 +89,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -359.0
-margin_top = -297.0
-margin_right = 359.0
-margin_bottom = 473.0
+offset_left = -359.0
+offset_top = -297.0
+offset_right = 359.0
+offset_bottom = 473.0
 texture = ExtResource( 9 )
 
 [node name="Title" type="TextureRect" parent="."]
@@ -100,10 +100,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -274.5
-margin_top = -520.0
-margin_right = 274.5
-margin_bottom = -273.0
+offset_left = -274.5
+offset_top = -520.0
+offset_right = 274.5
+offset_bottom = -273.0
 texture = ExtResource( 7 )
 
 [node name="InGameMenu2" type="Panel" parent="."]
@@ -114,20 +114,20 @@ custom_styles/panel = SubResource( 9 )
 [node name="Buttons" type="VBoxContainer" parent="InGameMenu2"]
 modulate = Color( 0, 1, 0.392157, 1 )
 anchor_bottom = 1.0
-margin_left = 40.0
-margin_top = 40.0
-margin_right = 300.0
-margin_bottom = -40.0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 300.0
+offset_bottom = -40.0
 grow_vertical = 0
 custom_constants/separation = 5
 alignment = 2
 
 [node name="start" type="Button" parent="InGameMenu2/Buttons"]
-margin_top = 935.0
-margin_right = 260.0
-margin_bottom = 965.0
+offset_top = 935.0
+offset_right = 260.0
+offset_bottom = 965.0
 grow_vertical = 0
-rect_min_size = Vector2( 0, 30 )
+minimum_size = Vector2( 0, 30 )
 custom_fonts/font = ExtResource( 14 )
 custom_styles/hover = ExtResource( 2 )
 custom_styles/pressed = ExtResource( 3 )
@@ -142,11 +142,11 @@ material = SubResource( 10 )
 
 [node name="settings" type="Button" parent="InGameMenu2/Buttons"]
 visible = false
-margin_top = 935.0
-margin_right = 260.0
-margin_bottom = 965.0
+offset_top = 935.0
+offset_right = 260.0
+offset_bottom = 965.0
 grow_vertical = 0
-rect_min_size = Vector2( 0, 30 )
+minimum_size = Vector2( 0, 30 )
 custom_fonts/font = ExtResource( 14 )
 custom_styles/hover = ExtResource( 2 )
 custom_styles/pressed = ExtResource( 3 )
@@ -160,11 +160,11 @@ align = 0
 material = SubResource( 10 )
 
 [node name="quit" type="Button" parent="InGameMenu2/Buttons"]
-margin_top = 970.0
-margin_right = 260.0
-margin_bottom = 1000.0
+offset_top = 970.0
+offset_right = 260.0
+offset_bottom = 1000.0
 grow_vertical = 0
-rect_min_size = Vector2( 0, 30 )
+minimum_size = Vector2( 0, 30 )
 custom_fonts/font = ExtResource( 14 )
 custom_styles/hover = ExtResource( 2 )
 custom_styles/pressed = ExtResource( 3 )
@@ -185,10 +185,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -350.0
-margin_top = -103.0
-margin_right = -40.0
-margin_bottom = -40.0
+offset_left = -350.0
+offset_top = -103.0
+offset_right = -40.0
+offset_bottom = -40.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = SubResource( 11 )
@@ -202,10 +202,10 @@ valign = 2
 modulate = Color( 0, 1, 0.392157, 1 )
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -360.0
-margin_top = 40.0
-margin_right = -40.0
-margin_bottom = 106.0
+offset_left = -360.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = 106.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = SubResource( 11 )
@@ -220,8 +220,8 @@ valign = 2
 [node name="LabelFPS" type="Label" parent="InGameMenu2"]
 visible = false
 modulate = Color( 0, 1, 0.392157, 1 )
-margin_right = 80.0
-margin_bottom = 20.0
+offset_right = 80.0
+offset_bottom = 20.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = SubResource( 11 )

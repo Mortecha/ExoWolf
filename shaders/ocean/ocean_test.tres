@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=2]
 
-[ext_resource path="res://shaders/ocean/OceanTextureTestB.png" type="Texture" id=1]
-[ext_resource path="res://shaders/ocean/Water_N_B_Test.png" type="Texture" id=2]
+[ext_resource path="res://shaders/ocean/OceanTextureTestB.png" type="Texture2D" id=1]
+[ext_resource path="res://shaders/ocean/Water_N_B_Test.png" type="Texture2D" id=2]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type spatial;
@@ -10,7 +10,7 @@ uniform vec2 amplitude = vec2(0.2, 0.1);
 uniform vec2 frequency = vec2(3.0, 2.5);
 uniform vec2 time_factor = vec2(2.0, 3.0);
 
-uniform sampler2D texture_map : hint_albedo;
+uniform sampler2D texture_map : source_color;
 //uniform vec2 texture_scale = vec2(8.0, 4.0);
 
 uniform sampler2D normal_map : hint_normal;
@@ -28,7 +28,7 @@ void vertex() {
 
 void fragment() {
 	ALBEDO = texture(texture_map, UV).rgb;
-	NORMALMAP = texture(normal_map, UV).rgb;
+	NORMAL_MAP = texture(normal_map, UV).rgb;
 	METALLIC = 0.25;
 	ROUGHNESS = 0.025;
 }"

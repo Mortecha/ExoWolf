@@ -1,32 +1,32 @@
-extends Spatial
+extends Node3D
 
 ################################
 # EXPORT PARAMS
 ################################
 # parts
-export var body_path: NodePath
-export var head_path: NodePath
-export var target_path: NodePath
+@export var body_path: NodePath
+@export var head_path: NodePath
+@export var target_path: NodePath
 
 # movement
-export var elevation_speed_deg: float = 45
-export var rotation_speed_deg: float = 90
+@export var elevation_speed_deg: float = 45
+@export var rotation_speed_deg: float = 90
 # bullets
-export var muzzle_velocity: float = 50
+@export var muzzle_velocity: float = 50
 # constraints
-export var min_elevation: float = -10
-export var max_elevation: float = 60
+@export var min_elevation: float = -10
+@export var max_elevation: float = 60
 
 ################################
 # PARAMS
 ################################
 # parts
-onready var body: Spatial = get_node(body_path)
-onready var head: Spatial = get_node(head_path)
-onready var target: Position3D = get_node(target_path)
+@onready var body: Node3D = get_node(body_path)
+@onready var head: Node3D = get_node(head_path)
+@onready var target: Marker3D = get_node(target_path)
 # movement
-onready var elevation_speed: float = deg2rad(elevation_speed_deg)
-onready var rotation_speed: float = deg2rad(rotation_speed_deg)
+@onready var elevation_speed: float = deg_to_rad(elevation_speed_deg)
+@onready var rotation_speed: float = deg_to_rad(rotation_speed_deg)
 # target calculation
 var ttc: float
 var current_target: Vector3
@@ -125,7 +125,7 @@ func _get_global_x() -> float:
 	var local_target = current_target - head.global_transform.origin
 	return (local_target * Vector3(1, 0, 1)).angle_to(local_target) * sign(local_target.y)
 
-func set_target(var target):
+func set_target(target):
 	current_target = target
 	
 func fire_chaingun():

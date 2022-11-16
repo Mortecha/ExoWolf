@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource path="res://-tests/heli_test/addons/kenney_prototypes/assets/cube/cube.tscn" type="PackedScene" id=1]
-[ext_resource path="res://-tests/heli_test/addons/kenney_prototypes/assets/colors/purple/materials/material_011.tres" type="Material" id=2]
+[ext_resource type="PackedScene" path="res://-tests/heli_test/addons/kenney_prototypes/assets/cube/cube.tscn" id="1"]
+[ext_resource type="Material" path="res://-tests/heli_test/addons/kenney_prototypes/assets/colors/purple/materials/material_011.tres" id="2"]
 
 [node name="PrototypeCube" instance=ExtResource( 1 )]
 

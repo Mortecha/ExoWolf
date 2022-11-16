@@ -1,6 +1,6 @@
-extends KinematicBody
+extends CharacterBody3D
 
-export var gravity : Vector3 = Vector3.DOWN * 9.8
+@export var gravity : Vector3 = Vector3.DOWN * 9.8
 var velocity : Vector3 = Vector3.ZERO
 
 const MAX_ALTITUDE = 15
@@ -10,8 +10,8 @@ const TILT_RESP = 4 		# The responsiveness of the tilting
 
 # Movement
 var movement_speed : float = 0.0
-export var max_movement_speed : float = -35.0
-export var min_movement_speed : float = 35.0
+@export var max_movement_speed : float = -35.0
+@export var min_movement_speed : float = 35.0
 var movement_acc_coef : float = 0.75
 var move_damp_coef : float = 0.25
 
@@ -23,9 +23,9 @@ var global_direction : Vector3
 
 var current_target
 
-onready var gun = $Gun
-onready var sensor_mount = $Chassis/Mount
-onready var sensor = $Chassis/Mount/Sensors
+@onready var gun = $Gun
+@onready var sensor_mount = $Chassis/Mount
+@onready var sensor = $Chassis/Mount/Sensors
 
 func _ready():
 	pass
@@ -40,7 +40,10 @@ func _physics_process(delta):
 		gun.look_at(current_target, Vector3.UP)
 		
 	handle_throttle(delta)	
-	velocity = move_and_slide(velocity, Vector3.UP)
+	set_velocity(velocity)
+	set_up_direction(Vector3.UP)
+	move_and_slide()
+	velocity = velocity
 	
 func handle_movement(delta):
 	set_global_direction()
@@ -61,7 +64,7 @@ func handle_movement(delta):
 	velocity += transform.basis.x * strafe_speed
 	velocity.y = velocity_y
 
-	# Tilt based on movement
+	# Tilt based checked movement
 	rotation.x = lerp_angle(rotation.x, global_direction.z / TILT_COEF, TILT_RESP)
 	rotation.z = lerp_angle(rotation.z, -global_direction.x / TILT_COEF, TILT_RESP)
 

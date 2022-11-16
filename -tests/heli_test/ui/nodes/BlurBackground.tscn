@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource path="res://-tests/heli_test/shaders/canvas_blur.shader" type="Shader" id=1]
+[ext_resource type="Shader" path="res://-tests/heli_test/shaders/canvas_blur.gdshader" id="1"]
 
 
 [sub_resource type="ShaderMaterial" id=11]

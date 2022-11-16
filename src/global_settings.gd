@@ -8,7 +8,10 @@ signal mouse_sens_updated(value)
 
 
 func toggle_fullscreen(toggle):
-	OS.window_fullscreen = toggle
+	if toggle:
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+else:
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	Save.game_data.fullscreen_on = toggle
 	Save.save_data()
 	

@@ -1,14 +1,14 @@
-extends Spatial
+extends Node3D
 
 
-export var speed = 5
-export var rotation_speed = 2.1
+@export var speed = 5
+@export var rotation_speed = 2.1
 var velocity = Vector3.ZERO
 var rot = Vector3.ZERO
-export(PackedScene) var explosion_effect
+@export var explosion_effect: PackedScene
 
-export var target_path: NodePath
-onready var target: Spatial = get_node(target_path)
+@export var target_path: NodePath
+@onready var target: Node3D = get_node(target_path)
 
 
 
@@ -32,7 +32,7 @@ func _process(delta):
 	
 func _on_Missile_body_entered(body):
 	if body.name == "Player":
-		var explosion = explosion_effect.instance()
+		var explosion = explosion_effect.instantiate()
 		get_parent().add_child(explosion)
 		explosion.global_transform.origin = global_transform.origin
 		explosion.emitting = true

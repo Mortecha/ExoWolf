@@ -86,5 +86,5 @@ func update_mouse_sensitivity(value: float) -> void:
 	mouse_smoothing = invert_by_max(value, 100) * 10
 
 
-func invert_by_max(var value : float, var max_value : float) -> float:
+func invert_by_max(value : float, max_value : float) -> float:
 	return max_value - value

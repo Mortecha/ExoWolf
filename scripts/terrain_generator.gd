@@ -1,15 +1,19 @@
-extends StaticBody
-tool
-export(bool) var generate_mesh setget generate_mesh
-export(int) var size = 512
-export(int) var subdivide = 64
-export(int) var amplitude = 16
-export(int) var falloff_amplitude = 8
+extends StaticBody3D
+@tool
+@export var generate_mesh: bool :
+	get:
+		return generate_mesh # TODOConverter40 Non existent get function 
+	set(mod_value):
+		mod_value  # TODOConverter40 Copy here content of generate_mesh
+@export var size: int = 512
+@export var subdivide: int = 64
+@export var amplitude: int = 16
+@export var falloff_amplitude: int = 8
 
-export(int) var seed_value = 1
-export(int) var octaves = 3 # set between 1 and 3 
-export(int) var period = 100
-export(int) var persistance = 2
+@export var seed_value: int = 1
+@export var octaves: int = 3 # set between 1 and 3 
+@export var period: int = 100
+@export var persistance: int = 2
 
 func generate_mesh(__):
 	var plane_mesh = PlaneMesh.new()
@@ -34,7 +38,7 @@ func generate_mesh(__):
 	custom_gradient.size = Vector2(size + 1, size + 1)
 	var gradient_data = custom_gradient.get_data()
 
-	gradient_data.lock()
+	false # gradient_data.lock() # TODOConverter40, Image no longer requires locking, `false` helps to not break one line if/else, so it can freely be removed
 
 	for i in vertices.size():
 		var vertex = vertices[i]
@@ -44,7 +48,7 @@ func generate_mesh(__):
 		
 	data[ArrayMesh.ARRAY_VERTEX] = vertices
 
-	gradient_data.unlock()
+	false # gradient_data.unlock() # TODOConverter40, Image no longer requires locking, `false` helps to not break one line if/else, so it can freely be removed
 
 	var array_mesh = ArrayMesh.new()
 	array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, data)
@@ -52,5 +56,5 @@ func generate_mesh(__):
 	surface_tool.create_from(array_mesh,0)
 	surface_tool.generate_normals()
 
-	$MeshInstance.mesh = surface_tool.commit()
-	$CollisionShape.shape = array_mesh.create_trimesh_shape()
+	$MeshInstance3D.mesh = surface_tool.commit()
+	$CollisionShape3D.shape = array_mesh.create_trimesh_shape()

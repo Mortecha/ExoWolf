@@ -1,6 +1,6 @@
 extends Node
 
-onready var world_env = $WorldEnvironment
+@onready var world_env = $WorldEnvironment
 
 func _ready():
 	world_env.environment.dof_blur_far_enabled = false

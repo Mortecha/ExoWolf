@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/MD500_Flug.wav-ff089ef0e8cd0d33713ed2c9b6380f21.sample"
+type="AudioStreamWAV"
+uid="uid://b4p1jf6qgmync"
+path="res://.godot/imported/MD500_Flug.wav-ff089ef0e8cd0d33713ed2c9b6380f21.sample"
 
 [deps]
 
 source_file="res://audio/sound/helicopter_engine/MD500_Flug.wav"
-dest_files=[ "res://.import/MD500_Flug.wav-ff089ef0e8cd0d33713ed2c9b6380f21.sample" ]
+dest_files=["res://.godot/imported/MD500_Flug.wav-ff089ef0e8cd0d33713ed2c9b6380f21.sample"]
 
 [params]
 

@@ -1,12 +1,12 @@
 extends Node
 
-export(PackedScene) var StartingWeapon
+@export var StartingWeapon: PackedScene
 
-var hand : Position3D
-var equipped_weapon : Spatial
+var hand : Marker3D
+var equipped_weapon : Node3D
 
 func _ready():
-	hand = get_parent().find_node("Hand")
+	hand = get_parent().find_child("Hand")
 	
 	if StartingWeapon:
 		equip_weapon(StartingWeapon)
@@ -17,7 +17,7 @@ func equip_weapon(weapon_to_equip):
 		equipped_weapon.queue_free()
 	else:
 		print("No weapon equipped")
-		equipped_weapon = weapon_to_equip.instance()
+		equipped_weapon = weapon_to_equip.instantiate()
 		hand.add_child(equipped_weapon)
 
 func shoot():

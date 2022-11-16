@@ -1,37 +1,36 @@
 [remap]
 
 importer="texture"
-type="StreamTexture"
-path.s3tc="res://.import/texture_06.png-bd4fa1d3e9e0c7c3b89ccbac77dafe85.s3tc.stex"
-path.etc="res://.import/texture_06.png-bd4fa1d3e9e0c7c3b89ccbac77dafe85.etc.stex"
+type="CompressedTexture2D"
+uid="uid://ccf8pvfs3wtvv"
+path.s3tc="res://.godot/imported/texture_06.png-0ce0f0a2a3995c7b66ccedf22a3c03a4.s3tc.ctex"
+path.etc2="res://.godot/imported/texture_06.png-0ce0f0a2a3995c7b66ccedf22a3c03a4.etc2.ctex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
+"imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
 }
 
 [deps]
 
-source_file="res://-tests/heli_test/addons/kenney_prototypes/assets/colors/red/textures/texture_06.png"
-dest_files=[ "res://.import/texture_06.png-bd4fa1d3e9e0c7c3b89ccbac77dafe85.s3tc.stex", "res://.import/texture_06.png-bd4fa1d3e9e0c7c3b89ccbac77dafe85.etc.stex" ]
+source_file="res://- tests/heli_test/addons/kenney_prototypes/assets/colors/red/textures/texture_06.png"
+dest_files=["res://.godot/imported/texture_06.png-0ce0f0a2a3995c7b66ccedf22a3c03a4.s3tc.ctex", "res://.godot/imported/texture_06.png-0ce0f0a2a3995c7b66ccedf22a3c03a4.etc2.ctex"]
 
 [params]
 
 compress/mode=2
 compress/lossy_quality=0.7
-compress/hdr_mode=0
+compress/hdr_compression=1
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=true
-flags/filter=true
-flags/mipmaps=true
-flags/anisotropic=true
-flags/srgb=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
-process/HDR_as_SRGB=false
-process/invert_color=false
 process/normal_map_invert_y=false
-stream=false
-size_limit=0
-detect_3d=false
-svg/scale=1.0
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

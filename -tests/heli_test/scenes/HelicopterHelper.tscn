@@ -1,37 +1,37 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource path="res://-tests/heli_test/scripts/helicopter_helper.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://-tests/heli_test/scripts/helicopter_helper.gd" id="1"]
 
 [sub_resource type="CapsuleMesh" id=5]
 
 [sub_resource type="CylinderMesh" id=4]
 
-[sub_resource type="CubeMesh" id=6]
+[sub_resource type="BoxMesh" id=6]
 
-[node name="HelicopterHelper" type="Spatial"]
+[node name="HelicopterHelper" type="Node3D"]
 script = ExtResource( 1 )
 
-[node name="Pivot" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
 visible = false
 
-[node name="Center" type="MeshInstance" parent="Pivot"]
-transform = Transform( 0.2, 0, 0, 0, -8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 0, 0 )
+[node name="Center" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D( 0.2, 0, 0, 0, -8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 0, 0 )
 mesh = SubResource( 5 )
 material/0 = null
 
-[node name="DirectionHelper" type="MeshInstance" parent="Pivot"]
-transform = Transform( 0.25, 0, 0, 0, 0.1, 0, 0, 0, 0.25, 0, 0, 0 )
+[node name="DirectionHelper" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D( 0.25, 0, 0, 0, 0.1, 0, 0, 0, 0.25, 0, 0, 0 )
 mesh = SubResource( 4 )
 material/0 = null
 
-[node name="RotationHelper" type="MeshInstance" parent="Pivot"]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+[node name="RotationHelper" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 mesh = SubResource( 6 )
 material/0 = null
 
-[node name="VerticalVelocity" type="MeshInstance" parent="Pivot"]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+[node name="VerticalVelocity" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 mesh = SubResource( 6 )
 skeleton = NodePath("../RotationHelper")
 material/0 = null

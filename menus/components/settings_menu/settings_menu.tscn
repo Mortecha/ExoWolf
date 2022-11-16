@@ -1,13 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=11 format=3]
 
-[ext_resource path="res://-tests/heli_test/ui/styles/button/button_normal.tres" type="StyleBox" id=1]
-[ext_resource path="res://-tests/heli_test/ui/styles/button/button_hover.tres" type="StyleBox" id=2]
-[ext_resource path="res://-tests/heli_test/ui/styles/button/button_pressed.tres" type="StyleBox" id=4]
-[ext_resource path="res://-tests/heli_test/shaders/canvas_blur.shader" type="Shader" id=5]
-[ext_resource path="res://menus/components/settings_menu/settings_menu.gd" type="Script" id=6]
-[ext_resource path="res://-tests/heli_test/ui/nodes/BlurBackground.tscn" type="PackedScene" id=7]
-[ext_resource path="res://menus/components/ControlHelp.tscn" type="PackedScene" id=8]
-[ext_resource path="res://-tests/heli_test/ui/fonts/JetBrainsMono/JetBrainsMono.tres" type="DynamicFont" id=9]
+[ext_resource type="StyleBox" path="res://-tests/heli_test/ui/styles/button/button_normal.tres" id="1"]
+[ext_resource type="StyleBox" path="res://-tests/heli_test/ui/styles/button/button_hover.tres" id="2"]
+[ext_resource type="StyleBox" path="res://-tests/heli_test/ui/styles/button/button_pressed.tres" id="4"]
+[ext_resource type="Shader" path="res://-tests/heli_test/shaders/canvas_blur.gdshader" id="5"]
+[ext_resource type="Script" path="res://menus/components/settings_menu/settings_menu.gd" id="6"]
+[ext_resource type="PackedScene" path="res://-tests/heli_test/ui/nodes/BlurBackground.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://menus/components/ControlHelp.tscn" id="8"]
+[ext_resource type="FontFile" path="res://-tests/heli_test/ui/fonts/JetBrainsMono/JetBrainsMono.tres" id="9"]
 
 
 [sub_resource type="StyleBoxFlat" id=12]
@@ -30,20 +30,20 @@ material = SubResource( 13 )
 [node name="Buttons" type="VBoxContainer" parent="."]
 modulate = Color( 0, 1, 0.392157, 1 )
 anchor_bottom = 1.0
-margin_left = 40.0
-margin_top = 40.0
-margin_right = 300.0
-margin_bottom = -40.0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 300.0
+offset_bottom = -40.0
 grow_vertical = 0
 custom_constants/separation = 5
 alignment = 2
 
 [node name="start" type="Button" parent="Buttons"]
-margin_top = 900.0
-margin_right = 260.0
-margin_bottom = 930.0
+offset_top = 900.0
+offset_right = 260.0
+offset_bottom = 930.0
 grow_vertical = 0
-rect_min_size = Vector2( 0, 30 )
+minimum_size = Vector2( 0, 30 )
 custom_fonts/font = ExtResource( 9 )
 custom_styles/hover = ExtResource( 2 )
 custom_styles/pressed = ExtResource( 4 )
@@ -57,11 +57,11 @@ align = 0
 material = SubResource( 13 )
 
 [node name="settings" type="Button" parent="Buttons"]
-margin_top = 935.0
-margin_right = 260.0
-margin_bottom = 965.0
+offset_top = 935.0
+offset_right = 260.0
+offset_bottom = 965.0
 grow_vertical = 0
-rect_min_size = Vector2( 0, 30 )
+minimum_size = Vector2( 0, 30 )
 custom_fonts/font = ExtResource( 9 )
 custom_styles/hover = ExtResource( 2 )
 custom_styles/pressed = ExtResource( 4 )
@@ -75,11 +75,11 @@ align = 0
 material = SubResource( 13 )
 
 [node name="quit" type="Button" parent="Buttons"]
-margin_top = 970.0
-margin_right = 260.0
-margin_bottom = 1000.0
+offset_top = 970.0
+offset_right = 260.0
+offset_bottom = 1000.0
 grow_vertical = 0
-rect_min_size = Vector2( 0, 30 )
+minimum_size = Vector2( 0, 30 )
 custom_fonts/font = ExtResource( 9 )
 custom_styles/hover = ExtResource( 2 )
 custom_styles/pressed = ExtResource( 4 )
@@ -97,120 +97,120 @@ material = SubResource( 13 )
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 500.0
-margin_top = 245.0
-margin_right = 500.0
-margin_bottom = 245.0
+offset_left = 500.0
+offset_top = 245.0
+offset_right = 500.0
+offset_bottom = 245.0
 color = Color( 0, 0, 0, 0.74902 )
 
 [node name="SettingTabs" type="TabContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 500.0
-margin_top = 245.0
-margin_right = 500.0
-margin_bottom = 245.0
-tab_align = 0
+offset_left = 500.0
+offset_top = 245.0
+offset_right = 500.0
+offset_bottom = 245.0
+tab_alignment = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Video" type="Tabs" parent="SettingTabs"]
+[node name="Video" type="TabBar" parent="SettingTabs"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1.0
-margin_top = 26.0
-margin_right = -1.0
-margin_bottom = -1.0
+offset_left = 1.0
+offset_top = 26.0
+offset_right = -1.0
+offset_bottom = -1.0
 tab_close_display_policy = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="SettingTabs/Video"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/margin_right = 25
-custom_constants/margin_top = 25
-custom_constants/margin_left = 25
-custom_constants/margin_bottom = 25
+custom_constants/offset_right = 25
+custom_constants/offset_top = 25
+custom_constants/offset_left = 25
+custom_constants/offset_bottom = 25
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VideoSettings" type="GridContainer" parent="SettingTabs/Video/MarginContainer"]
-margin_left = 25.0
-margin_top = 25.0
-margin_right = 1893.0
-margin_bottom = 1028.0
-custom_constants/vseparation = 20
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 1893.0
+offset_bottom = 1028.0
+custom_constants/v_separation = 20
 columns = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ScreenMode" type="Label" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_right = 216.0
-margin_bottom = 44.0
+offset_right = 216.0
+offset_bottom = 44.0
 size_flags_vertical = 1
 text = "Display Mode"
 
 [node name="DisplayOptions" type="OptionButton" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_left = 761.0
-margin_right = 869.0
-margin_bottom = 44.0
+offset_left = 761.0
+offset_right = 869.0
+offset_bottom = 44.0
 size_flags_horizontal = 10
 text = "Windowed"
 items = [ "Windowed", null, false, 0, null, "Fullscreen", null, false, 1, null ]
 selected = 0
 
 [node name="Vsync" type="Label" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_top = 64.0
-margin_right = 216.0
-margin_bottom = 108.0
+offset_top = 64.0
+offset_right = 216.0
+offset_bottom = 108.0
 text = "Vsync"
 
 [node name="VsyncBtn" type="CheckButton" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_left = 835.0
-margin_top = 64.0
-margin_right = 869.0
-margin_bottom = 108.0
+offset_left = 835.0
+offset_top = 64.0
+offset_right = 869.0
+offset_bottom = 108.0
 size_flags_horizontal = 8
 
 [node name="DisplayFps" type="Label" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_top = 128.0
-margin_right = 216.0
-margin_bottom = 172.0
+offset_top = 128.0
+offset_right = 216.0
+offset_bottom = 172.0
 text = "Display FPS"
 
 [node name="DisplayFpsBtn" type="CheckButton" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_left = 835.0
-margin_top = 128.0
-margin_right = 869.0
-margin_bottom = 172.0
+offset_left = 835.0
+offset_top = 128.0
+offset_right = 869.0
+offset_bottom = 172.0
 size_flags_horizontal = 8
 
 [node name="MaxFps" type="Label" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_top = 192.0
-margin_right = 216.0
-margin_bottom = 236.0
+offset_top = 192.0
+offset_right = 216.0
+offset_bottom = 236.0
 text = "Max FPS"
 
 [node name="MaxFpsOption" type="HBoxContainer" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_left = 393.0
-margin_top = 192.0
-margin_right = 869.0
-margin_bottom = 236.0
+offset_left = 393.0
+offset_top = 192.0
+offset_right = 869.0
+offset_bottom = 236.0
 size_flags_horizontal = 10
 custom_constants/separation = 10
 
 [node name="MaxFpsVal" type="Label" parent="SettingTabs/Video/MarginContainer/VideoSettings/MaxFpsOption"]
-margin_right = 66.0
-margin_bottom = 44.0
+offset_right = 66.0
+offset_bottom = 44.0
 text = "max"
 
 [node name="MaxFpsSlider" type="HSlider" parent="SettingTabs/Video/MarginContainer/VideoSettings/MaxFpsOption"]
-margin_left = 76.0
-margin_right = 476.0
-margin_bottom = 44.0
-rect_min_size = Vector2( 400, 0 )
+offset_left = 76.0
+offset_right = 476.0
+offset_bottom = 44.0
+minimum_size = Vector2( 400, 0 )
 size_flags_horizontal = 8
 size_flags_vertical = 1
 min_value = 30.0
@@ -219,77 +219,77 @@ value = 500.0
 rounded = true
 
 [node name="DisplayFps2" type="Label" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_top = 256.0
-margin_right = 216.0
-margin_bottom = 300.0
+offset_top = 256.0
+offset_right = 216.0
+offset_bottom = 300.0
 text = "Bloom"
 
 [node name="BloomBtn" type="CheckButton" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_left = 835.0
-margin_top = 256.0
-margin_right = 869.0
-margin_bottom = 300.0
+offset_left = 835.0
+offset_top = 256.0
+offset_right = 869.0
+offset_bottom = 300.0
 size_flags_horizontal = 8
 
 [node name="Brightness" type="Label" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_top = 320.0
-margin_right = 216.0
-margin_bottom = 364.0
+offset_top = 320.0
+offset_right = 216.0
+offset_bottom = 364.0
 text = "Brightness"
 
 [node name="BrightnessSlider" type="HSlider" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
-margin_left = 469.0
-margin_top = 320.0
-margin_right = 869.0
-margin_bottom = 364.0
-rect_min_size = Vector2( 400, 0 )
+offset_left = 469.0
+offset_top = 320.0
+offset_right = 869.0
+offset_bottom = 364.0
+minimum_size = Vector2( 400, 0 )
 size_flags_horizontal = 8
 size_flags_vertical = 1
 max_value = 2.0
 step = 0.1
 value = 1.0
 
-[node name="Audio" type="Tabs" parent="SettingTabs"]
+[node name="Audio" type="TabBar" parent="SettingTabs"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 43.0
-margin_right = -4.0
-margin_bottom = -4.0
+offset_left = 4.0
+offset_top = 43.0
+offset_right = -4.0
+offset_bottom = -4.0
 
 [node name="MarginContainer2" type="MarginContainer" parent="SettingTabs/Audio"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/margin_right = 25
-custom_constants/margin_top = 25
-custom_constants/margin_left = 25
-custom_constants/margin_bottom = 25
+custom_constants/offset_right = 25
+custom_constants/offset_top = 25
+custom_constants/offset_left = 25
+custom_constants/offset_bottom = 25
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AudioSettings" type="GridContainer" parent="SettingTabs/Audio/MarginContainer2"]
-margin_left = 25.0
-margin_top = 25.0
-margin_right = 1887.0
-margin_bottom = 1008.0
-custom_constants/vseparation = 20
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 1887.0
+offset_bottom = 1008.0
+custom_constants/v_separation = 20
 columns = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MasterVol" type="Label" parent="SettingTabs/Audio/MarginContainer2/AudioSettings"]
-margin_right = 243.0
-margin_bottom = 44.0
+offset_right = 243.0
+offset_bottom = 44.0
 text = "Master Volume"
 
 [node name="MasterSlider" type="HSlider" parent="SettingTabs/Audio/MarginContainer2/AudioSettings"]
-margin_left = 463.0
-margin_right = 863.0
-margin_bottom = 44.0
-rect_min_size = Vector2( 400, 0 )
+offset_left = 463.0
+offset_right = 863.0
+offset_bottom = 44.0
+minimum_size = Vector2( 400, 0 )
 size_flags_horizontal = 10
 size_flags_vertical = 1
 min_value = -50.0
@@ -298,17 +298,17 @@ value = -15.0
 rounded = true
 
 [node name="MusicVol" type="Label" parent="SettingTabs/Audio/MarginContainer2/AudioSettings"]
-margin_top = 64.0
-margin_right = 243.0
-margin_bottom = 108.0
+offset_top = 64.0
+offset_right = 243.0
+offset_bottom = 108.0
 text = "Music Volume"
 
 [node name="MusicSlider" type="HSlider" parent="SettingTabs/Audio/MarginContainer2/AudioSettings"]
-margin_left = 463.0
-margin_top = 64.0
-margin_right = 863.0
-margin_bottom = 108.0
-rect_min_size = Vector2( 400, 0 )
+offset_left = 463.0
+offset_top = 64.0
+offset_right = 863.0
+offset_bottom = 108.0
+minimum_size = Vector2( 400, 0 )
 size_flags_horizontal = 10
 size_flags_vertical = 1
 min_value = -50.0
@@ -317,17 +317,17 @@ value = -15.0
 rounded = true
 
 [node name="SfxVol" type="Label" parent="SettingTabs/Audio/MarginContainer2/AudioSettings"]
-margin_top = 128.0
-margin_right = 243.0
-margin_bottom = 172.0
+offset_top = 128.0
+offset_right = 243.0
+offset_bottom = 172.0
 text = "SFX Volume"
 
 [node name="SfxSlider" type="HSlider" parent="SettingTabs/Audio/MarginContainer2/AudioSettings"]
-margin_left = 463.0
-margin_top = 128.0
-margin_right = 863.0
-margin_bottom = 172.0
-rect_min_size = Vector2( 400, 0 )
+offset_left = 463.0
+offset_top = 128.0
+offset_right = 863.0
+offset_bottom = 172.0
+minimum_size = Vector2( 400, 0 )
 size_flags_horizontal = 10
 size_flags_vertical = 1
 min_value = -50.0
@@ -335,60 +335,60 @@ max_value = 0.0
 value = -15.0
 rounded = true
 
-[node name="GamePlay" type="Tabs" parent="SettingTabs"]
+[node name="GamePlay" type="TabBar" parent="SettingTabs"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 43.0
-margin_right = -4.0
-margin_bottom = -4.0
+offset_left = 4.0
+offset_top = 43.0
+offset_right = -4.0
+offset_bottom = -4.0
 
 [node name="MarginContainer3" type="MarginContainer" parent="SettingTabs/GamePlay"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/margin_right = 25
-custom_constants/margin_top = 25
-custom_constants/margin_left = 25
-custom_constants/margin_bottom = 25
+custom_constants/offset_right = 25
+custom_constants/offset_top = 25
+custom_constants/offset_left = 25
+custom_constants/offset_bottom = 25
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="GameplaySettings" type="GridContainer" parent="SettingTabs/GamePlay/MarginContainer3"]
-margin_left = 25.0
-margin_top = 25.0
-margin_right = 1887.0
-margin_bottom = 1008.0
-custom_constants/vseparation = 20
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 1887.0
+offset_bottom = 1008.0
+custom_constants/v_separation = 20
 columns = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Fov" type="Label" parent="SettingTabs/GamePlay/MarginContainer3/GameplaySettings"]
-margin_right = 269.0
-margin_bottom = 44.0
+offset_right = 269.0
+offset_bottom = 44.0
 size_flags_vertical = 1
 text = "FOV"
 
 [node name="FovOption" type="HBoxContainer" parent="SettingTabs/GamePlay/MarginContainer3/GameplaySettings"]
-margin_left = 411.0
-margin_right = 863.0
-margin_bottom = 44.0
+offset_left = 411.0
+offset_right = 863.0
+offset_bottom = 44.0
 size_flags_horizontal = 10
 custom_constants/separation = 10
 
 [node name="FovAmount" type="Label" parent="SettingTabs/GamePlay/MarginContainer3/GameplaySettings/FovOption"]
-margin_right = 42.0
-margin_bottom = 44.0
+offset_right = 42.0
+offset_bottom = 44.0
 text = "70"
 
 [node name="FovSlider" type="HSlider" parent="SettingTabs/GamePlay/MarginContainer3/GameplaySettings/FovOption"]
-margin_left = 52.0
-margin_right = 452.0
-margin_bottom = 44.0
-rect_min_size = Vector2( 400, 0 )
+offset_left = 52.0
+offset_right = 452.0
+offset_bottom = 44.0
+minimum_size = Vector2( 400, 0 )
 size_flags_horizontal = 10
 size_flags_vertical = 1
 min_value = 30.0
@@ -396,29 +396,29 @@ value = 70.0
 rounded = true
 
 [node name="MouseSens" type="Label" parent="SettingTabs/GamePlay/MarginContainer3/GameplaySettings"]
-margin_top = 64.0
-margin_right = 269.0
-margin_bottom = 108.0
+offset_top = 64.0
+offset_right = 269.0
+offset_bottom = 108.0
 text = "Mouse Sensitvity"
 
 [node name="MouseSensOption" type="HBoxContainer" parent="SettingTabs/GamePlay/MarginContainer3/GameplaySettings"]
-margin_left = 424.0
-margin_top = 64.0
-margin_right = 863.0
-margin_bottom = 108.0
+offset_left = 424.0
+offset_top = 64.0
+offset_right = 863.0
+offset_bottom = 108.0
 size_flags_horizontal = 10
 custom_constants/separation = 10
 
 [node name="MouseSensAmount" type="Label" parent="SettingTabs/GamePlay/MarginContainer3/GameplaySettings/MouseSensOption"]
-margin_right = 29.0
-margin_bottom = 44.0
+offset_right = 29.0
+offset_bottom = 44.0
 text = ".1"
 
 [node name="MouseSlider" type="HSlider" parent="SettingTabs/GamePlay/MarginContainer3/GameplaySettings/MouseSensOption"]
-margin_left = 39.0
-margin_right = 439.0
-margin_bottom = 44.0
-rect_min_size = Vector2( 400, 0 )
+offset_left = 39.0
+offset_right = 439.0
+offset_bottom = 44.0
+minimum_size = Vector2( 400, 0 )
 size_flags_horizontal = 10
 size_flags_vertical = 1
 min_value = 0.05

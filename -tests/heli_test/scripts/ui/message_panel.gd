@@ -10,10 +10,10 @@
 extends Label
 
 
-onready var timer : Timer = get_node("Timer")
+@onready var timer : Timer = get_node("Timer")
 var display_time : float = 3
 var message : String = "[INFO] default message . . . "
-var colour : Color = Color.white
+var colour : Color = Color.WHITE
 
 
 # Called when the node enters the scene tree for the first time.

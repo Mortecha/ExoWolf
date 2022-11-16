@@ -1,8 +1,8 @@
-extends MeshInstance
+extends MeshInstance3D
 
 var rotor_speed : float = 0.0
 var rotor_landed_speed : float = 13.3
-export var rotor_flight_speed : float = 22.3
+@export var rotor_flight_speed : float = 22.3
 
 enum RotorState {stopped, landed, flight}
 var rotor_state

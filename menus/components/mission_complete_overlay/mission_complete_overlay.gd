@@ -1,8 +1,12 @@
 extends Control
 
-var is_paused = false setget set_paused
+var is_paused = false :
+	get:
+		return is_paused # TODOConverter40 Non existent get function 
+	set(mod_value):
+		mod_value  # TODOConverter40 Copy here content of set_paused
 
-onready var settings_menu = $SettingsMenu
+@onready var settings_menu = $SettingsMenu
 
 func _ready():
 	hide()

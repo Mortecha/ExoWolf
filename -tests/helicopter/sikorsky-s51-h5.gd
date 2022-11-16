@@ -1,9 +1,9 @@
-extends VehicleBody
+extends VehicleBody3D
 
 var horse_power = 50
 var accel_speed = 10
 
-var steer_angle = deg2rad(30)
+var steer_angle = deg_to_rad(30)
 var steer_speed = 3
 
 var brake_power = 40
@@ -29,7 +29,7 @@ func _integrate_forces(state):
 	var ver_input = -Input.get_action_strength("player_forwards") + Input.get_action_strength("player_backwards")
 	var hor_input = -Input.get_action_strength("player_left") + Input.get_action_strength("player_right")
 	
-	# Landing / Taking off
+	# Landing / Taking unchecked
 	if grounded == true:
 		if Input.is_action_pressed("player_increase_throttle") && ver_input == -1:
 			grounded = false

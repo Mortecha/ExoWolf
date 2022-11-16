@@ -2,14 +2,18 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/cannon.mp3-50dc0bbacca9dda3c8bab9ef0fa4ddaa.mp3str"
+uid="uid://c0py5n45dvlab"
+path="res://.godot/imported/cannon.mp3-50dc0bbacca9dda3c8bab9ef0fa4ddaa.mp3str"
 
 [deps]
 
 source_file="res://audio/sound/weapon_sounds/cannon.mp3"
-dest_files=[ "res://.import/cannon.mp3-50dc0bbacca9dda3c8bab9ef0fa4ddaa.mp3str" ]
+dest_files=["res://.godot/imported/cannon.mp3-50dc0bbacca9dda3c8bab9ef0fa4ddaa.mp3str"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

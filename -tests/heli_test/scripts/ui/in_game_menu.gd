@@ -32,7 +32,7 @@ func _on_quit_pressed() -> void:
 	get_tree().quit()
 
 
-func enable_menu(var visible : bool) -> void:
+func enable_menu(visible : bool) -> void:
 		self.enable = visible
 		self.set_visible(self.enable)
 		

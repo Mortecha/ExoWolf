@@ -1,33 +1,33 @@
-extends KinematicBody
+extends CharacterBody3D
 
-export var max_speed = 10
-export var acceleration = 70
-export var friction = 60
-export var air_friction = 10
-export var gravity = -40
-export var jump_impulse = 20
-export var mouse_sensitivity = .1
-export var controller_sensitivity = 3
-export var rot_speed = 5
+@export var max_speed = 10
+@export var acceleration = 70
+@export var friction = 60
+@export var air_friction = 10
+@export var gravity = -40
+@export var jump_impulse = 20
+@export var mouse_sensitivity = .1
+@export var controller_sensitivity = 3
+@export var rot_speed = 5
 
-export (int, 0, 10) var push = 1
+@export (int, 0, 10) var push = 1
 
 var velocity = Vector3.ZERO
 var snap_vector = Vector3.ZERO
 
-onready var spring_arm = $SpringArm
-onready var pivot = $Pivot
-onready var camera = $SpringArm/Camera
+@onready var spring_arm = $SpringArm3D
+@onready var pivot = $Pivot
+@onready var camera = $SpringArm3D/Camera3D
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	GlobalSettings.connect("fov_updated", self, "_on_fov_updated")
-	GlobalSettings.connect("mouse_sens_updated", self, "_on_mouse_sens_updated")
+	GlobalSettings.connect("fov_updated",Callable(self,"_on_fov_updated"))
+	GlobalSettings.connect("mouse_sens_updated",Callable(self,"_on_mouse_sens_updated"))
 	
 func _unhandled_input(event):	
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		rotate_y(deg2rad(-event.relative.x * mouse_sensitivity))
-		spring_arm.rotate_x(deg2rad(-event.relative.y * mouse_sensitivity))
+		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
+		spring_arm.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
 			
 
 func _physics_process(delta):
@@ -39,9 +39,17 @@ func _physics_process(delta):
 	update_snap_vector()
 	jump()
 	apply_controller_rotation()
-	spring_arm.rotation.x = clamp(spring_arm.rotation.x, deg2rad(-75), deg2rad(75))
-	velocity = move_and_slide_with_snap(velocity, snap_vector, Vector3.UP, true, 4, 0.785398, false)
-	for idx in get_slide_count():
+	spring_arm.rotation.x = clamp(spring_arm.rotation.x, deg_to_rad(-75), deg_to_rad(75))
+	set_velocity(velocity)
+	# TODOConverter40 looks that snap in Godot 4.0 is float, not vector like in Godot 3 - previous value `snap_vector`
+	set_up_direction(Vector3.UP)
+	set_floor_stop_on_slope_enabled(true)
+	set_max_slides(4)
+	set_floor_max_angle(0.785398)
+	# TODOConverter40 infinite_inertia were removed in Godot 4.0 - previous value `false`
+	move_and_slide()
+	velocity = velocity
+	for idx in get_slide_collision_count():
 		var collision = get_slide_collision(idx)
 		if collision.collider.is_in_group("bodies"):
 			collision.collider.apply_central_impulse(-collision.normal * velocity.length() * push)
@@ -97,8 +105,8 @@ func apply_controller_rotation():
 	axis_vector.y = Input.get_action_strength("look_down") - Input.get_action_strength("look_up")
 	
 	if InputEventJoypadMotion:
-		rotate_y(deg2rad(-axis_vector.x) * controller_sensitivity)
-		spring_arm.rotate_x(deg2rad(-axis_vector.y) * controller_sensitivity)
+		rotate_y(deg_to_rad(-axis_vector.x) * controller_sensitivity)
+		spring_arm.rotate_x(deg_to_rad(-axis_vector.y) * controller_sensitivity)
 		
 		
 func _on_fov_updated(value):

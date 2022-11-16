@@ -2,5 +2,5 @@
 
 [ext_resource path="res://scripts/flythrough_camera.gd" type="Script" id=1]
 
-[node name="flythrought_camera" type="Camera"]
+[node name="flythrought_camera" type="Camera3D"]
 script = ExtResource( 1 )

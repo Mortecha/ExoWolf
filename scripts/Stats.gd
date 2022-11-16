@@ -2,8 +2,8 @@ extends Node
 
 class_name Stats
 
-export var max_hp = 1
-onready var current_hp = max_hp
+@export var max_hp = 1
+@onready var current_hp = max_hp
 
 signal death_signal
 

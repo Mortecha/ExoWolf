@@ -13,8 +13,8 @@ extends MarginContainer
 #var markers = {}
 #
 #func _ready():
-#	player_marker.position = grid.rect_size / 2
-#	grid_scale = grid.rect_size / (get_viewport_rect().size * zoom)
+#	player_marker.position = grid.size / 2
+#	grid_scale = grid.size / (get_viewport_rect().size * zoom)
 #
 #func _process(delta):
 #	if !player:

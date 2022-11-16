@@ -8,16 +8,16 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-extends Spatial
+extends Node3D
 
 # Target configurations
-export(NodePath) var target_path : NodePath
-onready var spring_arm : SpringArm = get_node("SpringArm")
-var target_node : Spatial
+@export var target_path: NodePath : NodePath
+@onready var spring_arm : SpringArm3D = get_node("SpringArm3D")
+var target_node : Node3D
 var camera_speed : float = 15.0
 var pilot_camera_toggle : bool = false
-var follow_camera : Camera
-var pilot_camera : Camera
+var follow_camera : Camera3D
+var pilot_camera : Camera3D
 
 # Freelook configurations
 var freelook_rotation : Vector3 = Vector3()
@@ -34,8 +34,8 @@ func _ready() -> void:
 	
 	if target_path:
 		target_node = get_node(target_path)
-		follow_camera = get_node("SpringArm/ClippedCamera")
-		pilot_camera = get_node("PilotOffset/Camera")
+		follow_camera = get_node("SpringArm3D/Camera3D")
+		pilot_camera = get_node("PilotOffset/Camera3D")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -69,7 +69,7 @@ func _unhandled_input(event) -> void:
 		self.freelook_rotation.z = 0
 
 
-func camera_freelook(var delta : float) -> void:
+func camera_freelook(delta : float) -> void:
 	if !target_node:
 		return
 	
@@ -82,8 +82,8 @@ func camera_freelook(var delta : float) -> void:
 		
 		# Pilot camera freelook
 		if pilot_camera_toggle:
-			pilot_camera.rotation_degrees.x = rad2deg(self.freelook_rotation.x)
-			pilot_camera.rotation_degrees.y = rad2deg(pilot_camera.rotation.y + Globals.mouse_offset.x * -2)
+			pilot_camera.rotation_degrees.x = rad_to_deg(self.freelook_rotation.x)
+			pilot_camera.rotation_degrees.y = rad_to_deg(pilot_camera.rotation.y + Globals.mouse_offset.x * -2)
 			pilot_camera.rotation_degrees.z = 0
 	else:
 		self.rotation.x = lerp_angle(self.rotation.x, dir.x, self.freelook_return_time * delta)
@@ -103,11 +103,11 @@ func camera_freelook(var delta : float) -> void:
 	pilot_camera.rotation_degrees.x = clamp(pilot_camera.rotation_degrees.x, -55, 70)
 
 
-func camera_follow_control(var delta : float) -> void:
+func camera_follow_control(delta : float) -> void:
 	if !target_node:
 		return
 	
-	var target_position : Transform = target_node.global_transform
+	var target_position : Transform3D = target_node.global_transform
 	self.global_transform.origin = lerp(self.global_transform.origin, target_position.origin, self.camera_speed * delta)
 	
 	# Don't follow target's rotation
@@ -122,7 +122,7 @@ func camera_toggle() -> void:
 		target_node.get_node("dauphin/Body/PilotOffset").add_child(pilot_camera)
 		
 		# Offset
-#		pilot_camera.set_translation(Vector3(0.15, 0.7, 0.6))
+#		pilot_camera.set_position(Vector3(0.15, 0.7, 0.6))
 		pilot_camera.set_rotation_degrees(Vector3(0, 180, 0))
 	else:
 		if pilot_camera.get_parent() == target_node.get_node("dauphin/Body/PilotOffset"):
@@ -130,7 +130,7 @@ func camera_toggle() -> void:
 			$PilotOffset.add_child(pilot_camera)
 
 
-func camera_pilot_fov(var delta : float) -> void:
+func camera_pilot_fov(delta : float) -> void:
 	if Input.is_action_pressed("cl_pilot_zoom"):
 		pilot_camera.set_fov(lerp(pilot_camera.get_fov(), pilot_min_fov, 10 * delta))
 	else:

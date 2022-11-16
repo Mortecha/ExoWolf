@@ -1,33 +1,33 @@
-extends Spatial
+extends Node3D
 class_name PlayerTurret
 
 ################################
 # EXPORT PARAMS
 ################################
 # parts
-export var body_path: NodePath
-export var head_path: NodePath
+@export var body_path: NodePath
+@export var head_path: NodePath
 
 # movement
-export var elevation_speed_deg: float = 45
-export var rotation_speed_deg: float = 90
+@export var elevation_speed_deg: float = 45
+@export var rotation_speed_deg: float = 90
 # bullets
-export var muzzle_velocity: float = 50
+@export var muzzle_velocity: float = 50
 # constraints
-export var min_elevation: float = -10
-export var max_elevation: float = 60
+@export var min_elevation: float = -10
+@export var max_elevation: float = 60
 
 ################################
 # PARAMS
 ################################
 # parts
-onready var body: Spatial = get_node(body_path)
-onready var head: Spatial = get_node(head_path)
-onready var player = $".."
-var target: Spatial
+@onready var body: Node3D = get_node(body_path)
+@onready var head: Node3D = get_node(head_path)
+@onready var player = $".."
+var target: Node3D
 # movement
-onready var elevation_speed: float = deg2rad(elevation_speed_deg)
-onready var rotation_speed: float = deg2rad(rotation_speed_deg)
+@onready var elevation_speed: float = deg_to_rad(elevation_speed_deg)
+@onready var rotation_speed: float = deg_to_rad(rotation_speed_deg)
 # target calculation
 var ttc: float
 var current_target: Vector3

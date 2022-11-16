@@ -1,11 +1,11 @@
-extends Spatial
+extends Node3D
 
-export(PackedScene) var Bullet
-export var muzzle_speed = 30
-export var time_between_shots = 0.15
+@export var Bullet: PackedScene
+@export var muzzle_speed = 30
+@export var time_between_shots = 0.15
 
-onready var rof_timer = $Timer
-onready var gun_sound_player = $AudioStreamPlayer3D
+@onready var rof_timer = $Timer
+@onready var gun_sound_player = $AudioStreamPlayer3D
 
 var can_shoot = true
 
@@ -26,7 +26,7 @@ func set_target(target):
 func shoot():
 	if can_shoot:
 		gun_sound_player.play()
-		bullet = Bullet.instance()
+		bullet = Bullet.instantiate()
 		bullet.global_transform = $Muzzle.global_transform	
 		scene_root.add_child(bullet)
 		can_shoot = false

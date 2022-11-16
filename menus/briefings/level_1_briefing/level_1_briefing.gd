@@ -1,13 +1,13 @@
 extends CanvasLayer
 
-export(String, FILE) var main_menu
-export(String, FILE) var level
+@export var main_menu # (String, FILE)
+@export var level # (String, FILE)
 
 func _ready():
 	pass
 
 func _on_main_menu_pressed():
-	get_tree().change_scene(main_menu)
+	get_tree().change_scene_to_file(main_menu)
 
 func _on_start_mission_pressed():
-	get_tree().change_scene(level)
+	get_tree().change_scene_to_file(level)

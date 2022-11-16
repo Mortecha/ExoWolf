@@ -4,13 +4,13 @@
 [ext_resource path="res://materials/gun_metal_grey.tres" type="Material" id=2]
 [ext_resource path="res://audio/ambience/carrier/carrier_ambience.mp3" type="AudioStream" id=3]
 
-[sub_resource type="BoxShape" id=1]
+[sub_resource type="BoxShape3D" id=1]
 extents = Vector3( 0.570847, 3.02071, 0.433519 )
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape3D" id=2]
 extents = Vector3( 0.351588, 0.742354, 0.388482 )
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape3D" id=3]
 extents = Vector3( 0.366818, 0.335504, 0.118259 )
 
 [node name="Carrier" instance=ExtResource( 1 )]
@@ -18,23 +18,23 @@ extents = Vector3( 0.366818, 0.335504, 0.118259 )
 [node name="Mistral001" parent="." index="0"]
 material/0 = ExtResource( 2 )
 
-[node name="StaticBody" type="StaticBody" parent="Mistral001" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Mistral001" index="0"]
 
-[node name="CollisionShape" type="CollisionShape" parent="Mistral001/StaticBody" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, -4.26326e-14, 0, 5.68434e-14, 1, 0, 0.146466, 0.0450368 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mistral001/StaticBody3D" index="0"]
+transform = Transform3D( 1, 0, 0, 0, 1, -4.26326e-14, 0, 5.68434e-14, 1, 0, 0.146466, 0.0450368 )
 shape = SubResource( 1 )
 
-[node name="CollisionShape2" type="CollisionShape" parent="Mistral001/StaticBody" index="1"]
-transform = Transform( 1, 0, 0, 0, 1, -4.26326e-14, 0, 5.68434e-14, 1, 0, 0.154603, -0.648533 )
+[node name="CollisionShape2" type="CollisionShape3D" parent="Mistral001/StaticBody3D" index="1"]
+transform = Transform3D( 1, 0, 0, 0, 1, -4.26326e-14, 0, 5.68434e-14, 1, 0, 0.154603, -0.648533 )
 shape = SubResource( 2 )
 
-[node name="CollisionShape3" type="CollisionShape" parent="Mistral001/StaticBody" index="2"]
-transform = Transform( 1, 0, 0, 0, 1, -4.26326e-14, 0, 8.52651e-14, 1, 0, -0.87066, -0.4864 )
+[node name="CollisionShape3" type="CollisionShape3D" parent="Mistral001/StaticBody3D" index="2"]
+transform = Transform3D( 1, 0, 0, 0, 1, -4.26326e-14, 0, 8.52651e-14, 1, 0, -0.87066, -0.4864 )
 shape = SubResource( 3 )
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="2"]
 stream = ExtResource( 3 )
-unit_db = 10.0
+volume_db = 10.0
 unit_size = 10.0
 max_db = 6.0
 autoplay = true
