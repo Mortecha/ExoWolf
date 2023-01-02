@@ -1,8 +1,5 @@
-[gd_scene load_steps=24 format=3]
+[gd_scene load_steps=16 format=3 uid="uid://dwhpkkqatrbb6"]
 
-[ext_resource type="StyleBox" path="res://-tests/heli_test/ui/styles/button/button_normal.tres" id="1"]
-[ext_resource type="StyleBox" path="res://-tests/heli_test/ui/styles/button/button_hover.tres" id="2"]
-[ext_resource type="StyleBox" path="res://-tests/heli_test/ui/styles/button/button_pressed.tres" id="3"]
 [ext_resource type="Script" path="res://menus/main_menu/main_menu.gd" id="4"]
 [ext_resource type="Shader" path="res://-tests/heli_test/shaders/canvas_blur.gdshader" id="5"]
 [ext_resource type="Script" path="res://hud/fps_label/fps_label.gd" id="6"]
@@ -13,57 +10,53 @@
 [ext_resource type="Texture2D" uid="uid://bdl7rck2e8bcg" path="res://menus/main_menu/images/main_menu_overlay_stripe.png" id="11"]
 [ext_resource type="PackedScene" path="res://-tests/heli_test/ui/nodes/BlurBackground.tscn" id="12"]
 [ext_resource type="PackedScene" path="res://menus/components/settings_menu/settings_menu.tscn" id="13"]
-[ext_resource type="FontFile" path="res://-tests/heli_test/ui/fonts/JetBrainsMono/JetBrainsMono.tres" id="14"]
-[ext_resource type="FontFile" uid="uid://c5v2lt11fb35y" path="res://fonts/Lato-Regular.ttf" id="15"]
 [ext_resource type="Shader" path="res://shaders/main_menu_grid_shader.tres" id="16"]
 [ext_resource type="PackedScene" path="res://menus/components/ControlHelp.tscn" id="17"]
 
-[sub_resource type="ShaderMaterial" id=10]
-shader = ExtResource( 5 )
-shader_param/amount = 2.0
+[sub_resource type="ShaderMaterial" id="10"]
+shader = ExtResource("5")
+shader_parameter/amount = 2.0
 
-[sub_resource type="ShaderMaterial" id=8]
-shader = ExtResource( 16 )
-shader_param/battery = 0.05
-shader_param/anchor = -0.5
-shader_param/speed_scale = -1.0
-shader_param/fov = 0.01
-shader_param/background_color = Color( 0, 0, 0, 0.611765 )
-shader_param/grid_color = Color( 0.847059, 0, 0.0509804, 0.501961 )
+[sub_resource type="ShaderMaterial" id="8"]
+shader = ExtResource("16")
+shader_parameter/battery = 0.05
+shader_parameter/anchor = -0.5
+shader_parameter/speed_scale = -1.0
+shader_parameter/fov = 0.01
+shader_parameter/background_color = Color(0, 0, 0, 0.611765)
+shader_parameter/grid_color = Color(0.847059, 0, 0.0509804, 0.501961)
 
-[sub_resource type="FontFile" id=7]
-font_data = ExtResource( 15 )
-
-[sub_resource type="StyleBoxFlat" id=6]
-content_margin_left = 6.0
-content_margin_right = 6.0
-bg_color = Color( 0.996078, 0.768627, 0, 1 )
-
-[sub_resource type="StyleBoxFlat" id=9]
-bg_color = Color( 0, 0, 0, 0.294118 )
-
-[sub_resource type="Theme" id=11]
+[sub_resource type="Theme" id="11"]
 
 [node name="StartScreen" type="CanvasLayer"]
-script = ExtResource( 4 )
+script = ExtResource("4")
 level = "res://menus/briefings/level_1_briefing/level_1_briefing.tscn"
 
 [node name="BackgroundImage" type="TextureRect" parent="."]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 10 )
-expand = true
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10")
 stretch_mode = 1
 
-[node name="BlurBackground" parent="." instance=ExtResource( 12 )]
-material = SubResource( 10 )
+[node name="BlurBackground" parent="." instance=ExtResource("12")]
+material = SubResource("10")
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
-material = SubResource( 8 )
+material = SubResource("8")
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="StripRect" type="TextureRect" parent="."]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -72,19 +65,19 @@ offset_left = -369.5
 offset_top = -540.0
 offset_right = 369.5
 offset_bottom = 540.0
-texture = ExtResource( 11 )
-expand = true
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11")
 
 [node name="FpsLabel" type="Label" parent="."]
 visible = false
 offset_right = 64.0
 offset_bottom = 20.0
-custom_fonts/font = SubResource( 7 )
-custom_styles/normal = SubResource( 6 )
 text = "FPS: 60"
-script = ExtResource( 6 )
+script = ExtResource("6")
 
 [node name="Logo" type="TextureRect" parent="."]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -93,9 +86,12 @@ offset_left = -359.0
 offset_top = -297.0
 offset_right = 359.0
 offset_bottom = 473.0
-texture = ExtResource( 9 )
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9")
 
 [node name="Title" type="TextureRect" parent="."]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -104,83 +100,74 @@ offset_left = -274.5
 offset_top = -520.0
 offset_right = 274.5
 offset_bottom = -273.0
-texture = ExtResource( 7 )
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7")
 
 [node name="InGameMenu2" type="Panel" parent="."]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 9 )
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Buttons" type="VBoxContainer" parent="InGameMenu2"]
-modulate = Color( 0, 1, 0.392157, 1 )
+modulate = Color(0, 1, 0.392157, 1)
+layout_mode = 1
+anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = 40.0
 offset_top = 40.0
 offset_right = 300.0
 offset_bottom = -40.0
 grow_vertical = 0
-custom_constants/separation = 5
 alignment = 2
 
 [node name="start" type="Button" parent="InGameMenu2/Buttons"]
-offset_top = 935.0
-offset_right = 260.0
-offset_bottom = 965.0
-grow_vertical = 0
-minimum_size = Vector2( 0, 30 )
-custom_fonts/font = ExtResource( 14 )
-custom_styles/hover = ExtResource( 2 )
-custom_styles/pressed = ExtResource( 3 )
-custom_styles/focus = ExtResource( 1 )
-custom_styles/disabled = ExtResource( 3 )
-custom_styles/normal = ExtResource( 1 )
+layout_mode = 2
 text = " Start"
-align = 0
 
-[node name="BlurBackground" parent="InGameMenu2/Buttons/start" instance=ExtResource( 12 )]
-material = SubResource( 10 )
+[node name="BlurBackground" parent="InGameMenu2/Buttons/start" instance=ExtResource("12")]
+material = SubResource("10")
+layout_mode = 1
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="settings" type="Button" parent="InGameMenu2/Buttons"]
 visible = false
-offset_top = 935.0
-offset_right = 260.0
-offset_bottom = 965.0
-grow_vertical = 0
-minimum_size = Vector2( 0, 30 )
-custom_fonts/font = ExtResource( 14 )
-custom_styles/hover = ExtResource( 2 )
-custom_styles/pressed = ExtResource( 3 )
-custom_styles/focus = ExtResource( 1 )
-custom_styles/disabled = ExtResource( 3 )
-custom_styles/normal = ExtResource( 1 )
+layout_mode = 2
 text = " Settings"
-align = 0
 
-[node name="BlurBackground" parent="InGameMenu2/Buttons/settings" instance=ExtResource( 12 )]
-material = SubResource( 10 )
+[node name="BlurBackground" parent="InGameMenu2/Buttons/settings" instance=ExtResource("12")]
+material = SubResource("10")
+layout_mode = 1
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="quit" type="Button" parent="InGameMenu2/Buttons"]
-offset_top = 970.0
-offset_right = 260.0
-offset_bottom = 1000.0
-grow_vertical = 0
-minimum_size = Vector2( 0, 30 )
-custom_fonts/font = ExtResource( 14 )
-custom_styles/hover = ExtResource( 2 )
-custom_styles/pressed = ExtResource( 3 )
-custom_styles/focus = ExtResource( 1 )
-custom_styles/disabled = ExtResource( 3 )
-custom_styles/normal = ExtResource( 1 )
+layout_mode = 2
 text = " Quit To Desktop"
-align = 0
 
-[node name="BlurBackground" parent="InGameMenu2/Buttons/quit" instance=ExtResource( 12 )]
-material = SubResource( 10 )
+[node name="BlurBackground" parent="InGameMenu2/Buttons/quit" instance=ExtResource("12")]
+material = SubResource("10")
+layout_mode = 1
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="ControlHelp" parent="InGameMenu2" instance=ExtResource( 17 )]
+[node name="ControlHelp" parent="InGameMenu2" instance=ExtResource("17")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 407.0
+offset_bottom = 290.0
 
 [node name="LabelExoWolfVersion" type="Label" parent="InGameMenu2"]
-modulate = Color( 0, 1, 0.392157, 1 )
+modulate = Color(0, 1, 0.392157, 1)
+layout_mode = 1
+anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -191,15 +178,13 @@ offset_right = -40.0
 offset_bottom = -40.0
 grow_horizontal = 0
 grow_vertical = 0
-theme = SubResource( 11 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 0.294118 )
-custom_fonts/font = ExtResource( 14 )
+theme = SubResource("11")
 text = "ExoWolf - v0.1"
-align = 2
-valign = 2
 
 [node name="LabelInfo2" type="Label" parent="InGameMenu2"]
-modulate = Color( 0, 1, 0.392157, 1 )
+modulate = Color(0, 1, 0.392157, 1)
+layout_mode = 1
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -360.0
@@ -208,33 +193,29 @@ offset_right = -40.0
 offset_bottom = 106.0
 grow_horizontal = 0
 grow_vertical = 0
-theme = SubResource( 11 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 0.294118 )
-custom_fonts/font = ExtResource( 14 )
+theme = SubResource("11")
 text = "Sam Keightley - N8542724
 IGB400 - Game Studio 3 - Game Innovation
 "
-align = 2
-valign = 2
 
 [node name="LabelFPS" type="Label" parent="InGameMenu2"]
 visible = false
-modulate = Color( 0, 1, 0.392157, 1 )
+modulate = Color(0, 1, 0.392157, 1)
+layout_mode = 0
 offset_right = 80.0
 offset_bottom = 20.0
 grow_horizontal = 0
 grow_vertical = 0
-theme = SubResource( 11 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 0.294118 )
-custom_fonts/font = ExtResource( 14 )
+theme = SubResource("11")
 text = "FPS: {fps}"
-align = 2
-valign = 2
 
-[node name="SettingsMenu" parent="." instance=ExtResource( 13 )]
+[node name="SettingsMenu" parent="." instance=ExtResource("13")]
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
+stream = ExtResource("8")
 autoplay = true
 
 [connection signal="pressed" from="InGameMenu2/Buttons/start" to="." method="_on_start_pressed"]
